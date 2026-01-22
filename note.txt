@@ -1,0 +1,803 @@
+Backend
+    - Setting backend
+        - environment setup
+            - mkdir backend
+            - cd backend
+            - py -m venv venv
+            - venv\Scripts\activate
+            - pip install django
+            - django-admin startproject config .
+        - install dependencies
+            - pip install djangorestframework psycopg2-binary
+            - pip install pillow
+            - pip install psycopg2-binary
+            - pip install djangorestframework djangorestframework-simplejwt django-cors-headers
+            - pip install djangorestframework-simplejwt
+            - pip install django-cors-headers
+            - pip install requests
+            - pip install djangorestframework
+        - create apps
+            - py manage.py startapp contact
+            - py manage.py startapp creation
+            - py manage.py startapp experience
+            - py manage.py startapp hire
+            - py manage.py startapp project
+            - py manage.py startapp qualification
+            - py manage.py startapp service
+            - py manage.py startapp skill
+            - py manage.py startapp socialmedeia
+            - py manage.py startapp subscription
+            - py manage.py startapp user
+            - py manage.py startapp settings
+            - py manage.py startapp profiles
+        - Folder structure
+            backend/
+            ├── auth/
+            │   ├── me
+            │   │   ├── apps.py
+            │   │   ├── urls.py
+            │   │   ├── views.py
+            │   ├── token
+            │   │   ├── urls.py
+            │   │   ├── views.py
+            ├── config/
+            │   ├── asgi.py
+            │   ├── settings.py
+            │   ├── urls.py
+            │   ├── wsgi.py
+            ├── core/utils/revalidate.py
+            ├── venv/...
+            ├── .env
+            ├── manage.py
+            ├── contacts/           (ContactMessage)
+            │   ├── admin/
+            │   │   └── views.py       # Admin endpoints (CRUD, JWT protected)
+            │   ├── public/
+            │   │   └── views.py       # Public endpoints (GET only)
+            │   ├── admin_panel.py
+            │   ├── apps.py
+            │   ├── models.py
+            │   ├── serializers.py
+            │   ├── urls.py            # Collects routers from both public & admin
+            ├── creations/          (Category, Creation)
+            │   ├── ...
+            ├── experience/         (Experience)
+            │   ├── ...
+            ├── hires/              (HiringMessage)
+            │   ├── ...
+            ├── profiles/           (Profile)
+            │   ├── ...
+            ├── Profile/            (Project, ProjectGallery)
+            │   ├── ...
+            ├── qualifications/     (Qualification)
+            │   ├── ...
+            ├── services/           (Service)
+            │   ├── ...
+            ├── settings/           (Setting, SEOPageSetting, SitemapSetting, DisplaySetting)
+            │   ├── ...
+            ├── skills/             (Skill, SubSkill)
+            │   ├── ...
+            ├── socialmedia/        (SocialMedia)
+            │   ├── ...
+            ├── subscription/       (Subscription)
+            │   ├── ...
+            ├── users/              (User)
+            │   ├── ...
+
+
+
+
+
+Handling DATABASE
+    - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>psql -U postgres
+      Password for user postgres:
+
+      psql (17.6)
+      WARNING: Console code page (437) differs from Windows code page (1252)
+               8-bit characters might not work correctly. See psql reference
+               page "Notes for Windows users" for details.
+      Type "help" for help.
+
+    - postgres=# \l
+                                                                      List of databases
+          Name     |  Owner   | Encoding | Locale Provider |          Collate           |           Ctype            | Locale | ICU Rules |   Access privileges
+      --------------+----------+----------+-----------------+----------------------------+----------------------------+--------+-----------+-----------------------
+      portfolio_db | postgres | UTF8     | libc            | English_United States.1252 | tattatattatattatatatttatttttattatttattatates.1252 | English_United States.1252 |        |           | =c/postgres          +
+                   |          |          |                 |                            |                            |        |           | postgres=CTc/postgres
+      template1    | postgres | UTF8     | libc            | English_United States.1252 | English_United States.1252 |        |           | =c/postgres          +
+                   |          |          |                 |                            |                            |        |           | postgres=CTc/postgres
+      (4 rows)
+    
+    - postgres=# \c portfolio_db
+      You are now connected to database "portfolio_db" as user "postgres".
+
+    - portfolio_db=# SELECT * FROM django_migrations WHERE app = 'skills';
+       id |  app   |                           name                           |             applied
+      ----+--------+----------------------------------------------------------+----------------------------------
+       33 | skills | 0001_initial                                             | 2025-09-06 07:28:51.997545+05:45
+       58 | skills | 0002_alter_skill_options_alter_subskill_options_and_more | 2025-11-21 23:57:12.156734+05:45
+      (2 rows)
+
+    - portfolio_db=# SELECT * FROM django_migrations WHERE app = 'creations';
+       id |    app    |     name     |             applied
+      ----+-----------+--------------+---------------------------------
+       67 | creations | 0001_initial | 2025-12-10 22:36:44.25112+05:45
+      (1 row)
+
+    - portfolio_db=# DELETE FROM django_migrations WHERE app = 'creations';
+      DELETE 1
+
+    - portfolio_db=# SELECT * FROM django_migrations WHERE app = 'creations';
+       id | app | name | applied 
+      ----+-----+------+---------
+      (0 rows)
+
+    - portfolio_db=# DROP TABLE creations_block CASCADE;
+      DROP TABLE
+
+    - portfolio_db=# DROP TABLE creations_block CASCADE;
+      ERROR:  table "creations_block" does not exist
+
+    - portfolio_db=# exit
+
+
+    - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>psql -U postgres
+      Password for user postgres:
+
+      psql (17.6)
+      WARNING: Console code page (437) differs from Windows code page (1252)
+               8-bit characters might not work correctly. See psql reference
+               page "Notes for Windows users" for details.
+      Type "help" for help.
+
+    - postgres=# \c portfolio_db
+      You are now connected to database "portfolio_db" as user "postgres".
+
+    - portfolio_db=# DELETE FROM django_migrations WHERE app = 'creations';
+      DELETE 0
+
+    - portfolio_db=# DROP TABLE creations_block CASCADE;
+      ERROR:  table "creations_block" does not exist
+
+    - portfolio_db=# DROP TABLE creations_creation CASCADE;
+      ERROR:  table "creations_creation" does not exist
+
+    - portfolio_db=# DROP TABLE creations_category CASCADE;
+      DROP TABLE
+
+    - portfolio_db=# exit
+
+
+Frontend
+    - Environment Setup
+        - npx create-next-app@latest frontend2 --typescript --app
+            Ok to proceed? (y) y
+            ESLint
+            Taileind CSS - Yes
+            src/directory - Yes
+            turbopack - No
+            import alias - No
+        - cd frontend2
+
+    - Install dependencies
+        - npm install axios
+        - npm install -D tailwindcss postcss autoprefixer
+        - npx tailwindcss init -p
+        - npm install --save-dev @types/grecaptcha
+        - npm install @vercel/og
+        - npm install axios jwt-decode
+        - npm install react-toastify
+        - npm install react-icons
+        - npm install @tanstack/react-query
+        - npm install framer-motion
+        - npm install lucide-react
+        - npm install katex 
+        - npm install @tiptap/extension-mathematics katex
+        - npm install -D @tailwindcss/typography
+
+    - Remove existing structure
+        - remove contents of frontend2\src\app\layout.tsx
+        - remove contents of frontend2\src\app\page.tsx
+        - delete frontend2\src\app\globals.css
+        - clear the files in frontend2\public
+        - delete readme.md file
+
+    - Basic structure
+        - \.next
+            - Automatically generated by Next.js
+            - Stores: build output, cached server renders and optimized assets
+            - Deleted safely when rebuilding (npm run build recreates it)
+            - caches all the information of the current structure to run the app
+        - \node_modules
+            - Contains all installed dependencies
+            - Generated from package.json
+            - Never edit manually
+            - Removed & recreated using npm install
+            - contains all the packages required to run the app
+        - \public
+            - photos, pdfs, etc. required for the project
+            - Stores static assets like images and PDFs
+            - Files here are served directly at /filename
+        - \src\app\layout.tsx
+            - determines the layout of UI for the whole project
+            - the main page gets rendered within the layout connected by children
+            - Global layout wrapper for the entire app
+            - It contains <html>, <body>, Navbar & Footer
+            - Every page renders inside children
+            - Loaded once to improve the performance
+        - \src\app\page.tsx
+            - default page which is loaded on loading the base URL
+            - Server component
+            - Fetches settings and profile data
+            - renders different sections on portfolio page
+            - generates the metadata and OG tag for the home/portfolio page
+        - \src\components\commonSections\Footer.tsx
+            - design of footer for every pages of the project
+            - Static content + links
+            - Improves consistency
+        - \src\components\commonSections\Navbar.tsx
+            - design of navbar for every pages of the project
+            - Navigation bar for all pages
+            - Used inside layout.tsx
+            - Client component (interactivity)
+        - \src\lib\data.ts
+            - a single file for fetching all the data from backend
+            - used by every component by importing the related functions
+            - Centralized data-fetching layer
+            - It contains all API calls along with caching & revalidation logic
+            - Used by server components
+            - Prevents duplicated fetch logic
+        - \src\styles\globals.css
+            - css for the whole project
+            - import the css and tailwind, scroll and all
+        - \src\types\index.ts
+            - defines all the models so that data shouldn't be defined again and again
+            - Ensures type safety, autocomplete and fewer runtime bugs
+        - \.env.local
+            - Environment variables
+            - Not committed to git
+            - Stores secrets safely like recaptcha key, revalidation key and base url
+        - \.gitignore
+            - the files and folders that should not be uploaded along with other files of the project
+            - Tells Git which files/folders NOT to track
+        - \eslint.config.mjs
+            - Configuration file for ESLint (code quality + linting)
+            - It controls code style rules & error warnings
+            - It is React/Next.js best practices
+        - \next-env.d.ts
+            - Auto-generated TypeScript declaration file for Next.js
+            - It enables
+                - next/image
+                - next/navigation
+                - Next-specific types
+        - \next.config.js
+            - Configuration file for Next.js behavior
+            - It is used for:
+                - Image domains
+                - Redirects / rewrites
+                - Experimental features
+                - Webpack tweaks
+        - \package-lock.json
+            - Exact dependency version lock file (npm)
+        - \package.json
+            - The heart of the project
+            - It contains dependencies, Scripts (dev, build, start) and Project metadata
+        - \postcss.config.mjs
+            - It is the configuration for PostCSS.
+            - It is used by tailwind CSS, autoprefixer and modern CSS transforms
+        - \tsconfig.json
+            - It contains typeScript compiler configuration
+            - Used to control strictness, path aliases (@/components) and module resolution
+
+    - Extended structure
+        - \src\app\api\revalidate\route.ts
+            - API endpoint for Incremental Static Regeneration (ISR)
+            - Called from backend (Django) to refresh cached pages and avoid frequent DB hits
+            - Protects with secret key
+        - \src\app\creations\[type]\[slug]\page.tsx
+            - detail page for a creation
+            - also contains open graph and metadata for each creations
+            - fetches data from DB endpoint and calls client component with the data as parameter
+        - \src\app\creations\[type]\page.tsx
+            - contains all the cards of specific type of contents
+            - fetches data of that type and calls CreationCard to display in card form
+            - generates metadata and open graph
+        - \src\app\creations\page.tsx
+            - the page which gets rendered if view more creations is clicked
+            - the component gets automatically called if /creations is triggered
+            - calls CreationCard by teansferring the data
+            - metadata and OG tag created
+        - \src\app\projects\[slug]\page.tsx
+            - detail page for a project
+            - fetches data from endpoint by importing function from data.ts
+            - calls ProjectDetailClient.tsx for displaying detail f any project
+            - metadata and OG for the site
+        - \src\app\projects\loading.tsx
+            - loading UI for projects
+            - triggered on loading projects or a project detail page
+        - \src\app\projects\page.tsx
+            - contains cards of all the available projects
+            - fetches data and calls card to display certain no. of cards as defined in settings
+            - metadata and OG tag for the page
+        - \src\app\error.tsx
+            - Global error boundary
+            - Catches runtime errors in pages/components
+            - Prevents app crash and shows fallback UI
+        - \src\app\loading.tsx
+            - Global loading UI
+            - Shown while server components are loading
+            - Improves perceived performance
+        - \src\app\not-found.tsx
+            - Custom 404 page
+            - Automatically rendered when route doesn’t exist
+        - \src\app\robots.ts
+            - Generates robots.txt as per settings allowance
+            - Controls search engine crawling behavior
+            - Important for SEO
+        - \src\app\sitemap.ts
+            - Generates sitemap.xml as defined by settings
+            - Helps search engines discover pages
+            - Automatically updated with routes
+        - \src\components\portfolioSections\About.tsx
+            - About section of portfolio page
+            - uses profile data fetched from \app\page.tsx
+        - \src\components\portfolioSections\ContactSection.tsx
+            - fetches contact information frm settings
+            - displays/defines the contact section of the portfolio page
+            - contains the logic of contact fotm with the integrqation of recaptcha
+        - \src\components\portfolioSections\CreationsPreviewSection.tsx
+            - creation portion of the porfolio page
+            - fetches settings and creations data
+            - calls CreationCard for displaying specified no. of cards from latest
+        - \src\components\portfolioSections\ExperienceSection.tsx
+            - Displays work experience / internships section on the portfolio page
+            - Fetches experience data using function of data.ts
+            - Uses ExperienceCard to render each entry
+        - \src\components\portfolioSections\FeaturedProjectsSection.tsx
+            - Shows highlighted / featured projects on homepage
+            - Fetches limited project data (not full list)
+            - Improves UX by prioritizing important projects
+            - Uses ProjectCard to display the projects in UI
+        - \src\components\portfolioSections\QualificationsSection.tsx
+            - The qualification section of the portfolio page
+            - fetches data from DB
+            - Calls QualificationsClient to display data
+        - \src\components\portfolioSections\ServicesSection.tsx
+            - service section of the porfolio page
+            - fetches data from DB using API
+            - calls ServicesClient to render each service on UI in card form
+        - \src\components\portfolioSections\SkillsSection.tsx
+            - fetches skills and subskills from DB
+            - calls SkillsClient to display skills and subskills in interactive way
+            - uses limit of skills as defined by settings
+        - \src\components\ContentProcessor.tsx
+            - Processes rich HTML content from backend
+            - Actually handles the html form created by TipTap editor
+            - It handles headings, figures, tables, equations with captions & references
+            - used to Convert raw content into structured UI
+        - \src\components\CreationCard.tsx
+            - Displays title, excerpt, image in the form of card
+            - Link navigation only
+        - \src\components\CreationDetailClient.tsx
+            - Client-side logic for individual blogs/articles
+            - Calls ContentProcessor & TableOfContents for proper UX in detail page of any creation
+            - Design of 3 panes, TOC, actual content and recommendation
+        - \src\components\EngagementTime.tsx
+            - Measures time spent on page
+            - Useful for SEO & UX insights
+            - Client-side only
+            - Used for SEO analytics / content optimization
+            - Lightweight but optional
+        - \src\components\ExperienceCard.tsx
+            - Displays individual experience item
+            - Uses animation (where console warning came from)
+            - Client-side due to animation styles
+        - \src\components\GoogleAnalytics.tsx
+            - Injects GA script
+            - Loads only on client
+            - Avoids blocking server render
+            - Runs only on client
+            - Correct implementation for performance
+        - \src\components\HireModal.tsx
+            - displays a form for hiring in front of the screen
+            - handles the form submission logic as well
+            - connects with DB
+        - \src\components\PageHeader.tsx
+            - Reusable header component (title + subtitle)
+            - Improves consistency
+            - Pure UI
+            - Safe server component
+        - \src\components\ProjectCard.tsx
+            - Preview card for projects
+            - Displays status, tech stack, thumbnail
+            - Mostly presentational
+        - \src\components\ProjectDetailClient.tsx
+            - Client-side project detail UI
+            - Handles tabs, galleries, interactions
+            - Receives data from server page
+        - \src\components\QualificationsClient.tsx
+            - displays qualifications in timeline format with slight animation
+        - \src\components\ScrollDepth.tsx
+            - Tracks how far user scrolls
+            - Useful for
+                - Content quality metrics
+                - Analytics events
+            - Can increase JS cost if not throttled
+        - \src\components\ServicesClient.tsx
+            - displays each service in the card format
+            - use dynamicIcons to render React icons
+        - \src\components\SkillsClient.tsx
+            - handles skills UI
+            - handles states to display subskills
+        - \src\components\SocialMediaClient.tsx
+            - renders the social media icos in the footer
+            - uses dynamicIcons to render React icons
+        - \src\components\SubscribeForm.tsx
+            - design of form for subscription
+            - accepts email, captures user agent and IP address and then saves
+            - used within the footer
+        - \src\components\TableOfContents.tsx
+            - Auto-generated TOC for creations if detail page is viewed
+            - Uses headings extracted by ContentProcessor
+            - Scroll-spy highlights active section
+            - Clicking on any heading scrolls the content into that portion of content
+        - \src\components\TechBadge.tsx
+            - Pure visual component
+            - Receives props, renders JSX
+            - No browser APIs
+            - Currently used by ProjectDetailClient only to display technologies
+        - \src\providers\ReactQueryProvider.tsx
+            - Wraps app with React Query
+            - It enables client-side caching & background refetching
+            - Currently not being used as not essential for SEO pages
+        - \src\types\katex-auto-render.d.ts
+            - Type definitions for KaTeX auto-render
+            - Prevents TypeScript errors
+            - Required for equation rendering
+        - \src\utils\allIcons.js
+            - Central icon registry
+            - Avoids importing icons repeatedly
+            - maintains dictionary/lists of all the React icons needed in different sections like skills
+        - \src\utils\getIconComponent.js
+            - Returns icon component dynamically
+            - Reduces bundle size
+        - \global.d.ts
+            - Global type declarations
+            - Used for
+                - Window extensions
+                - External libraries
+            - Helps TypeScript understand non-module globals
+            - Especially used to render CSS under app\layout.tsx without any error
+        - \tailwind.config.js
+            - Tailwind customization
+            - Colors, fonts, plugins definittons
+            - especially made TipTap editor's content
+
+
+
+        
+
+
+Admin
+    - Environment Setup
+        - npx create-next-app@latest admin --typescript --app
+            Ok to proceed? (y) y
+            ESLint
+            Taileind CSS - Yes
+            src/directory - Yes
+            turbopack - No
+            import alias - No
+        - cd admin
+
+    - Install dependencies
+        - npm install axios
+        - npm install -D tailwindcss postcss autoprefixer
+        - npx tailwindcss init -p
+        - npm install --save-dev @types/grecaptcha
+        - npm install @vercel/og
+        - npm install axios jwt-decode
+        - npm install react-toastify
+        - npm install react-icons
+        - npm install react-toastify
+        - npm install react-hot-toast
+        - npm install @editorjs/editorjs
+        - npm install @editorjs/header
+        - npm install @editorjs/list
+        - npm install @editorjs/image
+        - npm install @editorjs/quote
+        - npm install @editorjs/link
+        - npm audit fix
+        - npm audit fix --force
+        - npm i --save-dev @types/editorjs__link
+        - npm install @editorjs/paragraph
+        - npm install @tiptap/react @tiptap/pm @tiptap/starter-kit
+        - npm install @tiptap/extension-image
+        - npx shadcn@latest add toggle
+        - npm install @tiptap/extension-text-align
+        - npm install @tiptap/extension-highlight
+        - npm install @tiptap/react @tiptap/core @tiptap/extension-table @tiptap/extension-math katex
+        - npm install @tiptap/extension-mathematics katex
+        - npm install @tiptap/extension-table-row
+        - npm install @tiptap/extension-table-cell
+        - npm install @tiptap/extension-table-header
+        - npm install tiptap-extension-resize-image
+        - npm install @tiptap-pro/extension-mathematics
+        - npm install @tiptap/extension-code-block-lowlight
+        - npm install @tiptap/extension-mathematics katex
+
+    - Remove existing structure
+        - clear the files in admin\public
+        - delete admin\src\app\favicon.ico
+        - delete admin\src\app\globals.css
+        - remove contents of admin\src\app\layout.tsx
+        - remove contents of admin\src\app\page.tsx
+        - delete admin\README.md
+
+    - Basic structure
+        - \.next
+            - Automatically generated by Next.js
+            - Stores: build output, cached server renders and optimized assets
+            - Deleted safely when rebuilding (npm run build recreates it)
+            - caches all the information of the current structure to run the app
+        - \node_modules
+            - Contains all installed dependencies
+            - Generated from package.json
+            - Never edit manually
+            - Removed & recreated using npm install
+            - contains all the packages required to run the app
+        - \public
+            - photos, pdfs, etc. required for the project
+            - Stores static assets like images and PDFs
+            - Files here are served directly at /filename
+        - \src\app\admin\categories\page.tsx
+            - the server component invoked when \admin\categories is triggered
+            - calls the client component for displaying dashboard of categories
+        - \src\app\admin\layout.tsx
+            - main layout for admin pages
+            - each individual apps use this layout
+            - just the holder being SSR
+            - protects the entire admin pages with authorization
+            - renders children only if user is logged in
+        - \src\app\admin\page.tsx
+            - the main children/default component of admin layout
+            - calls client section of Dashboard
+        - \src\app\layout.tsx
+            - calls AuthProvider to manage authorization
+            - the main layout for the whole app
+        - \src\app\page.tsx
+            - calls LogInUI to provide the UI for user login
+            - default page when the base URL is opened
+        - \src\components\contentpage\CategoriesContent.tsx
+            - The UI when categories is chosen
+            - uses useAdminList for state handling, Pagination to define and display pagination strategy
+        - \src\components\contentpage\DashboardContent.tsx
+            - the dashboard UI when user successfully logs in
+            - displays the routes to dirctly open the respective forms
+            - displays the number of important entries
+        - \src\components\forms\CategoryForm.tsx
+            - Form for adding or editing category
+            - uses useFormHandler to manage states
+            - use various input types from \Input.tsx
+        - \src\components\AdminMainLayout.tsx
+            - a client componentfor handling proper layout for admin section
+            - displays sidebar and handles routing to the respective dashboards
+        - \src\components\AuthProvider.tsx
+            - handle the refresh and access token
+            - maintains the token in entire app
+            - interacts with JWT token endpoint
+            - reroutes to certain link when login is successful or logout is done
+        - \src\components\FormActions.tsx
+            - includes Submit and Cancel button for each forms
+            - defines the behavoiour of Submit and Cancel as well
+        - \src\components\FormSection.tsx
+            - a base structure for each form
+            - used by each forms for the backgeround and structure
+        - \src\components\Inputs.tsx
+            - includes all types of inputs
+            - components for exporting each type of input as required by each form
+        - \src\components\LogInUI.tsx
+            - The main UI and backend interaction page for login
+        - \src\components\Pagination.tsx
+            - a client component
+            - handles the pagination logic
+            - used by client UI of every content pages
+        - \src\components\RequireAuth.tsx
+            - router component if the token ends
+            - routes to admin\src\app\page.tsx if the token session ends
+            - protects each of the admin pages
+        - \src\hooks\useAdminList.ts
+            - a custom hook to handle the dashboards of each app
+            - each of the contentpages use it so as to stop code duplication
+        - \src\hooks\useFormHandler.ts
+            - a custom hook
+            - contains a common handler for forms
+            - used by each forms to handles the change in the fields
+        - \src\lib\auth.ts
+            - contains various functions to handle token
+            - used by AuthProvider to handle bearer token
+        - \src\lib\axios.ts
+            - use Authorization header
+            - attach access token
+            - maintains Bearer_token
+            - Handle refresh on 401
+        - \src\styles\globals.css
+            - css for the whole project
+            - import the css and tailwind, scroll and all
+            - especially for styling the structure of prose-mirror
+        - \.env.local
+            - Environment variables
+            - Not committed to git
+            - Stores secrets safely like base url
+        - \.gitignore
+            - the files and folders that should not be uploaded along with other files of the project
+            - Tells Git which files/folders NOT to track
+        - \eslint.config.mjs
+            - Configuration file for ESLint (code quality + linting)
+            - It controls code style rules & error warnings
+            - It is React/Next.js best practices
+        - \next-env.d.ts
+            - Auto-generated TypeScript declaration file for Next.js
+            - It enables
+                - next/image
+                - next/navigation
+                - Next-specific types
+        - \next.config.ts
+            - Configuration file for Next.js behavior
+            - It is used for:
+                - Image domains
+                - Redirects / rewrites
+                - Experimental features
+                - Webpack tweaks
+        - \package-lock.json
+            - Exact dependency version lock file (npm)
+        - \package.json
+            - The heart of the project
+            - It contains dependencies, Scripts (dev, build, start) and Project metadata
+        - \postcss.config.mjs
+            - It is the configuration for PostCSS.
+            - It is used by tailwind CSS, autoprefixer and modern CSS transforms
+        - \tsconfig.json
+            - It contains typeScript compiler configuration
+            - Used to control strictness, path aliases (@/components) and module resolution
+
+    - Extended structure
+        - Main pages
+            - The pages that get rendered when the url is triggered
+            - Server component
+            - Uses client component to render the dashboard of each apps
+            - The files are:
+                - \src\app\admin\contacts\page.tsx
+                - \src\app\admin\creations\page.tsx
+                - \src\app\admin\experiences\page.tsx
+                - \src\app\admin\hires\page.tsx
+                - \src\app\admin\profile\page.tsx
+                - \src\app\admin\projects\page.tsx
+                - \src\app\admin\qualifications\page.tsx
+                - \src\app\admin\services\page.tsx
+                - \src\app\admin\settings\page.tsx
+                - \src\app\admin\skills\page.tsx
+                - \src\app\admin\socialmedias\page.tsx
+                - \src\app\admin\subscriptions\page.tsx
+                - \src\app\admin\subskills\page.tsx
+        - Content pages or dashboard UIs
+            - client component
+            - called/invoked by the respective main pages/server component
+            - coontains all entries of a specific app
+            - use custom hook useAfminList to handle different states
+            - allow for CRUD operation on any entry
+            - imports the respective forms and renders with existing data if edit and a bllank form if add
+            - The files are:
+                - \src\components\contentpage\CreationsContent.tsx
+                - \src\components\contentpage\ExperiencesContent.tsx
+                - \src\components\contentpage\MessagesContent.tsx
+                - \src\components\contentpage\ProfileContent.tsx
+                - \src\components\contentpage\ProjectsContent.tsx
+                - \src\components\contentpage\QualificationsContent.tsx
+                - \src\components\contentpage\ServicesContent.tsx
+                - \src\components\contentpage\SettingsContent.tsx
+                - \src\components\contentpage\SkillsContent.tsx
+                - \src\components\contentpage\SocialMediasContent.tsx
+                - \src\components\contentpage\SubSkillsContent.tsx
+        - Forms
+            - client components
+            - use a custom hook useFormHandler to handle states
+            - use Inputs.tsx to import the needed type of input fields according to the data structure
+            - use FormSection to design the space of form
+            - use FormActions component to handle cancel and submit buttons
+            - validates the forms
+            - allow to add or edit
+            - The files are:
+                - \src\components\forms\CreationForm.tsx
+                - \src\components\forms\DisplaySettingForm.tsx
+                - \src\components\forms\ExperienceForm.tsx
+                - \src\components\forms\ProfileForm.tsx
+                - \src\components\forms\ProjectForm.tsx
+                - \src\components\forms\QualificationForm.tsx
+                - \src\components\forms\SeoSettingForm.tsx
+                - \src\components\forms\ServiceForm.tsx
+                - \src\components\forms\SettingForm.tsx
+                - \src\components\forms\SiteMapSettingForm.tsx
+                - \src\components\forms\SkillForm.tsx
+                - \src\components\forms\SocialMediaForm.tsx
+                - \src\components\forms\SubSkillForm.tsx
+        - \src\components\TipTap\extensions\AutoNumbering.ts
+            - handles the numbering for images, tables and equations
+            - control transaction for each entry
+            - create labels for each of them
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\Caption.ts
+            - generate caption node for all the 3 types
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\CaptionPlaceholderExtension.ts
+            - sets the placeholder for the caption
+            - all 3 types have/hold caption if it is not set or accidentally erased
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\CustomTableCell.ts
+            - extension of custom TipTap's TableCell property
+            - allows height extension/reudction of cell of a table
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\Equation.ts
+            - handles the addition of equation
+            - saves the equation in node
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\Figure.ts
+            - handles the inclusion of image in editoor using tiptap
+            - allow sofr figure from any url or a custom pasted image/figure
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\index.ts
+            - exports all the figure, table, equation and caption all at once
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\LabeledTable.ts
+            - handles the table insertion in the editor
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\Reference.ts
+            - creates reference node for tiptap json
+            - used by ArticleEditor as an extension for TipTap editor
+        - \src\components\TipTap\extensions\uploadImage.ts
+            - creates multi-part form to insert image in the editor
+        - \src\components\TipTap\ui\toggle.tsx
+            - handles the toolbar toggling feature of toolbar options
+        - \src\components\TipTap\utils\getReferences.ts
+            - handles the insrtion of the reference for any of the 3
+        - \src\components\TipTap\utils\utils.ts
+            - helper function for enabling the toggling feature of the buttons for thr editor
+        - \src\components\TipTap\ArticleEditor.tsx
+            - CreationForm invokes this file to allow the creation writing
+            - the main editor gets created
+            - handles the editor along with the required extensions, editorProps and so on
+            - returns the creation along with the styling in json as well as html format
+        - \src\components\TipTap\Toolbar.tsx
+            - design the toolbar and options for edittor
+            - uses TipTap\utils\utils.ts to provide toggling feature while writing creation
+        - \src\components\ImageUploadPreview.tsx
+            - component for single or multiple images to upload, edit and preview
+            - also handles pdf uploads
+            - especially used for feature image upload, CV upload and gallery of image upload
+        - \components.json
+            - shadcn UI generator config
+            - specify the project configuration
+        - \global.d.ts
+            - Global type declarations
+            - Used for
+                - Window extensions
+                - External libraries
+            - Helps TypeScript understand non-module globals
+            - Especially used to render CSS under app\layout.tsx without any error
+        - \middleware.ts
+            - It is a hard wall
+            - Blocks all unauthenticated users
+            - Runs before rendering
+            - Zero UI leak
+        - \tailwind.config.js
+            - Tailwind customization
+            - Colors, fonts, plugins definittons
+            - especially made TipTap editor's content
+
+
+
+
+
+
+HOSTING
+    - In cmd
+        - 
