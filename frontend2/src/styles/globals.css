@@ -1,0 +1,1083 @@
+/* frontend2\src\styles\globals.css */
+@import "tailwindcss";
+/* KaTeX CSS is loaded asynchronously in layout.tsx to prevent blocking */
+@plugin "@tailwindcss/typography";
+/* You can still add custom rules */
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Custom Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes scroll {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.scroll-indicator {
+  animation: scroll 1.5s ease-in-out infinite;
+}
+
+/* Utility Classes */
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Animation Delays */
+.animation-delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Selection */
+::selection {
+  background: #3b82f6;
+  color: white;
+}
+
+::-moz-selection {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Link Styles */
+a {
+  text-decoration: none;
+}
+
+/* Image Loading Shimmer */
+.image-loading {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: rotate 1s linear infinite;
+}
+
+/* Prose Improvements for Creation Content */
+.prose {
+  color: #334155;
+  max-width: none;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  line-height: 1.75;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: #0f172a;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose a {
+  color: #3b82f6;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.prose a:hover {
+  color: #2563eb;
+}
+
+.prose code {
+  color: #ec4899;
+  font-weight: 600;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  color: #f1f5f9;
+  background: none;
+  padding: 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #475569;
+}
+
+.prose img {
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .prose {
+    font-size: 16px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbar for TOC */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thumb-blue-300::-webkit-scrollbar-thumb {
+  background-color: rgb(147 197 253);
+  border-radius: 9999px;
+}
+
+.scrollbar-thumb-blue-300::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(96 165 250);
+}
+
+.scrollbar-track-blue-50::-webkit-scrollbar-track {
+  background-color: rgb(239 246 255);
+  border-radius: 9999px;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Figure Styling */
+.content-figure {
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.figure-caption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: rgb(71 85 105);
+  text-align: center;
+  font-style: italic;
+  max-width: 90%;
+}
+
+.figure-caption strong {
+  color: rgb(30 41 59);
+  font-weight: 700;
+}
+
+/* Table Styling */
+.table-wrapper {
+  margin: 2rem auto;
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: fit-content;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.content-table thead {
+  background-color: rgb(241 245 249);
+}
+
+.content-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: rgb(30 41 59);
+  border-bottom: 2px solid rgb(203 213 225);
+  border-right: 1px solid rgb(226 232 240);
+}
+
+.content-table th:last-child {
+  border-right: none;
+}
+
+.content-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgb(226 232 240);
+  border-right: 1px solid rgb(226 232 240);
+  color: rgb(51 65 85);
+}
+
+.content-table td:last-child {
+  border-right: none;
+}
+
+.content-table tbody tr:hover {
+  background-color: rgb(248 250 252);
+}
+
+.content-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-caption {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: rgb(30 41 59);
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+}
+
+.table-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+}
+
+/* Equation Styling */
+.equation-wrapper {
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: rgb(248 250 252);
+  border-radius: 0.75rem;
+  border: 1px solid rgb(226 232 240);
+}
+
+.equation-caption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: rgb(30 41 59);
+  text-align: center;
+  font-weight: 600;
+}
+
+.equation-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+}
+
+/* Reference Link Styling */
+.ref-link {
+  color: rgb(37 99 235) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  padding: 0 0.125rem;
+}
+
+.ref-link:hover {
+  text-decoration: underline !important;
+  color: rgb(29 78 216) !important;
+  background-color: rgb(219 234 254);
+  border-radius: 0.25rem;
+}
+
+/* Custom scrollbar for TOC */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thumb-blue-300::-webkit-scrollbar-thumb {
+  background-color: rgb(147 197 253);
+  border-radius: 9999px;
+}
+
+.scrollbar-thumb-blue-300::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(96 165 250);
+}
+
+.scrollbar-track-blue-50::-webkit-scrollbar-track {
+  background-color: rgb(239 246 255);
+  border-radius: 9999px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Figure Styling */
+.content-figure {
+  margin: 2.5rem auto;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  page-break-inside: avoid;
+}
+
+.content-figure .figure-image,
+.content-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+  display: block;
+}
+
+.figure-caption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgb(51 65 85);
+  text-align: center;
+  font-style: italic;
+  max-width: 90%;
+  padding: 0.5rem 1rem;
+}
+
+.figure-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Table Styling */
+.table-wrapper {
+  margin: 2.5rem auto;
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  page-break-inside: avoid;
+}
+
+.table-caption {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgb(15 23 42);
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.table-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+}
+
+.content-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: fit-content;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgb(203 213 225);
+}
+
+.content-table thead {
+  background-color: rgb(241 245 249);
+}
+
+.content-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: rgb(15 23 42);
+  border-bottom: 2px solid rgb(203 213 225);
+  border-right: 1px solid rgb(226 232 240);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+}
+
+.content-table th:last-child {
+  border-right: none;
+}
+
+.content-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgb(226 232 240);
+  border-right: 1px solid rgb(226 232 240);
+  color: rgb(51 65 85);
+  line-height: 1.4;
+  vertical-align: top;
+}
+
+.content-table td p {
+  margin: 0;
+  padding: 0;
+}
+
+.content-table td:last-child {
+  border-right: none;
+}
+
+.content-table tbody tr:hover {
+  background-color: rgb(248 250 252);
+  transition: background-color 0.15s ease;
+}
+
+.content-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Equation Styling */
+.equation-wrapper {
+  margin: 2.5rem auto;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(to bottom right, rgb(248 250 252), rgb(241 245 249));
+  border-radius: 0.75rem;
+  border: 1px solid rgb(226 232 240);
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.06);
+  page-break-inside: avoid;
+}
+
+.equation-content {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: rgb(15 23 42);
+}
+
+.equation-caption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgb(15 23 42);
+  text-align: center;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+}
+
+.equation-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+}
+
+/* Reference Link Styling */
+.ref-link {
+  color: rgb(37 99 235) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.ref-link:hover {
+  text-decoration: underline !important;
+  color: rgb(29 78 216) !important;
+  background-color: rgb(219 234 254);
+}
+
+/* Custom scrollbar for TOC */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thumb-blue-300::-webkit-scrollbar-thumb {
+  background-color: rgb(147 197 253);
+  border-radius: 9999px;
+}
+
+.scrollbar-thumb-blue-300::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(96 165 250);
+}
+
+.scrollbar-track-blue-50::-webkit-scrollbar-track {
+  background-color: rgb(239 246 255);
+  border-radius: 9999px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Figure Styling */
+.content-figure {
+  margin: 2.5rem auto;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  page-break-inside: avoid;
+}
+
+.content-figure .figure-image,
+.content-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+  display: block;
+}
+
+.figure-caption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgb(51 65 85);
+  text-align: center;
+  font-style: italic;
+  max-width: 90%;
+  padding: 0.5rem 1rem;
+}
+
+.figure-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Table Styling with Preserved Dimensions */
+.table-wrapper {
+  margin: 2.5rem auto;
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  page-break-inside: avoid;
+}
+
+.table-caption {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgb(15 23 42);
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.table-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+}
+
+.content-table {
+  border-collapse: collapse;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgb(203 213 225);
+  table-layout: auto;
+}
+
+.content-table colgroup col {
+  min-width: var(--col-width, auto);
+}
+
+.content-table thead {
+  background-color: rgb(241 245 249);
+}
+
+.content-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: rgb(15 23 42);
+  border-bottom: 2px solid rgb(203 213 225);
+  border-right: 1px solid rgb(226 232 240);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.content-table th:last-child {
+  border-right: none;
+}
+
+.content-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgb(226 232 240);
+  border-right: 1px solid rgb(226 232 240);
+  color: rgb(51 65 85);
+  line-height: 1.4;
+  vertical-align: top;
+}
+
+.content-table td p {
+  margin: 0;
+  padding: 0;
+}
+
+.content-table td:last-child {
+  border-right: none;
+}
+
+.content-table tbody tr:hover {
+  background-color: rgb(248 250 252);
+  transition: background-color 0.15s ease;
+}
+
+.content-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Equation Styling - Plain Text, Centered, No Background */
+.equation-wrapper {
+  margin: 2.5rem auto;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  page-break-inside: avoid;
+}
+
+.equation-content {
+  font-size: 1.25rem;
+  font-family: 'Courier New', monospace;
+  color: rgb(15 23 42);
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.equation-caption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgb(15 23 42);
+  text-align: center;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+}
+
+.equation-caption strong {
+  color: rgb(15 23 42);
+  font-weight: 700;
+}
+
+/* Reference Link Styling */
+.ref-link {
+  color: rgb(37 99 235) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.ref-link:hover {
+  text-decoration: underline !important;
+  color: rgb(29 78 216) !important;
+  background-color: rgb(219 234 254);
+}
+
+/* List Styling */
+.prose ul.list-disc,
+.prose ol.list-decimal {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose ul.list-disc {
+  list-style-type: disc;
+}
+
+.prose ol.list-decimal {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Figures & tables */
+.figure-caption-inline,
+.table-caption-inline {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: #334155; /* slate-700 */
+}
+
+.figure-label,
+.table-label {
+  font-weight: 600;
+}
+
+/* Equations */
+.equation-wrapper {
+  margin: 1rem 0;
+}
+
+.equation-content {
+  background: none;
+  padding: 0;
+}
+
+.equation-label {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #475569; /* slate-600 */
+  margin-top: 0.25rem;
+}
+
+/* References */
+.ref-link-soft {
+  font-style: italic;
+  color: #475569; /* slightly dim */
+  text-decoration: none;
+}
+
+.ref-link-soft:hover {
+  color: #2563eb; /* subtle blue on hover */
+  text-decoration: underline;
+}
+/* In your global stylesheet or inside <style> in root layout */
+.prose figure {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose figcaption,
+.prose [class*="figure-caption"],
+.prose [class*="table-caption"] {
+  margin-top: 0.5rem !important;
+  text-align: left;          /* ← or center — your choice */
+  font-size: 0.875rem;
+  color: #475569;
+  font-style: italic;
+}
+
+.prose table {
+  margin-top: 0.75rem;
+}
+
+/* Equation label alignment fix if needed */
+.equation-label {
+  right: 0 !important;
+}
