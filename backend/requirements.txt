@@ -7,3 +7,8 @@ Pillow
 djangorestframework-simplejwt
 gunicorn
 whitenoise
+django-storages[boto3]
+django-storages
+requests
+dj-database-url
+supabase

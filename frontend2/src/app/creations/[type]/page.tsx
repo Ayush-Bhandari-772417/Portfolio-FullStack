@@ -5,7 +5,7 @@ import CreationCard from '@/components/CreationCard';
 import PageHeader from '@/components/PageHeader';
 import { BookOpen, Sparkles, FileText, Newspaper } from 'lucide-react';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const validTypes = ['blog', 'poem', 'story', 'article'] as const;
 type CreationType = typeof validTypes[number];
@@ -17,9 +17,12 @@ const typeConfig = {
   article: { label: 'Articles', icon: FileText, color: 'from-green-500 to-emerald-500' },
 };
 
-export async function generateStaticParams() {
-  return validTypes.map(type => ({ type }));
-}
+export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+
+// export async function generateStaticParams() {
+//   return validTypes.map(type => ({ type }));
+// }
 
 export async function generateMetadata({ 
   params 

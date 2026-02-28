@@ -1,7 +1,7 @@
 // admin\src\components\RequireAuth.tsx
 'use client';
 
-import { useAuth } from './AuthProvider';
+import { useAuth } from '@/components/AuthProvider';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -11,12 +11,12 @@ export default function RequireAuth({ children }: { children: React.ReactNode })
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
-      router.replace('/'); // redirect to login
+      router.replace('/');
     }
-  }, [isAuthenticated, loading, router]);
+  }, [loading, isAuthenticated, router]);
 
-  if (loading) return null; // show nothing while checking
-  if (!isAuthenticated) return null; // block render if logged out
+  if (loading) return <div className="p-6">Loading…</div>;
+  if (!isAuthenticated) return null;
 
   return <>{children}</>;
 }

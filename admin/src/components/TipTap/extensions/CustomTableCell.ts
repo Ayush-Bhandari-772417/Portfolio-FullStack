@@ -1,4 +1,4 @@
-// admin/src/components/TipTap/extensions/CustomTableCell.ts
+// admin\src\components\TipTap\extensions\CustomTableCell.ts
 import TableCell from '@tiptap/extension-table-cell';
 
 export const CustomTableCell = TableCell.extend({

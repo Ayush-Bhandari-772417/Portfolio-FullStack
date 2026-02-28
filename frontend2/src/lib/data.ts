@@ -1,18 +1,29 @@
 // frontend2\src\lib\data.ts
 import { Project, Profile, Category, AllSettings, Setting, SEOPageSetting, SitemapSetting, DisplaySetting, Creation, Service, Skill, SubSkill, Experience, Qualification } from '@/types';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/public';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+console.log("API BASE:", process.env.NEXT_PUBLIC_BASE_URL);
+console.log("API PUBLIC:", process.env.NEXT_PUBLIC_API_URL);
+
+// async function fetchAPI(endpoint: string) {
+//   const url = `${API_BASE_URL}${endpoint}`;
+
+//   const response = await fetch(url, {
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     cache: 'force-cache',
+//     next: { revalidate: 3600 },
+//   });
+
+//   if (!response.ok) return null;
+//   const data = await response.json();
+//   return data.results ?? data;
+// }
 
 async function fetchAPI(endpoint: string) {
   const url = `${API_BASE_URL}${endpoint}`;
-
-  const response = await fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    cache: 'force-cache',
-    next: { revalidate: 3600 },
-  });
+  const response = await fetch(url);
 
   if (!response.ok) return null;
   const data = await response.json();
@@ -21,6 +32,7 @@ async function fetchAPI(endpoint: string) {
 
 // Settings
 export async function getSettings(): Promise<AllSettings> {
+  console.log("BUILD: getSettings called");
   try {
     const [settings, seoSettings, sitemapSettings, displaySettings] = await Promise.all([
       fetchAPI('/settings/'),
@@ -82,6 +94,7 @@ export async function getSettings(): Promise<AllSettings> {
 
 // Profile
 export async function getProfile(): Promise<Profile | null> {
+  console.log("BUILD: getProfile called");
   try {
     const data = await fetchAPI('/profile/');
     if (!data) return null;
@@ -96,6 +109,7 @@ export async function getProfile(): Promise<Profile | null> {
 
 // Projects
 export async function getProjects(params?: { featured?: boolean; limit?: number; category?: string }): Promise<Project[]> {
+  console.log("BUILD: getProjects called");
   try {
     const queryParams = new URLSearchParams();
     if (params?.featured) queryParams.append('featured', 'true');
@@ -114,8 +128,9 @@ export async function getProjects(params?: { featured?: boolean; limit?: number;
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
+  console.log("BUILD: getProjectsBySlug called");
   try {
-    const data = await fetchAPI(`/projects/${slug}/`);
+    const data = await fetchAPI(`/projects/${slug}`);
     if (!data) return null;
     return data;
   } catch (error) {
@@ -130,6 +145,7 @@ export async function getCreations(params?: {
   limit?: number;
   category?: string;
 }): Promise<Creation[]> {
+  console.log("BUILD: getCreations called");
   try {
     const queryParams = new URLSearchParams();
     if (params?.type) queryParams.append('type', params.type);
@@ -148,6 +164,7 @@ export async function getCreations(params?: {
 }
 
 export async function getCreationBySlug(slug: string, type?: string): Promise<Creation | null> {
+  console.log("BUILD: getCreationBySlug called");
   try {
     const queryParams = new URLSearchParams({ slug });
     if (type) queryParams.append('type', type);
@@ -163,6 +180,7 @@ export async function getCreationBySlug(slug: string, type?: string): Promise<Cr
 
 // Categories
 export async function getCategories(): Promise<Category[]> {
+  console.log("BUILD: getCategories called");
   try {
     const data = await fetchAPI('/categories/');
     if (!data) return [];
@@ -175,6 +193,7 @@ export async function getCategories(): Promise<Category[]> {
 
 // Services
 export async function getServices(): Promise<Service[]> {
+  console.log("BUILD: getServices called");
   try {
     const data = await fetchAPI('/services/');
     if (!data) return [];
@@ -187,6 +206,7 @@ export async function getServices(): Promise<Service[]> {
 
 // Skills
 export async function getSkills(): Promise<Skill[]> {
+  console.log("BUILD: getSkills called");
   try {
     const data = await fetchAPI('/skills/');
     if (!data) return [];
@@ -198,6 +218,7 @@ export async function getSkills(): Promise<Skill[]> {
 }
 
 export async function getSubSkills(skillId?: number): Promise<SubSkill[]> {
+  console.log("BUILD: getSubSkills called");
   try {
     const endpoint = skillId ? `/subskills/?skill=${skillId}` : '/subskills/';
     const data = await fetchAPI(endpoint);
@@ -211,6 +232,7 @@ export async function getSubSkills(skillId?: number): Promise<SubSkill[]> {
 
 // Experience
 export async function getExperiences(): Promise<Experience[]> {
+  console.log("BUILD: getExperiences called");
   try {
     const data = await fetchAPI('/experiences/');
     if (!data) return [];
@@ -223,6 +245,7 @@ export async function getExperiences(): Promise<Experience[]> {
 
 // Qualifications
 export async function getQualifications(): Promise<Qualification[]> {
+  console.log("BUILD: getQualifications called");
   try {
     const data = await fetchAPI('/qualifications/');
     if (!data) return [];

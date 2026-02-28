@@ -1,60 +1,81 @@
 // admin\src\components\TipTap\extensions\Figure.ts
-import { Node, mergeAttributes } from '@tiptap/core';
+import { Node, mergeAttributes } from "@tiptap/core";
 
-declare module '@tiptap/core' {
+declare module "@tiptap/core" {
   interface Commands<ReturnType> {
     figure: {
-      insertFigure: (options: { src: string; caption?: string; label?: string }) => ReturnType;
+      insertFigure: (options: {
+        src: string;
+        caption?: string;
+        label?: string;
+        origin?: "external" | "uploaded";
+        width?: number;
+      }) => ReturnType;
+
       setFigureCaption: (caption: string) => ReturnType;
     };
   }
 }
 
 export const Figure = Node.create({
-  name: 'figure',
-  group: 'block',
-  content: 'image caption',
+  name: "figure",
+  group: "block",
+  content: "image caption",
   isolating: true,
 
   addAttributes() {
     return {
-      src: { default: '' },
-      label: { default: '' },  // auto-generated, never edited by user
-      refId: { default: null },
+      label: { default: "", },
+      refId: { default: null, },
     };
   },
 
   parseHTML() {
-    return [{ tag: 'figure[data-figure]' }];
+    return [
+      { tag: "figure[data-figure]", },
+    ];
   },
 
   renderHTML({ node, HTMLAttributes }) {
     return [
-      'figure',
+      "figure",
       mergeAttributes(HTMLAttributes, {
-        'data-figure': '',
-        'data-src': node.attrs.src,
-        'data-label': node.attrs.label,
-        'data-ref-id': node.attrs.refId || '',
+        "data-figure": "",
+        "data-label": node.attrs.label,
+        "data-ref-id": node.attrs.refId || "",
       }),
-      ['img', { src: node.attrs.src }],
-      ['figcaption', 0],
+      0,
     ];
   },
 
   addCommands() {
     return {
       insertFigure:
-        ({ src, caption = '', label = '' }) =>
-        ({ chain }) => {
-          return chain().insertContent({
-            type: 'figure',
-            attrs: { src, label },
-            content: [
-              { type: 'image', attrs: { src } },
-              { type: 'caption', content: caption ? [{ type: 'text', text: caption }] : [] },
-            ],
-          }).run();
+        ({ src, caption = "", label = "", origin = "external", width = 100, }) =>
+          ({ chain }) => {
+            return chain()
+              .insertContent({
+                type: "figure",
+                attrs: { label, },
+                content: [
+                {
+                  type: "image",
+                  attrs: { src, origin, width, },
+                },
+                {
+                  type: "caption",
+                  content: caption
+                    ? [
+                        {
+                          type: "text",
+                          text: caption,
+                        },
+                      ]
+                    : [],
+                },
+              ],
+            })
+            .run();
         },
 
       setFigureCaption:
@@ -63,15 +84,19 @@ export const Figure = Node.create({
           const { from, to } = state.selection;
           const schema = state.schema;
           state.doc.nodesBetween(from, to, (node, pos) => {
-            if (node.type.name === 'figure') {
-              const captionNode = schema.nodeFromJSON({
-                type: 'caption',
-                content: [{ type: 'text', text: caption }],
-              });
-              const start = pos + 1; // first child
-              const end = pos + node.nodeSize - 1; // end of content
-              tr.replaceWith(start, end, captionNode);
-            }
+            if (node.type.name !== "figure") return;
+
+            const captionNode = schema.nodes.caption.create(
+              {},
+              caption
+                ? schema.text(caption)
+                : null
+            );
+
+            const start = pos + 1;
+            const end = pos + node.nodeSize - 1;
+
+            tr.replaceWith(start, end, captionNode);
           });
           if (dispatch) dispatch(tr);
           return true;

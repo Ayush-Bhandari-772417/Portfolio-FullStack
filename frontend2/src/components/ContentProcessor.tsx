@@ -50,61 +50,141 @@ function processLists(root: HTMLElement) {
     ol.classList.add('list-decimal', 'ml-6', 'my-4');
   });
 }
+
+// function processFigures(root: HTMLElement) {
+//   let count = 0;
+
+//   // Collect images first — avoids live collection mutation problems
+//   const allImages = Array.from(root.querySelectorAll('img'));
+
+//   allImages.forEach((oldImg) => {
+//     const src = oldImg.getAttribute('src') || '';
+//     if (!src.trim() || src === window.location.href) {
+//       oldImg.remove();
+//       return;
+//     }
+
+//     count++;
+
+//     // ─── Create fresh structure ────────────────────────────────────
+//     const figure = document.createElement('figure');
+//     figure.id = `figure-${count}`;
+//     figure.className = 'my-8 flex flex-col items-center';
+//     figure.style.scrollMarginTop = '100px';
+
+//     // New image element — prevents any node ownership conflicts
+//     const img = document.createElement('img');
+//     img.src = src;
+//     img.alt = ''; // we don't use alt for display anymore
+//     img.className = 'max-w-full h-auto rounded-md mx-auto';
+
+//     // Try to recover caption text from most likely places
+//     let captionText = '';
+
+//     // 1. Look right next to the image (common in editors)
+//     let possibleCaption = oldImg.nextElementSibling;
+//     if (possibleCaption?.tagName === 'FIGCAPTION') {
+//       captionText = possibleCaption.textContent?.trim() || '';
+//     }
+
+//     // 2. Look inside closest figure
+//     if (!captionText) {
+//       const parentFig = oldImg.closest('figure');
+//       if (parentFig) {
+//         const cap = parentFig.querySelector('figcaption');
+//         if (cap) captionText = cap.textContent?.trim() || '';
+//       }
+//     }
+
+//     // 3. Fallback to alt only if nothing else
+//     if (!captionText && oldImg.alt?.trim()) {
+//       captionText = oldImg.alt.trim();
+//     }
+
+//     // ─── Build caption ─────────────────────────────────────────────
+//     const figcaption = document.createElement('figcaption');
+//     figcaption.className = 'mt-3 text-sm text-slate-600 italic text-center';
+
+//     // Label + caption in one flow (no extra line break)
+//     figcaption.innerHTML = `
+//       <strong>Figure ${count}:</strong> ${captionText}
+//     `;
+
+//     // Assemble
+//     figure.appendChild(img);
+//     figure.appendChild(figcaption);
+
+//     // Replace the original image (or its wrapping figure)
+//     const target = oldImg.closest('figure') || oldImg;
+//     target.replaceWith(figure);
+//   });
+// }
+
 function processFigures(root: HTMLElement) {
   let count = 0;
 
+  const SUPABASE_BASE =
+    process.env.NEXT_PUBLIC_SUPABASE_URL +
+    "/storage/v1/object/public/media/";
+
   // Collect images first — avoids live collection mutation problems
-  const allImages = Array.from(root.querySelectorAll('img'));
+  const allImages = Array.from(root.querySelectorAll("img"));
 
   allImages.forEach((oldImg) => {
-    const src = oldImg.getAttribute('src') || '';
+    let src = oldImg.getAttribute("src") || "";
+
     if (!src.trim() || src === window.location.href) {
       oldImg.remove();
       return;
     }
 
+    // ✅ Rebuild uploaded image URL if relative
+    if (!src.startsWith("http")) {
+      src = SUPABASE_BASE + src;
+    }
+
     count++;
 
     // ─── Create fresh structure ────────────────────────────────────
-    const figure = document.createElement('figure');
+    const figure = document.createElement("figure");
     figure.id = `figure-${count}`;
-    figure.className = 'my-8 flex flex-col items-center';
-    figure.style.scrollMarginTop = '100px';
+    figure.className = "my-8 flex flex-col items-center";
+    figure.style.scrollMarginTop = "100px";
 
-    // New image element — prevents any node ownership conflicts
-    const img = document.createElement('img');
+    // New image element
+    const img = document.createElement("img");
     img.src = src;
-    img.alt = ''; // we don't use alt for display anymore
-    img.className = 'max-w-full h-auto rounded-md mx-auto';
+    img.alt = "";
+    img.className = "max-w-full h-auto rounded-md mx-auto";
 
-    // Try to recover caption text from most likely places
-    let captionText = '';
+    // Try to recover caption text
+    let captionText = "";
 
-    // 1. Look right next to the image (common in editors)
+    // 1. Look right next to the image
     let possibleCaption = oldImg.nextElementSibling;
-    if (possibleCaption?.tagName === 'FIGCAPTION') {
-      captionText = possibleCaption.textContent?.trim() || '';
+    if (possibleCaption?.tagName === "FIGCAPTION") {
+      captionText = possibleCaption.textContent?.trim() || "";
     }
 
     // 2. Look inside closest figure
     if (!captionText) {
-      const parentFig = oldImg.closest('figure');
+      const parentFig = oldImg.closest("figure");
       if (parentFig) {
-        const cap = parentFig.querySelector('figcaption');
-        if (cap) captionText = cap.textContent?.trim() || '';
+        const cap = parentFig.querySelector("figcaption");
+        if (cap) captionText = cap.textContent?.trim() || "";
       }
     }
 
-    // 3. Fallback to alt only if nothing else
+    // 3. Fallback to alt
     if (!captionText && oldImg.alt?.trim()) {
       captionText = oldImg.alt.trim();
     }
 
     // ─── Build caption ─────────────────────────────────────────────
-    const figcaption = document.createElement('figcaption');
-    figcaption.className = 'mt-3 text-sm text-slate-600 italic text-center';
+    const figcaption = document.createElement("figcaption");
+    figcaption.className =
+      "mt-3 text-sm text-slate-600 italic text-center";
 
-    // Label + caption in one flow (no extra line break)
     figcaption.innerHTML = `
       <strong>Figure ${count}:</strong> ${captionText}
     `;
@@ -113,8 +193,8 @@ function processFigures(root: HTMLElement) {
     figure.appendChild(img);
     figure.appendChild(figcaption);
 
-    // Replace the original image (or its wrapping figure)
-    const target = oldImg.closest('figure') || oldImg;
+    // Replace original
+    const target = oldImg.closest("figure") || oldImg;
     target.replaceWith(figure);
   });
 }

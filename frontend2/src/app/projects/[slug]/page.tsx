@@ -4,24 +4,28 @@ import { notFound } from 'next/navigation';
 import { getProjectBySlug, getProjects, getSettings, getSEORobots, getDisplayLimit } from '@/lib/data';
 import ProjectDetailClient from '@/components/ProjectDetailClient';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  const projects = await getProjects();
+export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+
+// export async function generateStaticParams() {
+//   const projects = await getProjects();
   
-  return projects.map(project => ({
-    slug: project.slug,
-  }));
-}
+//   return projects.map(project => ({
+//     slug: project.slug,
+//   }));
+// }
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
-): Promise<Metadata> {
+): Promise<Metadata> { 
   const { slug } = await params;
+  console.log('Generating metadata for project detail page', slug);
   const [project, settings] = await Promise.all([
     getProjectBySlug(slug),
     getSettings()
@@ -70,7 +74,12 @@ export async function generateMetadata(
   };
 }
 
-export default async function ProjectDetailPage({ params }: Props) {
+export default async function ProjectDetailPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  // ({ params }: Props) {
   const { slug } = await params;
   const [project, settings] = await Promise.all([
     getProjectBySlug(slug),

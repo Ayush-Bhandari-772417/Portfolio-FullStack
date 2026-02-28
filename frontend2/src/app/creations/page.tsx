@@ -6,7 +6,7 @@ import PageHeader from '@/components/PageHeader';
 import Link from 'next/link';
 import { BookOpen, Sparkles, FileText, Newspaper } from 'lucide-react';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const creationTypes = [
   { type: 'blog', label: 'Blog Posts', icon: Newspaper, color: 'from-blue-500 to-cyan-500' },
@@ -14,6 +14,9 @@ const creationTypes = [
   { type: 'story', label: 'Stories', icon: BookOpen, color: 'from-orange-500 to-red-500' },
   { type: 'article', label: 'Articles', icon: FileText, color: 'from-green-500 to-emerald-500' },
 ];
+
+export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();

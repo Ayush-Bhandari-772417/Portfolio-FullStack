@@ -1,4 +1,4 @@
-// admin\src\components\ui\toggle.tsx
+// admin\src\components\TipTap\ui\toggle.tsx
 "use client"
 
 import * as React from "react"

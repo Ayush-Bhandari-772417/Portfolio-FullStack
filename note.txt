@@ -38,10 +38,14 @@ Backend
             │   │   ├── urls.py
             │   │   ├── views.py
             │   ├── token
+            │   │   ├── refresh.py
             │   │   ├── urls.py
             │   │   ├── views.py
             ├── config/
-            │   ├── asgi.py
+            │   ├── asgi.py1`11
+            │   ├── authentication.py
+            │   ├── permissions.py
+            │   ├── security.py
             │   ├── settings.py
             │   ├── urls.py
             │   ├── wsgi.py
@@ -194,6 +198,11 @@ Frontend
         - npm install katex 
         - npm install @tiptap/extension-mathematics katex
         - npm install -D @tailwindcss/typography
+        - npm install react-router-dom
+        - npm install --save-dev @types/react-router-dom
+        - npm install tailwind-merge
+        - npm install @radix-ui/react-slot
+        - npm install class-variance-authority
 
     - Remove existing structure
         - remove contents of frontend2\src\app\layout.tsx
@@ -524,6 +533,8 @@ Admin
         - npm install @tiptap-pro/extension-mathematics
         - npm install @tiptap/extension-code-block-lowlight
         - npm install @tiptap/extension-mathematics katex
+        - npm install @supabase/supabase-js
+        - npm install -g local-ssl-proxy
 
     - Remove existing structure
         - clear the files in admin\public
@@ -799,5 +810,1603 @@ Admin
 
 
 HOSTING
-    - In cmd
-        - 
+    - Hosting on Github
+        - For Backend
+            - In cmd
+                - D:\Ayush\Portfolio\ThreeLayerApproach>cd backend
+                - D:\Ayush\Portfolio\ThreeLayerApproach\backend>git init
+                  Initialized empty Git repository in D:/Ayush/Portfolio/ThreeLayerApproach/backend/.git/
+                - D:\Ayush\Portfolio\ThreeLayerApproach\backend>git add .
+                  warning: LF will be replaced by CRLF in .gitignore.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in Procfile.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in requirements.txt.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in runtime.txt.
+                  The file will have its original line endings in your working directory
+                - D:\Ayush\Portfolio\ThreeLayerApproach\backend>git commit -m "First backend upload in Github"
+                  [master (root-commit) 5c2cac9] First backend upload in Github
+                   179 files changed, 3642 insertions(+)
+                   create mode 100644 .gitignore
+                   create mode 100644 Procfile
+                   create mode 100644 auth/me/apps.py
+                   ...
+                   create mode 100644 users/urls.py
+                - D:\Ayush\Portfolio\ThreeLayerApproach\backend>git branch -M main
+                - D:\Ayush\Portfolio\ThreeLayerApproach\backend>git remote add origin https://github.com/Ayush-Bhandari-772417/Portfolio-Backend.git
+                - D:\Ayush\Portfolio\ThreeLayerApproach\backend>git push -u origin main
+                  Enumerating objects: 197, done.
+                  Counting objects: 100% (197/197), done.
+                  Delta compression using up to 8 threads
+                  Compressing objects: 100% (193/193), done.
+                  Writing objects: 100% (197/197), 99.55 KiB | 6.64 MiB/s, done.
+                  Total 197 (delta 75), reused 0 (delta 0), pack-reused 0
+                  remote: Resolving deltas: 100% (75/75), done.
+                  To https://github.com/Ayush-Bhandari-772417/Portfolio-Backend.git
+                   * [new branch]      main -> main
+                  Branch 'main' set up to track remote branch 'main' from 'origin'.
+        - For Frontend
+            - In cmd
+                - D:\Ayush\Portfolio\ThreeLayerApproach\frontend2>git init
+                  Initialized empty Git repository in D:/Ayush/Portfolio/ThreeLayerApproach/frontend2/.git/
+                - D:\Ayush\Portfolio\ThreeLayerApproach\frontend2>git add .                   
+                  warning: LF will be replaced by CRLF in .gitignore.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in README.md.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in eslint.config.mjs.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in next.config.js.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in package-lock.json.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in package.json.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in postcss.config.mjs.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/app/layout.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/app/page.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/ProjectDetailClient.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/RecaptchaScript.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/portfolioSections/About.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/portfolioSections/Hero.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in tsconfig.json.
+                  The file will have its original line endings in your working directory
+                - D:\Ayush\Portfolio\ThreeLayerApproach\frontend2>git commit -m "first commit"
+                  [master (root-commit) 7e2fee1] first commit
+                   66 files changed, 14725 insertions(+)
+                   create mode 100644 .gitignore
+                   create mode 100644 README.md
+                   create mode 100644 eslint.config.mjs
+                   create mode 100644 global.d.ts
+                   create mode 100644 next.config.js
+                   create mode 100644 package-lock.json
+                   create mode 100644 package.json
+                   create mode 100644 postcss.config.mjs
+                   create mode 100644 public/aboutProfile.png
+                   create mode 100644 public/logo.png
+                   create mode 100644 public/minilogo.png
+                   create mode 100644 public/my_photo.jpg
+                   create mode 100644 public/resume.pdf
+                   create mode 100644 src/app/api/revalidate/route.ts 
+                   create mode 100644 src/app/creations/[type]/[slug]/page.tsx
+                   create mode 100644 src/app/creations/[type]/page.tsx
+                   create mode 100644 src/app/creations/page.tsx      
+                   create mode 100644 src/app/error.tsx
+                   create mode 100644 src/app/layout.tsx
+                   create mode 100644 src/app/loading.tsx
+                   create mode 100644 src/app/not-found.tsx
+                   create mode 100644 src/app/page.tsx
+                   create mode 100644 src/app/projects/[slug]/page.tsx
+                   create mode 100644 src/app/projects/loading.tsx    
+                   create mode 100644 src/app/projects/page.tsx       
+                   create mode 100644 src/app/robots.ts
+                   create mode 100644 src/app/sitemap.ts
+                   create mode 100644 src/components/ContentProcessor.tsx
+                   create mode 100644 src/components/CreationCard.tsx 
+                   create mode 100644 src/components/CreationDetailClient.tsx
+                   create mode 100644 src/components/EngagementTime.tsx
+                   create mode 100644 src/components/ExperienceCard.tsx
+                   create mode 100644 src/components/GoogleAnalytics.tsx
+                   create mode 100644 src/components/HireModal.tsx    
+                   create mode 100644 src/components/PageHeader.tsx   
+                   create mode 100644 src/components/ProjectCard.tsx  
+                   create mode 100644 src/components/ProjectDetailClient.tsx
+                   create mode 100644 src/components/QualificationsClient.tsx
+                   create mode 100644 src/components/RecaptchaScript.tsx
+                   create mode 100644 src/components/ScrollDepth.tsx  
+                   create mode 100644 src/components/ServicesClient.tsx
+                   create mode 100644 src/components/SkillsClient.tsx 
+                   create mode 100644 src/components/SocialMediaClient.tsx
+                   create mode 100644 src/components/SubscribeForm.tsx
+                   create mode 100644 src/components/TableOfContents.tsx
+                   create mode 100644 src/components/TechBadge.tsx    
+                   create mode 100644 src/components/commonSections/Footer.tsx
+                   create mode 100644 src/components/commonSections/Navbar.tsx
+                   create mode 100644 src/components/portfolioSections/About.tsx
+                   create mode 100644 src/components/portfolioSections/ContactSection.tsx
+                   create mode 100644 src/components/portfolioSections/CreationsPreviewSection.tsx
+                   create mode 100644 src/components/portfolioSections/ExperienceSection.tsx
+                   create mode 100644 src/components/portfolioSections/FeaturedProjectsSection.tsx
+                   create mode 100644 src/components/portfolioSections/Hero.tsx
+                   create mode 100644 src/components/portfolioSections/QualificationsSection.tsx
+                   create mode 100644 src/components/portfolioSections/ServicesSection.tsx
+                   create mode 100644 src/components/portfolioSections/SkillsSection.tsx
+                   create mode 100644 src/lib/data.ts
+                   create mode 100644 src/providers/ReactQueryProvider.tsx
+                   create mode 100644 src/styles/globals.css
+                   create mode 100644 src/types/index.ts
+                   create mode 100644 src/types/katex-auto-render.d.ts
+                   create mode 100644 src/utils/allIcons.js
+                   create mode 100644 src/utils/getIconComponent.js   
+                   create mode 100644 tailwind.config.js
+                   create mode 100644 tsconfig.json
+                - D:\Ayush\Portfolio\ThreeLayerApproach\frontend2>git branch -M main
+                - D:\Ayush\Portfolio\ThreeLayerApproach\frontend2>git remote add origin https://github.com/Ayush-Bhandari-772417/Portfolio-Frontend.git
+                - D:\Ayush\Portfolio\ThreeLayerApproach\frontend2>git push -u origin main
+                  Enumerating objects: 86, done.
+                  Counting objects: 100% (86/86), done.
+                  Delta compression using up to 8 threads
+                  Compressing objects: 100% (80/80), done.
+                  Writing objects: 100% (86/86), 1.21 MiB | 41.24 MiB/s, done.
+                  Total 86 (delta 8), reused 0 (delta 0), pack-reused 0
+                  remote: Resolving deltas: 100% (8/8), done.
+                  To https://github.com/Ayush-Bhandari-772417/Portfolio-Frontend.git
+                   * [new branch]      main -> main
+                  Branch 'main' set up to track remote branch 'main' from 'origin'.
+        - For admin
+            - In cmd
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git init
+                  Initialized empty Git repository in D:/Ayush/Portfolio/ThreeLayerApproach/admin/.git/
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git add .
+                  warning: LF will be replaced by CRLF in .gitignore.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in components.json.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in eslint.config.mjs.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in next.config.ts.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in package-lock.json.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in package.json.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in postcss.config.mjs.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/app/admin/layout.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/app/admin/profile/page.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/app/admin/settings/page.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/TipTap/ui/toggle.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/TipTap/ui/utils.ts.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/contentpage/MessagesContent.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/contentpage/ProjectsContent.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/components/forms/ProjectForm.tsx.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in src/styles/globals.css.
+                  The file will have its original line endings in your working directory
+                  warning: LF will be replaced by CRLF in tsconfig.json.
+                  The file will have its original line endings in your working directory
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git commit -m "first commit"
+                  [master (root-commit) 328d496] first commit
+                   93 files changed, 15233 insertions(+)
+                   create mode 100644 .gitignore
+                   create mode 100644 components.json
+                   create mode 100644 eslint.config.mjs
+                   create mode 100644 global.d.ts
+                   create mode 100644 middleware.ts
+                   create mode 100644 next.config.ts
+                   create mode 100644 package-lock.json
+                   create mode 100644 package.json
+                   create mode 100644 postcss.config.mjs
+                   create mode 100644 src/app/admin/categories/page.tsx
+                   create mode 100644 src/app/admin/contacts/page.tsx 
+                   create mode 100644 src/app/admin/creations/page.tsx
+                   create mode 100644 src/app/admin/experiences/page.tsx
+                   create mode 100644 src/app/admin/hires/page.tsx    
+                   create mode 100644 src/app/admin/layout.tsx        
+                   create mode 100644 src/app/admin/page.tsx
+                   create mode 100644 src/app/admin/profile/page.tsx  
+                   create mode 100644 src/app/admin/projects/page.tsx 
+                   create mode 100644 src/app/admin/qualifications/page.tsx
+                   create mode 100644 src/app/admin/services/page.tsx 
+                   create mode 100644 src/app/admin/settings/page.tsx 
+                   create mode 100644 src/app/admin/skills/page.tsx   
+                   create mode 100644 src/app/admin/socialmedias/page.tsx
+                   create mode 100644 src/app/admin/subscriptions/page.tsx
+                   create mode 100644 src/app/admin/subskills/page.tsx
+                   create mode 100644 src/app/api/admin/[...path]/route.ts
+                   create mode 100644 src/app/layout.tsx
+                   create mode 100644 src/app/page.tsx
+                   create mode 100644 src/components/AdminMainLayout.tsx
+                   create mode 100644 src/components/AuthProvider.tsx 
+                   create mode 100644 src/components/FormActions.tsx  
+                   create mode 100644 src/components/FormSection.tsx  
+                   create mode 100644 src/components/ImageUploadPreview.tsx
+                   create mode 100644 src/components/Inputs.tsx       
+                   create mode 100644 src/components/LogInUI.tsx      
+                   create mode 100644 src/components/Pagination.tsx   
+                   create mode 100644 src/components/RequireAuth.tsx  
+                   create mode 100644 src/components/TipTap/ArticleEditor.tsx
+                   create mode 100644 src/components/TipTap/Toolbar.tsx
+                   create mode 100644 src/components/TipTap/extensions/AutoNumbering.ts
+                   create mode 100644 src/components/TipTap/extensions/Caption.ts
+                   create mode 100644 src/components/TipTap/extensions/CaptionPlaceholderExtension.ts
+                   create mode 100644 src/components/TipTap/extensions/CustomTableCell.ts
+                   create mode 100644 src/components/TipTap/extensions/Equation.ts
+                   create mode 100644 src/components/TipTap/extensions/Figure.ts
+                   create mode 100644 src/components/TipTap/extensions/Image.ts
+                   create mode 100644 src/components/TipTap/extensions/LabeledTable.ts
+                   create mode 100644 src/components/TipTap/extensions/Reference.ts
+                   create mode 100644 src/components/TipTap/extensions/index.ts
+                   create mode 100644 src/components/TipTap/extensions/uploadImage.ts
+                   create mode 100644 src/components/TipTap/handlers/pasteHandler.ts
+                   create mode 100644 src/components/TipTap/ui/toggle.tsx
+                   create mode 100644 src/components/TipTap/ui/utils.ts
+                   create mode 100644 src/components/TipTap/utils/editorImageUpload.ts
+                   create mode 100644 src/components/TipTap/utils/getReferences.ts
+                   create mode 100644 src/components/TipTap/utils/handleImagePaste.ts
+                   create mode 100644 src/components/contentpage/CategoriesContent.tsx
+                   create mode 100644 src/components/contentpage/CreationsContent.tsx
+                   create mode 100644 src/components/contentpage/DashboardContent.tsx
+                   create mode 100644 src/components/contentpage/ExperiencesContent.tsx
+                   create mode 100644 src/components/contentpage/MessagesContent.tsx
+                   create mode 100644 src/components/contentpage/ProfileContent.tsx
+                   create mode 100644 src/components/contentpage/ProjectsContent.tsx
+                   create mode 100644 src/components/contentpage/QualificationsContent.tsx
+                   create mode 100644 src/components/contentpage/ServicesContent.tsx
+                   create mode 100644 src/components/contentpage/SettingsContent.tsx
+                   create mode 100644 src/components/contentpage/SkillsContent.tsx
+                   create mode 100644 src/components/contentpage/SocialMediasContent.tsx
+                   create mode 100644 src/components/contentpage/SubSkillsContent.tsx
+                   create mode 100644 src/components/forms/CategoryForm.tsx
+                   create mode 100644 src/components/forms/CreationForm.tsx
+                   create mode 100644 src/components/forms/DisplaySettingForm.tsx
+                   create mode 100644 src/components/forms/ExperienceForm.tsx
+                   create mode 100644 src/components/forms/ProfileForm.tsx
+                   create mode 100644 src/components/forms/ProjectForm.tsx
+                   create mode 100644 src/components/forms/QualificationForm.tsx
+                   create mode 100644 src/components/forms/SeoSettingForm.tsx
+                   create mode 100644 src/components/forms/ServiceForm.tsx
+                   create mode 100644 src/components/forms/SettingForm.tsx
+                   create mode 100644 src/components/forms/SiteMapSettingForm.tsx
+                   create mode 100644 src/components/forms/SkillForm.tsx
+                   create mode 100644 src/components/forms/SocialMediaForm.tsx
+                   create mode 100644 src/components/forms/SubSkillForm.tsx
+                   create mode 100644 src/hooks/useAdminList.ts       
+                   create mode 100644 src/hooks/useFormHandler.ts     
+                   create mode 100644 src/lib/auth.ts
+                   create mode 100644 src/lib/axios.ts
+                   create mode 100644 src/lib/storage.ts
+                   create mode 100644 src/lib/supabase.ts
+                   create mode 100644 src/services/editorImageUpload.ts
+                   create mode 100644 src/styles/globals.css
+                   create mode 100644 tailwind.config.js
+                   create mode 100644 tsconfig.json
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git remote add origin https://github.com/Ayush-Bhandari-772417/Portfolio-Admin.git
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git push -u origin main
+                  error: src refspec main does not match any
+                  error: failed to push some refs to 'https://github.com/Ayush-Bhandari-772417/Portfolio-Admin.git'       
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git status
+                  On branch master
+                  nothing to commit, working tree clean
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git branch -M main
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git remote add origin https://github.com/Ayush-Bhandari-772417/Portfolio-Admin.git
+                  error: remote origin already exists.
+                - D:\Ayush\Portfolio\ThreeLayerApproach\admin>git push -u origin main
+                  Enumerating objects: 127, done.
+                  Counting objects: 100% (127/127), done.
+                  Delta compression using up to 8 threads
+                  Compressing objects: 100% (107/107), done.
+                  Writing objects: 100% (127/127), 458.50 KiB | 26.97 MiB/s, done.
+                  Total 127 (delta 22), reused 0 (delta 0), pack-reused 0
+                  remote: Resolving deltas: 100% (22/22), done.       
+                  To https://github.com/Ayush-Bhandari-772417/Portfolio-Admin.git
+                   * [new branch]      main -> main
+                  Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+    - Hosting Django on Railway
+        - Create account
+        - Import the github repository
+        - Enter the environment variables directly under Variables tab after opening the project
+
+    - Hostin DB on supabase
+        - Create account using Github
+        - Create new project with
+            Organization: Ayush-Bhandari-772417's Org
+            Project name: portfolio-db
+            Database password: No1xOETCC5OfttT3
+            Region: Asia-Pacific
+        - When project -> Project Setting -> Database -> Connect is clicked in sequence, under view parameters of Connection String, the info is fouund
+            host: db.whhdkzesrfkmtrsmfcut.supabase.co
+            port: 5432
+            database: postgres
+            user: postgres
+
+        - Connecting for media
+            - Go to Your project -> Project Setting -> Storage -> Files -> Bucket
+            - Create new bucket
+                bucket name = media
+                public bucket
+                
+        - Enabling S3 Compability
+            - Go to Your project -> Project Setting -> Storage -> S3
+            - Enable S3 protocol connection
+            - Create new access keys
+            - Save the following info:
+                Endpoint: https://whhdkzesrfkmtrsmfcut.storage.supabase.co/storage/v1/s3
+                Region: ap-northeast-2
+                Access Key: 0da2404b4d3f6b2aa95815ce3040f998
+                Secret Key: 1694683f9bc476129bc054d22dec1385420f3ec77ee04a0d49b9efc289837324
+
+        - Ensuring S3 Compatibility
+            - Go to https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+            - Download AWSCLIV2.msi
+            - Install it
+            - update environment variables
+            - Verify the installation using
+                aws --v
+
+        - Get Supabase Credentials
+            - Open Supabase Dashboard → Project → Project Settings → API Keys → Legacy anon, service_role API keys
+                - Project URL: 
+                - anon public key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaGRremVzcmZrbXRyc21mY3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkzMTgxODksImV4cCI6MjA4NDg5NDE4OX0.BYvaqX6HL6LWRVNGKuRilNGWbzHRS2pg8CYQRyE8290
+                - service_role key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaGRremVzcmZrbXRyc21mY3V0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2OTMxODE4OSwiZXhwIjoyMDg0ODk0MTg5fQ.lJ-NQ4at4hH-Qz1F-2MRTQbZiZdWJfXuXacXW929IF8
+            - Open Supabase Dashboard → Project → Database → Connect →  connection string
+                - postgresql://postgres:[YOUR-PASSWORD]@db.whhdkzesrfkmtrsmfcut.supabase.co:5432/postgres
+
+        - dump the data using command
+            - python manage.py dumpdata --natural-primary --natural-foreign --exclude auth.permission --exclude contenttypes > data.json
+                - This wont't work as settings already changed to new db
+                - so dump from original db as:
+            - pg_dump -h localhost -U postgres -d portfolio_db > backup.sql
+        
+        - copy in supabase using
+            - psql -h db.whhdkzesrfkmtrsmfcut.supabase.co -U postgres -d postgres < backup.sql
+                - it relies on dns which gets overriden and won't work
+                - use new one
+            - psql "postgresql://postgres:No1xOETCC5OfttT3@db.whhdkzesrfkmtrsmfcut.supabase.co:5432/postgres" < backup.sql
+
+        - migration for squabase
+            - D:\Ayush\Portfolio\ThreeLayerApproach>cd backend
+            - D:\Ayush\Portfolio\ThreeLayerApproach\backend>venv\Scripts\activate
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>pip install -r requirements.txt
+                Requirement already satisfied: Django>=5.0.0 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 1)) (5.2.7)
+                Requirement already satisfied: djangorestframework in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 2)) (3.16.1)
+                Requirement already satisfied: django-cors-headers in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 3)) (4.9.0)
+                Requirement already satisfied: psycopg2-binary in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 4)) (2.9.10) 
+                Requirement already satisfied: python-dotenv in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 5)) (1.2.1)    
+                Requirement already satisfied: Pillow in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 6)) (11.3.0)
+                Requirement already satisfied: djangorestframework-simplejwt in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 7)) (5.5.1)
+                Requirement already satisfied: gunicorn in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 8)) (24.1.1)        
+                Requirement already satisfied: whitenoise in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 9)) (6.11.0)      
+                Requirement already satisfied: django-storages[boto3] in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from -r requirements.txt (line 10)) (1.14.6)
+                Requirement already satisfied: asgiref>=3.8.1 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from Django>=5.0.0->-r requirements.txt (line 1)) (3.9.2)
+                Requirement already satisfied: tzdata in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from Django>=5.0.0->-r requirements.txt (line 1)) (2025.2)
+                Requirement already satisfied: sqlparse>=0.3.1 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from Django>=5.0.0->-r requirements.txt (line 1)) (0.5.3)
+                Requirement already satisfied: pyjwt>=1.7.1 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from djangorestframework-simplejwt->-r requirements.txt (line 7)) (2.10.1)
+                Requirement already satisfied: packaging in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from gunicorn->-r requirements.txt (line 8)) (26.0)
+                Requirement already satisfied: boto3>=1.4.4 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from django-storages[boto3]->-r requirements.txt (line 10)) (1.42.34)
+                Requirement already satisfied: typing_extensions>=4 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from asgiref>=3.8.1->Django>=5.0.0->-r requirements.txt (line 1)) (4.15.0)      
+                Requirement already satisfied: s3transfer<0.17.0,>=0.16.0 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from boto3>=1.4.4->django-storages[boto3]->-r requirements.txt (line 10)) (0.16.0)
+                Requirement already satisfied: botocore<1.43.0,>=1.42.34 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from boto3>=1.4.4->django-storages[boto3]->-r requirements.txt (line 10)) (1.42.34)
+                Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from boto3>=1.4.4->django-storages[boto3]->-r requirements.txt (line 10)) (1.1.0)
+                Requirement already satisfied: urllib3!=2.2.0,<3,>=1.25.4 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from botocore<1.43.0,>=1.42.34->boto3>=1.4.4->django-storages[boto3]->-r requirements.txt (line 10)) (2.5.0)       
+                Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from botocore<1.43.0,>=1.42.34->boto3>=1.4.4->django-storages[boto3]->-r requirements.txt (line 10)) (2.9.0.post0)
+                Requirement already satisfied: six>=1.5 in d:\ayush\portfolio\threelayerapproach\backend\venv\lib\site-packages (from python-dateutil<3.0.0,>=2.1->botocore<1.43.0,>=1.42.34->boto3>=1.4.4->django-storages[boto3]->-r requirements.txt (line 10)) (1.17.0)
+                WARNING: You are using pip version 21.2.4; however, version 25.3 is available.    
+                You should consider upgrading via the 'D:\Ayush\Portfolio\ThreeLayerApproach\backend\venv\Scripts\python.exe -m pip install --upgrade pip' command.
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>>python manage.py makemigrations
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>python manage.py migrate
+                Operations to perform:
+                  Apply all migrations: admin, auth, contacts, contenttypes, creations, experience, hires, profiles, projects, qualifications, services, sessions, settings, skills, socialmedia, subscription, users        
+                Running migrations:
+                  No migrations to apply.
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>psql "postgresql://postgres:No1xOETCC5OfttT3@db.whhdkzesrfkmtrsmfcut.supabase.co:5432/postgres" < backup.sql   
+                SET
+                SET
+                SET
+                SET
+                SET
+                SET
+                set_config 
+                ------------
+
+                (1 row)
+
+                SET
+                SET
+                SET
+                SET
+                SET
+                SET
+                ERROR:  relation "auth_group" already exists
+                ALTER TABLE
+                ERROR:  relation "auth_group_id_seq" already exists
+                ERROR:  relation "auth_group_permissions" already exists
+                ALTER TABLE
+                ERROR:  relation "auth_group_permissions_id_seq" already exists
+                ERROR:  relation "auth_permission" already exists
+                ALTER TABLE
+                ERROR:  relation "auth_permission_id_seq" already exists
+                ERROR:  relation "contacts_contactmessage" already exists
+                ALTER TABLE
+                ERROR:  relation "contacts_contactmessage_id_seq" already exists
+                ERROR:  relation "creations_category" already exists
+                ALTER TABLE
+                ERROR:  relation "creations_category_id_seq" already exists
+                ERROR:  relation "creations_creation" already exists
+                ALTER TABLE
+                ERROR:  relation "creations_creation_id_seq" already exists
+                ERROR:  relation "django_admin_log" already exists
+                ALTER TABLE
+                ERROR:  relation "django_admin_log_id_seq" already exists
+                ERROR:  relation "django_content_type" already exists
+                ALTER TABLE
+                ERROR:  relation "django_content_type_id_seq" already exists
+                ERROR:  relation "django_migrations" already exists
+                ALTER TABLE
+                ERROR:  relation "django_migrations_id_seq" already exists
+                ERROR:  relation "django_session" already exists
+                ALTER TABLE
+                ERROR:  relation "experience_experience" already exists
+                ALTER TABLE
+                ERROR:  relation "experience_experience_id_seq" already exists
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ERROR:  relation "hires_hiringmessage" already exists
+                ALTER TABLE
+                ERROR:  relation "hires_hiringmessage_id_seq" already exists
+                ERROR:  relation "profiles_profile" already exists
+                ALTER TABLE
+                ERROR:  relation "profiles_profile_id_seq" already exists
+                ERROR:  relation "projects_project" already exists
+                ALTER TABLE
+                ERROR:  relation "projects_project_id_seq" already exists
+                ERROR:  relation "projects_projectgallery" already exists
+                ALTER TABLE
+                ERROR:  relation "projects_projectgallery_id_seq" already exists
+                ERROR:  relation "qualifications_qualification" already exists
+                ALTER TABLE
+                ERROR:  relation "qualifications_qualification_id_seq" already exists
+                ERROR:  relation "services_service" already exists
+                ALTER TABLE
+                ERROR:  relation "services_service_id_seq" already exists
+                ERROR:  relation "settings_displaysetting" already exists
+                ALTER TABLE
+                ERROR:  relation "settings_displaysetting_id_seq" already exists
+                ERROR:  relation "settings_seopagesetting" already exists
+                ALTER TABLE
+                ERROR:  relation "settings_seopagesetting_id_seq" already exists
+                ERROR:  relation "settings_setting" already exists
+                ALTER TABLE
+                ERROR:  relation "settings_setting_id_seq" already exists
+                ERROR:  relation "settings_sitemapsetting" already exists
+                ALTER TABLE
+                ERROR:  relation "settings_sitemapsetting_id_seq" already exists
+                ERROR:  relation "skills_skill" already exists
+                ALTER TABLE
+                ERROR:  relation "skills_skill_id_seq" already exists
+                ERROR:  relation "skills_subskill" already exists
+                ALTER TABLE
+                ERROR:  relation "skills_subskill_id_seq" already exists
+                ERROR:  relation "socialmedia_socialmedia" already exists
+                ALTER TABLE
+                ERROR:  relation "socialmedia_socialmedia_id_seq" already exists
+                ERROR:  relation "subscription_subscription" already exists
+                ALTER TABLE
+                ERROR:  relation "subscription_subscription_id_seq" already exists
+                ERROR:  relation "users_user" already exists
+                ALTER TABLE
+                ERROR:  relation "users_user_groups" already exists
+                ALTER TABLE
+                ERROR:  relation "users_user_groups_id_seq" already exists
+                ERROR:  relation "users_user_id_seq" already exists
+                ERROR:  relation "users_user_user_permissions" already exists
+                ALTER TABLE
+                ERROR:  relation "users_user_user_permissions_id_seq" already exists
+                COPY 0
+                COPY 0
+                ERROR:  duplicate key value violates unique constraint "auth_permission_pkey"     
+                DETAIL:  Key (id)=(1) already exists.    
+                CONTEXT:  COPY auth_permission, line 1   
+                COPY 7
+                COPY 2
+                ERROR:  insert or update on table "creations_creation" violates foreign key constraint "creations_creation_user_id_357998b7_fk_users_user_id"
+                DETAIL:  Key (user_id)=(1) is not present in table "users_user".
+                ERROR:  insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_users_user_id"
+                DETAIL:  Key (user_id)=(1) is not present in table "users_user".
+                ERROR:  duplicate key value violates unique constraint "django_content_type_pkey" 
+                DETAIL:  Key (id)=(1) already exists.    
+                CONTEXT:  COPY django_content_type, line 1
+                ERROR:  duplicate key value violates unique constraint "django_migrations_pkey"   
+                DETAIL:  Key (id)=(1) already exists.    
+                CONTEXT:  COPY django_migrations, line 1 
+                COPY 9
+                COPY 1
+                COPY 1
+                COPY 3
+                COPY 1
+                ERROR:  insert or update on table "projects_project" violates foreign key constraint "projects_project_user_id_719f19dd_fk_users_user_id"
+                DETAIL:  Key (user_id)=(1) is not present in table "users_user".
+                ERROR:  insert or update on table "projects_projectgallery" violates foreign key constraint "projects_projectgall_project_id_55b3e466_fk_projects_"
+                DETAIL:  Key (project_id)=(2) is not present in table "projects_project".
+                COPY 3
+                COPY 2
+                COPY 3
+                COPY 3
+                COPY 5
+                COPY 2
+                COPY 3
+                COPY 5
+                COPY 1
+                COPY 4
+                COPY 2
+                COPY 0
+                COPY 0
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                148
+                (1 row)
+
+                setval 
+                --------
+                7
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                6
+                (1 row)
+
+                setval 
+                --------
+                34
+                (1 row)
+
+                setval 
+                --------
+                37
+                (1 row)
+
+                setval 
+                --------
+                80
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                4
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                7
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                5
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                4
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                ERROR:  relation "auth_group_name_key" already exists
+                ERROR:  relation "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" already exists
+                ERROR:  multiple primary keys for table "auth_group_permissions" are not allowed  
+                ERROR:  multiple primary keys for table "auth_group" are not allowed
+                ERROR:  relation "auth_permission_content_type_id_codename_01ab375a_uniq" already exists
+                ERROR:  multiple primary keys for table "auth_permission" are not allowed
+                ERROR:  multiple primary keys for table "contacts_contactmessage" are not allowed 
+                ERROR:  relation "creations_category_name_key" already exists
+                ERROR:  multiple primary keys for table "creations_category" are not allowed      
+                ERROR:  multiple primary keys for table "creations_creation" are not allowed      
+                ERROR:  relation "creations_creation_slug_key" already exists
+                ERROR:  multiple primary keys for table "django_admin_log" are not allowed        
+                ERROR:  relation "django_content_type_app_label_model_76bd3d3b_uniq" already exists
+                ERROR:  multiple primary keys for table "django_content_type" are not allowed     
+                ERROR:  multiple primary keys for table "django_migrations" are not allowed       
+                ERROR:  multiple primary keys for table "django_session" are not allowed
+                ERROR:  multiple primary keys for table "experience_experience" are not allowed   
+                ALTER TABLE
+                ERROR:  multiple primary keys for table "hires_hiringmessage" are not allowed     
+                ERROR:  multiple primary keys for table "profiles_profile" are not allowed
+                ERROR:  multiple primary keys for table "projects_project" are not allowed        
+                ERROR:  relation "projects_project_slug_key" already exists
+                ERROR:  multiple primary keys for table "projects_projectgallery" are not allowed 
+                ERROR:  multiple primary keys for table "qualifications_qualification" are not allowed
+                ERROR:  multiple primary keys for table "services_service" are not allowed        
+                ERROR:  relation "settings_displaysetting_context_item_type_50953f09_uniq" already exists
+                ERROR:  multiple primary keys for table "settings_displaysetting" are not allowed 
+                ERROR:  relation "settings_seopagesetting_page_key" already exists
+                ERROR:  multiple primary keys for table "settings_seopagesetting" are not allowed 
+                ERROR:  relation "settings_setting_key_key" already exists
+                ERROR:  multiple primary keys for table "settings_setting" are not allowed        
+                ERROR:  relation "settings_sitemapsetting_page_key" already exists
+                ERROR:  multiple primary keys for table "settings_sitemapsetting" are not allowed 
+                ERROR:  multiple primary keys for table "skills_skill" are not allowed
+                ERROR:  multiple primary keys for table "skills_subskill" are not allowed
+                ERROR:  multiple primary keys for table "socialmedia_socialmedia" are not allowed 
+                ERROR:  relation "subscription_subscription_email_key" already exists
+                ERROR:  multiple primary keys for table "subscription_subscription" are not allowed
+                ERROR:  multiple primary keys for table "users_user_groups" are not allowed       
+                ERROR:  relation "users_user_groups_user_id_group_id_b88eab82_uniq" already exists
+                ERROR:  multiple primary keys for table "users_user" are not allowed
+                ERROR:  multiple primary keys for table "users_user_user_permissions" are not allowed
+                ERROR:  relation "users_user_user_permissions_user_id_permission_id_43338c45_uniq" already exists
+                ERROR:  relation "users_user_username_key" already exists
+                ERROR:  relation "auth_group_name_a6ea08ec_like" already exists
+                ERROR:  relation "auth_group_permissions_group_id_b120cbf9" already exists        
+                ERROR:  relation "auth_group_permissions_permission_id_84c5c92e" already exists   
+                ERROR:  relation "auth_permission_content_type_id_2f476e4b" already exists        
+                ERROR:  relation "creations_category_name_5b6da7bc_like" already exists
+                ERROR:  relation "creations_creation_category_id_98c4698d" already exists
+                ERROR:  relation "creations_creation_slug_423c94ab_like" already exists
+                ERROR:  relation "creations_creation_translation_key_2b23035a" already exists     
+                ERROR:  relation "creations_creation_user_id_357998b7" already exists
+                ERROR:  relation "django_admin_log_content_type_id_c4bce8eb" already exists       
+                ERROR:  relation "django_admin_log_user_id_c564eba6" already exists
+                ERROR:  relation "django_session_expire_date_a5c62663" already exists
+                ERROR:  relation "django_session_session_key_c0390e0f_like" already exists        
+                ERROR:  relation "projects_project_slug_2d50067a_like" already exists
+                ERROR:  relation "projects_project_user_id_719f19dd" already exists
+                ERROR:  relation "projects_projectgallery_project_id_55b3e466" already exists     
+                ERROR:  relation "settings_seopagesetting_page_86a280bc_like" already exists      
+                ERROR:  relation "settings_setting_key_893c9b9a_like" already exists
+                lation "django_admin_log" already exists
+                ERROR:  constraint "django_admin_log_user_id_c564eba6_fk_users_user_id" for relation "django_admin_log" already exists
+                ERROR:  constraint "projects_project_user_id_719f19dd_fk_users_user_id" for relation "projects_project" already exists
+                ERROR:  constraint "projects_projectgall_project_id_55b3e466_fk_projects_" for relation "projects_projectgallery" already exists
+                ERROR:  constraint "skills_subskill_skill_id_4aecfe92_fk_skills_skill_id" for relation "skills_subskill" already exists
+                ERROR:  constraint "users_user_groups_group_id_9afc8d0e_fk_auth_group_id" for relation "users_user_groups" already exists
+                ERROR:  constraint "users_user_groups_user_id_5f6f5a90_fk_users_user_id" for relation "users_user_groups" already exists
+                ERROR:  constraint "users_user_user_perm_permission_id_0b93982e_fk_auth_perm" for relation "users_user_user_permissions" already exists        
+                ERROR:  constraint "users_user_user_permissions_user_id_20aca447_fk_users_user_id" for relation "users_user_user_permissions" already exists   `
+            
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>psql "postgresql://postgres:No1xOETCC5OfttT3@db.whhdkzesrfkmtrsmfcut.supabase.co:5432/postgres"
+                psql (17.6)
+                WARNING: Console code page (437) differs from Windows code page (1252)
+                         8-bit characters might not work correctly. See psql reference
+                         page "Notes for Windows users" for details.
+                SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off, ALPN: postgresql)
+                Type "help" for help.
+            - postgres=> DROP SCHEMA public CASCADE;
+                NOTICE:  drop cascades to 29 other objects
+                DETAIL:  drop cascades to table django_migrations
+                drop cascades to table django_content_type
+                drop cascades to table auth_permission
+                drop cascades to table auth_group
+                drop cascades to table auth_group_permissions
+                drop cascades to table users_user
+                drop cascades to table users_user_groups
+                drop cascades to table users_user_user_permissions
+                drop cascades to table django_admin_log
+                drop cascades to table contacts_contactmessage
+                drop cascades to table creations_category
+                drop cascades to table creations_creation
+                drop cascades to table experience_experience
+                drop cascades to table hires_hiringmessage
+                drop cascades to table profiles_profile
+                drop cascades to table projects_project
+                drop cascades to table projects_projectgallery
+                drop cascades to table qualifications_qualification
+                drop cascades to table services_service
+                drop cascades to table django_session
+                drop cascades to table settings_seopagesetting
+                drop cascades to table settings_setting
+                drop cascades to table settings_sitemapsetting
+                drop cascades to table settings_displaysetting
+                drop cascades to table skills_skill
+                drop cascades to table skills_subskill
+                drop cascades to table socialmedia_socialmedia
+                drop cascades to table subscription_subscription
+                drop cascades to table hiremodal_hiremodal
+                DROP SCHEMA
+            - postgres=> CREATE SCHEMA public;
+                CREATE SCHEMA
+            - postgres=> GRANT ALL ON SCHEMA public TO postgres;
+                GRANT
+            - postgres=> GRANT ALL ON SCHEMA public TO public;
+                GRANT
+            - postgres=> \q
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>psql "postgresql://postgres:No1xOETCC5OfttT3@db.whhdkzesrfkmtrsmfcut.supabase.co:5432/postgres" < backup.sql
+                SET
+                SET
+                SET
+                SET
+                SET
+                SET
+                set_config 
+                ------------
+
+                (1 row)
+
+                SET
+                SET
+                SET
+                SET
+                SET
+                SET
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                COPY 0
+                COPY 0
+                COPY 148
+                COPY 7
+                COPY 2
+                COPY 5
+                COPY 34
+                COPY 37
+                COPY 65
+                COPY 9
+                COPY 1
+                COPY 1
+                COPY 3
+                COPY 1
+                COPY 3
+                COPY 3
+                COPY 3
+                COPY 2
+                COPY 3
+                COPY 3
+                COPY 5
+                COPY 2
+                COPY 3
+                COPY 5
+                COPY 1
+                COPY 4
+                COPY 2
+                COPY 0
+                COPY 0
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                148
+                (1 row)
+
+                setval 
+                --------
+                7
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                6
+                (1 row)
+
+                setval 
+                --------
+                34
+                (1 row)
+
+                setval 
+                --------
+                37
+                (1 row)
+
+                setval 
+                --------
+                80
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                4
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                7
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                3
+                (1 row)
+
+                setval 
+                --------
+                5
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                4
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                setval 
+                --------
+                2
+                (1 row)
+
+                setval 
+                --------
+                1
+                (1 row)
+
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+
+        - Secret key of django was set randomly so do following
+            - get current secret key using
+                - python manage.py shell
+                - from django.core.management.utils import get_random_secret_key
+                - print(get_random_secret_key())
+            - copy the generated key and use in .env file
+                - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>python manage.py shell
+                    24 objects imported automatically (use -v 2 for details).
+
+                    Ctrl click to launch VS Code Native REPL
+                    Python 3.10.1 (tags/v3.10.1:2cd268a, Dec  6 2021, 19:10:37) [MSC v.1929 64 bit (AMD64)] on win32
+                    Type "help", "copyright", "credits" or "license" for more information.
+                    (InteractiveConsole)
+                    >>> from django.contrib.sessions.models import Session
+                    >>> from django.contrib.auth import get_user_model
+                    >>> Session.objects.all().delete()
+                    (18, {'sessions.Session': 18})
+                    >>> User = get_user_model()
+                    >>> User.objects.all().delete()
+                    (47, {'projects.ProjectGallery': 3, 'admin.LogEntry': 34, 'creations.Creation': 5, 'projects.Project': 3, 'users.User': 2})
+                    >>> User.objects.create_superuser(    username="Ayush_B@",    email="",    password="@Yush082")
+                    <User: Ayush_B@>
+                    >>> exit()
+
+        - db contained no entry for models with imagefield or filefield. So, do:
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>psql "postgresql://postgres:No1xOETCC5OfttT3@db.whhdkzesrfkmtrsmfcut.supabase.co:5432/postgres"
+                psql (17.6)
+                WARNING: Console code page (437) differs from Windows code page (1252)
+                         8-bit characters might not work correctly. See psql reference
+                         page "Notes for Windows users" for details.
+                SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off, ALPN: postgresql)
+                Type "help" for help.
+            - postgres=> DROP SCHEMA public CASCADE;
+                NOTICE:  drop cascades to 28 other objects
+                DETAIL:  drop cascades to table django_migrations
+                drop cascades to table django_content_type
+                drop cascades to table auth_permission
+                drop cascades to table auth_group
+                drop cascades to table auth_group_permissions
+                drop cascades to table users_user
+                drop cascades to table users_user_groups
+                drop cascades to table users_user_user_permissions
+                drop cascades to table django_admin_log
+                drop cascades to table contacts_contactmessage
+                drop cascades to table creations_category
+                drop cascades to table creations_creation
+                drop cascades to table experience_experience
+                drop cascades to table hires_hiringmessage
+                drop cascades to table profiles_profile
+                drop cascades to table projects_project
+                drop cascades to table projects_projectgallery
+                drop cascades to table qualifications_qualification
+                drop cascades to table services_service
+                drop cascades to table django_session
+                drop cascades to table settings_seopagesetting
+                drop cascades to table settings_setting
+                drop cascades to table settings_sitemapsetting
+                drop cascades to table settings_displaysetting
+                drop cascades to table skills_skill
+                drop cascades to table skills_subskill
+                drop cascades to table socialmedia_socialmedia
+                drop cascades to table subscription_subscription
+                DROP SCHEMA
+            - postgres=> CREATE SCHEMA public;
+                CREATE SCHEMA
+            - postgres=> \q
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>pg_dump -U postgres -h localhost -p 5432 portfolio_db > full_backup.sql
+                Password:
+            - (venv) D:\Ayush\Portfolio\ThreeLayerApproach\backend>psql "postgresql://postgres:No1xOETCC5OfttT3@db.whhdkzesrfkmtrsmfcut.supabase.co:5432/postgres" < full_backup.sql
+                SET
+                SET
+                SET
+                SET
+                SET
+                SET
+                 set_config 
+                ------------
+
+                (1 row)
+
+                SET
+                SET
+                SET
+                SET
+                SET
+                SET
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE TABLE
+                ALTER TABLE
+                ALTER TABLE
+                COPY 0
+                COPY 0
+                COPY 148
+                COPY 7
+                COPY 2
+                COPY 5
+                COPY 34
+                COPY 37
+                COPY 65
+                COPY 9
+                COPY 1
+                COPY 1
+                COPY 3
+                COPY 1
+                COPY 3
+                COPY 3
+                COPY 3
+                COPY 2
+                COPY 3
+                COPY 3
+                COPY 5
+                COPY 2
+                COPY 3
+                COPY 5
+                COPY 1
+                COPY 4
+                COPY 2
+                COPY 0
+                COPY 0
+                 setval 
+                --------
+                      1
+                (1 row)
+
+                 setval 
+                --------
+                      1
+                (1 row)
+
+                 setval 
+                --------
+                    148
+                (1 row)
+
+                 setval 
+                --------
+                      7
+                (1 row)
+
+                 setval 
+                --------
+                      2
+                (1 row)
+
+                 setval 
+                --------
+                      6
+                (1 row)
+
+                 setval 
+                --------
+                     34
+                (1 row)
+
+                 setval 
+                --------
+                     37
+                (1 row)
+
+                 setval 
+                --------
+                     80
+                (1 row)
+
+                 setval 
+                --------
+                      1
+                (1 row)
+
+                 setval 
+                --------
+                      1
+                (1 row)
+
+                 setval 
+                --------
+                      3
+                (1 row)
+
+                 setval 
+                --------
+                      3
+                (1 row)
+
+                 setval 
+                --------
+                      3
+                (1 row)
+
+                 setval 
+                --------
+                      3
+                (1 row)
+
+                 setval 
+                --------
+                      4
+                (1 row)
+
+                 setval 
+                --------
+                      2
+                (1 row)
+
+                 setval 
+                --------
+                      3
+                (1 row)
+
+                 setval 
+                --------
+                      3
+                (1 row)
+
+                 setval 
+                --------
+                      7
+                (1 row)
+
+                 setval 
+                --------
+                      2
+                (1 row)
+
+                 setval 
+                --------
+                      3
+                (1 row)
+
+                 setval 
+                --------
+                      5
+                (1 row)
+
+                 setval 
+                --------
+                      1
+                (1 row)
+
+                 setval 
+                --------
+                      4
+                (1 row)
+
+                 setval 
+                --------
+                      1
+                (1 row)
+
+                 setval 
+                --------
+                      2
+                (1 row)
+
+                 setval 
+                --------
+                      1
+                (1 row)
+
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                CREATE INDEX
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+                ALTER TABLE
+
+
+
+
+
+
+
+
+npm run dev -- -H 127.0.0.1 -p 3000
+py manage.py runserver localhost:8000
+

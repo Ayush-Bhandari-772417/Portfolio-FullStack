@@ -4,7 +4,7 @@ import api from "@/lib/axios";
 import FormSection from "@/components/FormSection";
 import FormActions from "@/components/FormActions";
 import { useFormHandler } from "@/hooks/useFormHandler";
-import { CheckBox, CommaSeparatedInput, DateInput, EnterSeparatedInput, TextArea, TextInput, SelectInput, UrlInput } from "@/components/Inputs";
+import { CheckBox, DateInput, EnterSeparatedInput, TextArea, TextInput, SelectInput, UrlInput } from "@/components/Inputs";
 import { GalleryImageUpload, SingleImageUpload } from "@/components/ImageUploadPreview";
 import { useMemo } from "react";
 
@@ -165,9 +165,9 @@ export default function ProjectForm({ project, onSuccess, onCancel }: ProjectFor
 
           <EnterSeparatedInput label="Features" name="features" value={formData.features}  onChange={(arr) => setFormData({ ...formData, features: arr })} rows={3} />
           <EnterSeparatedInput label="Technologies" name="technologies" value={formData.technologies} onChange={(arr) => setFormData({ ...formData, technologies: arr })} />
-          <CommaSeparatedInput label="Keywords" name="keywords" value={formData.keywords} onChange={(arr) => setFormData({ ...formData, keywords: arr })} />
-          <CommaSeparatedInput label="Tags" name="tags" value={formData.tags} onChange={(arr) => setFormData({ ...formData, tags: arr })} />
-          <CommaSeparatedInput label="Contributors" name="contributors" value={formData.contributors} onChange={(arr) => setFormData({ ...formData, contributors: arr })} />
+          <EnterSeparatedInput label="Keywords" name="keywords" value={formData.keywords} onChange={(arr) => setFormData({ ...formData, keywords: arr })} />
+          <EnterSeparatedInput label="Tags" name="tags" value={formData.tags} onChange={(arr) => setFormData({ ...formData, tags: arr })} />
+          <EnterSeparatedInput label="Contributors" name="contributors" value={formData.contributors} onChange={(arr) => setFormData({ ...formData, contributors: arr })} />
 
           {/* Featured Image */}
           <div className="md:col-span-2">

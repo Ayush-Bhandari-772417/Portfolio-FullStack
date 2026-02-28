@@ -1,0 +1,288 @@
+For projects
+    - POST https://whhdkzesrfkmtrsmfcut.supabase.co/rest/v1/projects_project
+  [
+    {
+      "user_id": 1,
+      "title": "Libmax - Library Management System",
+      "slug": "libmax-library-management-system",
+      "category": "system-software",
+      "excerpt": "C-based library management system with automated book tracking.",
+      "abstract": "A robust library management application developed in C with automatic book code generation and inventory tracking.",
+      "features": [
+        "Automatic Book Code Generation",
+        "Inventory Management",
+        "Fine Calculation",
+        "Search System"
+      ],
+      "technologies": ["C", "File Handling"],
+      "keywords": ["Library", "C Programming", "Management System"],
+      "tags": ["Academic", "System"],
+      "featured_image": "libmax.png",
+      "featured_image_alt": "Libmax Interface",
+      "repository_link": null,
+      "live_link": null,
+      "demo": null,
+      "contributors": ["Ayush Bhandari"],
+      "status": "completed",
+      "project_type": "academic",
+      "is_public": true,
+      "featured": true,
+      "client_feedback": null,
+      "started_date": "2021-05-01",
+      "completed_date": "2021-09-01",
+      "created_at": "2021-09-02T00:00:00Z",
+      "updated_at": "2021-09-02T00:00:00Z",
+      "views_count": 120,
+      "likes_count": 15
+    },
+    {
+      "user_id": 1,
+      "title": "Hostel Finder",
+      "slug": "hostel-finder",
+      "category": "desktop-application",
+      "excerpt": "GUI application for hostel searching and advertisement.",
+      "abstract": "A Python-based GUI system to connect hostel owners and seekers.",
+      "features": [
+        "Search by Location",
+        "Room Availability",
+        "Facility Filtering",
+        "Owner Dashboard"
+      ],
+      "technologies": ["Python", "Tkinter"],
+      "keywords": ["Hostel", "Python", "GUI"],
+      "tags": ["Academic", "Desktop"],
+      "featured_image": "hostel_finder.png",
+      "featured_image_alt": "Hostel Finder GUI",
+      "repository_link": null,
+      "live_link": null,
+      "demo": null,
+      "contributors": ["Ayush Bhandari"],
+      "status": "completed",
+      "project_type": "academic",
+      "is_public": true,
+      "featured": false,
+      "client_feedback": null,
+      "started_date": "2022-05-01",
+      "completed_date": "2022-09-01",
+      "created_at": "2022-09-02T00:00:00Z",
+      "updated_at": "2022-09-02T00:00:00Z",
+      "views_count": 95,
+      "likes_count": 11
+    },
+    {
+      "user_id": 1,
+      "title": "Nepali Spelling Correction Using Transformer Model",
+      "slug": "nepali-spelling-correction-transformer",
+      "category": "artificial-intelligence",
+      "excerpt": "Transformer-based NLP system for Nepali spelling correction.",
+      "abstract": "An NLP research project for correcting Nepali word-level errors using transformer models.",
+      "features": [
+        "Dataset Preprocessing",
+        "Transformer Training",
+        "Inference Pipeline",
+        "Evaluation System"
+      ],
+      "technologies": ["Python", "TensorFlow", "Transformers"],
+      "keywords": ["NLP", "Nepali", "AI", "Transformer"],
+      "tags": ["Research", "AI"],
+      "featured_image": "nepali_spellchecker.png",
+      "featured_image_alt": "Spell Checker Output",
+      "repository_link": null,
+      "live_link": null,
+      "demo": null,
+      "contributors": ["Ayush Bhandari"],
+      "status": "completed",
+      "project_type": "academic",
+      "is_public": true,
+      "featured": true,
+      "client_feedback": null,
+      "started_date": "2023-11-01",
+      "completed_date": "2024-04-01",
+      "created_at": "2024-04-02T00:00:00Z",
+      "updated_at": "2024-04-02T00:00:00Z",
+      "views_count": 210,
+      "likes_count": 42
+    }
+  ]
+
+
+
+For skills and subskills
+  - POST http://localhost:8000/api/admin/skills/?Content-Type=application/json
+  [
+    {
+      "name": "Languages",
+      "icon": "FaCode",
+      "is_public": true,
+      "subskills": [
+        {
+          "name": "C/C++",
+          "icon": "SiCplusplus",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "Python",
+          "icon": "FaPython",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "HTML",
+          "icon": "FaHtml5",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "CSS",
+          "icon": "FaCss3Alt",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "JavaScript",
+          "icon": "FaJs",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        }
+      ]
+    },
+    {
+      "name": "Libraries & Frameworks",
+      "icon": "FaLayerGroup",
+      "is_public": true,
+      "subskills": [
+        {
+          "name": "React",
+          "icon": "FaReact",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "Bootstrap",
+          "icon": "FaBootstrap",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "WordPress",
+          "icon": "FaWordpress",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "Hadoop",
+          "icon": "SiApachehadoop",
+          "level": "Intermediate",
+          "rating": 4,
+          "is_public": true
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "icon": "FaTools",
+      "is_public": true,
+      "subskills": [
+        {
+          "name": "Git",
+          "icon": "FaGitAlt",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "GitHub",
+          "icon": "FaGithub",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "MS Office",
+          "icon": "SiMicrosoftoffice",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "LaTeX",
+          "icon": "SiLatex",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        }
+      ]
+    },
+    {
+      "name": "Platforms & Deployment",
+      "icon": "FaCloud",
+      "is_public": true,
+      "subskills": [
+        {
+          "name": "Windows",
+          "icon": "FaWindows",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "Linux",
+          "icon": "FaLinux",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "Supabase",
+          "icon": "SiSupabase",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "Railway",
+          "icon": "SiRailway",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "Vercel",
+          "icon": "SiVercel",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        }
+      ]
+    },
+    {
+      "name": "Databases",
+      "icon": "FaDatabase",
+      "is_public": true,
+      "subskills": [
+        {
+          "name": "MySQL",
+          "icon": "SiMysql",
+          "level": "Expert",
+          "rating": 5,
+          "is_public": true
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "SiPostgresql",
+          "level": "Pro",
+          "rating": 5,
+          "is_public": true
+        }
+      ]
+    }
+  ]

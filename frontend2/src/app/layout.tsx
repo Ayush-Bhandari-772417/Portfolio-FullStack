@@ -1,4 +1,5 @@
 // frontend2\src\app\layout.tsx
+import { Suspense } from 'react'
 import Navbar from "@/components/commonSections/Navbar";
 import '@/styles/globals.css';
 import Footer from "@/components/commonSections/Footer";
@@ -10,7 +11,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 import ScrollDepth from '@/components/ScrollDepth';
 import EngagementTime from '@/components/EngagementTime';
 import RecaptchaScript from '@/components/RecaptchaScript';
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -97,10 +98,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <RecaptchaScript />
         
         {/* Client-side analytics components (only when GA is configured) */}
+        <Suspense fallback={null}>
         {gaId && <GoogleAnalytics />}
         {gaId && <ScrollDepth />}
         {gaId && <EngagementTime />}
-        
+        </Suspense>
         <ReactQueryProvider>
           <Navbar settings={settings} />
           <main className="min-h-screen flex flex-col" role="main">{children}</main>

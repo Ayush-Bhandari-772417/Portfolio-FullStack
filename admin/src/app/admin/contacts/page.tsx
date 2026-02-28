@@ -1,4 +1,4 @@
-// admin\src\app\admin\messages\page.tsx
+// admin\src\app\admin\contacts\page.tsx
 import MessagesContent from "@/components/contentpage/MessagesContent";
 
 export default function MessagePage() {

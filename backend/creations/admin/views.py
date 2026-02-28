@@ -1,31 +1,34 @@
 # apps/creations/admin/views.py
 
-from django.db import models
-from django.shortcuts import get_object_or_404
 from django.core.files.storage import default_storage
 from django.conf import settings
 import uuid
-from rest_framework import viewsets, permissions, filters, parsers
+from django.db import models
+from rest_framework import viewsets, filters, parsers
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from config.permissions import IsSecureAdmin
+from django.shortcuts import get_object_or_404
 from core.utils.revalidate import trigger_revalidation
 
 from ..models import Creation, Category
 from ..serializers import CreationSerializer, CategorySerializer
 
+from config.authentication import CookieJWTAuthentication
 
 class AdminCategoryViewSet(viewsets.ModelViewSet):
+    authentication_classes = [CookieJWTAuthentication]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsSecureAdmin]
 
 
 class AdminCreationViewSet(viewsets.ModelViewSet):
+    authentication_classes = [CookieJWTAuthentication]
     queryset = Creation.objects.all().select_related("category")
     serializer_class = CreationSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsSecureAdmin]
 
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     parser_classes = [parsers.JSONParser, parsers.FormParser, parsers.MultiPartParser]
@@ -72,8 +75,9 @@ class AdminCreationViewSet(viewsets.ModelViewSet):
 
 
 class ImageUploadView(APIView):
+    authentication_classes = [CookieJWTAuthentication]
     parser_classes = [MultiPartParser]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsSecureAdmin]
 
     def post(self, request):
         file = request.FILES.get("image")

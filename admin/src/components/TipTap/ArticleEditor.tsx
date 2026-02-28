@@ -9,7 +9,6 @@ import Link from '@tiptap/extension-link';
 import Highlight from '@tiptap/extension-highlight';
 import TextAlign from '@tiptap/extension-text-align';
 import Mathematics from '@tiptap/extension-mathematics';
-import Image from "@tiptap/extension-image";
 // Tables
 import {Table} from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
@@ -17,11 +16,13 @@ import TableHeader from '@tiptap/extension-table-header';
 // Custom extensions
 import Toolbar from './Toolbar';
 import { Reference } from './extensions/Reference';
-import { uploadImage } from './extensions/uploadImage';
 import { Caption, Figure, LabeledTable, Equation } from './extensions';
 import { AutoNumbering, autoNumberingPluginKey } from './extensions/AutoNumbering';
 import { CaptionPlaceholderExtension } from './extensions/CaptionPlaceholderExtension';
 import { CustomTableCell } from './extensions/CustomTableCell';
+import { uploadEditorImage } from './utils/editorImageUpload';
+import { handleImagePaste } from './utils/handleImagePaste';
+import { Image } from './extensions/Image';
 
 export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
   const [refMenuOpen, setRefMenuOpen] = React.useState(false);
@@ -34,6 +35,9 @@ export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
         orderedList: { HTMLAttributes: { class: 'list-decimal ml-3' }, },
         link: { openOnClick: false, },
       }),
+      Image,      // ✅ your custom image
+      Caption,    // ✅ caption
+      Figure,     // ✅ figure
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Highlight.configure({ HTMLAttributes: { class: 'hover:bg-red-200' } }),
       Link.configure({ openOnClick: true, linkOnPaste: true }),
@@ -47,11 +51,8 @@ export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
       TableRow,
       CustomTableCell,
       TableHeader,
-      Caption,
-      Figure,
       LabeledTable,
       Equation,
-      Image.configure({ inline: false, allowBase64: false, }),
       Reference,
       AutoNumbering,
       CaptionPlaceholderExtension,
@@ -65,33 +66,20 @@ export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
     editorProps: {
       attributes: { class: 'min-h-[150px] border rounded-md bg-slate-50 py-2 px-3 prose max-w-none', },
       handlePaste(view, event) {
-        const items = Array.from(event.clipboardData?.items || []);
-        const imageItem = items.find(item => item.type.startsWith('image/'));
-        if (!imageItem) return false;
-        event.preventDefault();
-        const file = imageItem.getAsFile();
-        if (!file) return false;
-        uploadImage(file).then((url) => {
-          const { schema } = view.state;
-          const figureNode = schema.node('figure', {}, [
-            schema.node('image', { src: url }),
-            schema.node('caption', {}), // placeholder visible
-          ]);
-          view.dispatch(view.state.tr.replaceSelectionWith(figureNode));
-        });
-        return true;
+        return handleImagePaste(view, event as ClipboardEvent);
       },
-      
       handleDrop(view, event) {
         const files = Array.from(event.dataTransfer?.files || []);
         const image = files.find(file => file.type.startsWith('image/'));
         if (!image) return false;
         event.preventDefault();
-        uploadImage(image).then((url) => {
-          const node = view.state.schema.nodes.image.create({ src: url });
+        
+        uploadEditorImage(image).then(relativePath => {
+          const absoluteUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${relativePath}`;
+          const node = view.state.schema.nodes.image.create({ src: absoluteUrl });
           view.dispatch(view.state.tr.replaceSelectionWith(node));
         });
-        return true; // ⬅️ CRITICAL
+        return true;
       },
     },
   });
@@ -115,13 +103,32 @@ export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
   useEffect(() => {
     if (!editor) return;
     if (isInitialized.current) return;
-    if (editor && valueJSON) {
-      editor.commands.setContent(valueJSON);
-      const tr = editor.state.tr;
-      tr.setMeta(autoNumberingPluginKey, 'renumber');
-      editor.view.dispatch(tr);
-      isInitialized.current = true;
+    if (!valueJSON) return;
+
+    const json = structuredClone(valueJSON);
+    
+    const SUPABASE_BASE = process.env.NEXT_PUBLIC_SUPABASE_URL + "/storage/v1/object/public/media/";
+    
+    function rebuild(node: any) {
+      if (!node) return;
+      if (node.type === "image" && node.attrs?.origin === "uploaded") {
+        const src = node.attrs.src;
+        // If stored as relative → rebuild
+        if (src && !src.startsWith("http")) {
+          node.attrs.src = SUPABASE_BASE + src;
+        }
+      }
+      
+      if (node.content) {
+        node.content.forEach(rebuild);
+      }
     }
+    rebuild(json);
+    editor.commands.setContent(json);
+    const tr = editor.state.tr;
+    tr.setMeta(autoNumberingPluginKey, "renumber");
+    editor.view.dispatch(tr);
+    isInitialized.current = true;
   }, [editor, valueJSON]);
 
   // Insert Figure

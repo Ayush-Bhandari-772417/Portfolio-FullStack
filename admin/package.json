@@ -17,6 +17,7 @@
     "@editorjs/paragraph": "^2.11.7",
     "@editorjs/quote": "^2.7.6",
     "@radix-ui/react-toggle": "^1.1.10",
+    "@supabase/supabase-js": "^2.94.0",
     "@tiptap/core": "^3.13.0",
     "@tiptap/extension-code-block-lowlight": "^3.15.3",
     "@tiptap/extension-highlight": "^3.13.0",

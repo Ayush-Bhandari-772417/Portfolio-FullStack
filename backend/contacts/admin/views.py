@@ -1,11 +1,14 @@
 # apps/contacts/admin/views.py
-from rest_framework import viewsets, permissions, filters
+from rest_framework import viewsets, filters
+from config.permissions import IsSecureAdmin
 from ..models import ContactMessage
 from ..serializers import ContactMessageSerializer
+from config.authentication import CookieJWTAuthentication
 
 class AdminContactMessageViewSet(viewsets.ModelViewSet):
+    authentication_classes = [CookieJWTAuthentication]
     serializer_class = ContactMessageSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsSecureAdmin]
 
     queryset = ContactMessage.objects.all().order_by("-created_at")
 

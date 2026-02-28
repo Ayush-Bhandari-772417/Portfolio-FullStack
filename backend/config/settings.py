@@ -13,45 +13,83 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 # backend/config/settings.py
 from pathlib import Path
 import os
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from datetime import timedelta
+from dotenv import load_dotenv
+load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-dz=d_^t)%#v=r+26z95q!$eofcm)#!0phw@t^%=9yzg01!d4-9')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
-
-ALLOWED_HOSTS = ['*']
-
-
-# Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+# =====================================================
+# SECURITY
+# =====================================================
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    "authorization",
+    "content-type",
+    "x-csrftoken",
+    "x-requested-with",
 ]
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+# =====================================================
+# APPLICATION
+# =====================================================
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+
+    # Third party
+    "rest_framework",
+    "corsheaders",
+    "storages",
+
+    # Custom
+    "contacts",
+    "creations",
+    "experience",
+    "hires",
+    "profiles",
+    "projects",
+    "qualifications",
+    "services",
+    "settings",
+    "skills",
+    "socialmedia",
+    "subscription",
+    "users",
+]
+
+AUTH_USER_MODEL = "users.User"
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # MUST be high
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'config.urls'
+
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -68,159 +106,129 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-# Addaed manually below code along with DATABSE and INSTALLED_APP
-import os
-from datetime import timedelta
-AUTH_USER_MODEL = "users.User"
-# TIME_ZONE = 'Asia/Kathmandu' # Use the one defined above or env var
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-INSTALLED_APPS = [
-    *INSTALLED_APPS,
-    # Third party
-    'rest_framework',
-    'corsheaders',
-    # 'rest_framework_simplejwt' # is used via imports; no need to add here, but ok if you do
-
-    # Custom apps
-    'contacts',
-    'creations',
-    'experience',
-    'hires',
-    'projects',
-    'qualifications',
-    'services',
-    'skills',
-    'socialmedia',
-    'subscription',
-    'users',
-    'settings',
-    'profiles',
-    'auth.me',
-]
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Add WhiteNoise
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware', # Place before CommonMiddleware
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# =====================================================
+# DATABASE (SUPABASE)
+# =====================================================
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'portfolio_db'),
-        'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', '123@Yush'),
-        'HOST': os.getenv('DB_HOST', '127.0.0.1'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": int(os.getenv("DB_PORT", "5432")),
+        "OPTIONS": {
+            "sslmode": "require",
+            "target_session_attrs": "read-write",
+        },
     }
 }
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
-CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+# =====================================================
+# MEDIA (SUPABASE STORAGE via S3)
+# =====================================================
 
-CORS_ALLOW_CREDENTIALS = True
-# CORS_ALLOW_ALL_ORIGINS = True  # Remove in production
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
+AWS_ACCESS_KEY_ID = os.getenv("SUPABASE_ACCESS_KEY")
+AWS_SECRET_ACCESS_KEY = os.getenv("SUPABASE_SECRET_KEY")
+
+AWS_STORAGE_BUCKET_NAME = os.getenv("SUPABASE_BUCKET")
+AWS_S3_ENDPOINT_URL = os.getenv("SUPABASE_ENDPOINT")
+
+AWS_S3_REGION_NAME = "us-east-1"
+AWS_S3_ADDRESSING_STYLE = "path"
+
+AWS_QUERYSTRING_AUTH = False
+AWS_DEFAULT_ACL = None
+
+MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
+
+
+# =====================================================
+# STATIC FILES
+# =====================================================
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
+
+# =====================================================
+# AUTH / JWT
+# =====================================================
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.AllowAny",   # public read by default
-    ),
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 10,
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "config.authentication.CookieJWTAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
 }
-# (Optional) tune token lifetimes
+REST_FRAMEWORK["UNAUTHENTICATED_USER"] = None
+DEFAULT_PERMISSION_CLASSES = ["IsAuthenticated"]
+if not DEBUG:
+    REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
+        "rest_framework.renderers.JSONRenderer",
+    ]
+
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=3),
+    "REFRESH_TOKEN_LIFETIME": timedelta(hours=12),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
-
-    # REQUIRED FOR COOKIE MODE
     "AUTH_HEADER_TYPES": ("Bearer",),
+    "UPDATE_LAST_LOGIN": True,
+    "USER_ID_FIELD": "id",
+    "USER_ID_CLAIM": "user_id",
+    
+    # 🔑 ADD THIS
+    "USERNAME_FIELD": "username",  # or "email" if your User model uses email
 }
-# APPEND_SLASH=False
-RECAPTCHA_SECRET_KEY = "6LeQfNQrAAAAAF5tRi4txEHapMXtqvxi1g0WYPhL"
-# REST_FRAMEWORK = {
-#     "DEFAULT_THROTTLE_CLASSES": [
-#         "rest_framework.throttling.AnonRateThrottle",
-#     ],
-#     "DEFAULT_THROTTLE_RATES": {
-#         "anon": "5/minute",   # or 10/hour, adjust as needed
-#     },
-# }
-import os
 
+# =====================================================
+# TIME ZONE — ABSOLUTE RULE
+# =====================================================
+TIME_ZONE = "UTC"
+USE_TZ = True
+
+# =====================================================
+# MISC
+# =====================================================
 REVALIDATE_SECRET = os.getenv("REVALIDATE_SECRET")
 FRONTEND_REVALIDATE_URL = os.getenv("FRONTEND_REVALIDATE_URL")
+RECAPTCHA_SECRET_KEY = os.getenv("RECAPTCHA_SECRET_KEY")
+# settings.py
 
+CORS_ALLOW_CREDENTIALS = True
+
+if DEBUG:
+    SESSION_COOKIE_SAMESITE = "Lax"
+    CSRF_COOKIE_SAMESITE = "Lax"
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+    AUTH_COOKIE_SAMESITE = "Lax"
+    AUTH_COOKIE_SECURE = False
+    AUTH_COOKIE_HTTP_ONLY = True
+else:
+    SESSION_COOKIE_SAMESITE = "None"
+    CSRF_COOKIE_SAMESITE = "None"
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
+    AUTH_COOKIE_SAMESITE = "Lax"    # ✅
+    AUTH_COOKIE_SECURE = True
+
+AUTH_COOKIE_HTTP_ONLY = True
+
+
+print("Debug = ",DEBUG)
+print("SESSION_COOKIE_SAMESITE = ",SESSION_COOKIE_SAMESITE)
+print("CSRF_COOKIE_SAMESITE = ",CSRF_COOKIE_SAMESITE)
+print("SESSION_COOKIE_SECURE = ",SESSION_COOKIE_SECURE)
+print("CSRF_COOKIE_SECURE = ",CSRF_COOKIE_SECURE)
+print("CORS_ALLOW_CREDENTIALS = ",CORS_ALLOW_CREDENTIALS)
+print("CORS_ALLOWED_ORIGINS = ",CORS_ALLOWED_ORIGINS)
+print("AUTH_COOKIE_SAMESITE = ",AUTH_COOKIE_SAMESITE)
+print("AUTH_COOKIE_SECURE = ",AUTH_COOKIE_SECURE)
+print("AUTH_COOKIE_HTTP_ONLY = ",AUTH_COOKIE_HTTP_ONLY)

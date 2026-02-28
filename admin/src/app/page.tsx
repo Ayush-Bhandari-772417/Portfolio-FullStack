@@ -1,4 +1,4 @@
-// admin/src/app/page.tsx
+// admin\src\app\page.tsx
 import LogInUI from '@/components/LogInUI';
 
 export default function LoginPage() {

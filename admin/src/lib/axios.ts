@@ -1,67 +1,69 @@
+// // // // // // admin/src/lib/axios.ts
+// // // // // import axios from "axios";
+
+// // // // // const api = axios.create({
+// // // // //   baseURL: process.env.NEXT_PUBLIC_API_URL, // e.g., http://127.0.0.1:8000/api/admin
+// // // // //   withCredentials: true, // ensures cookies are sent automatically
+// // // // // });
+
+// // // // // export default api;
+
+// // // // // admin/src/lib/axios.ts
+// // // // import axios from "axios";
+
+// // // // const api = axios.create({
+// // // //   baseURL: process.env.NEXT_PUBLIC_API_URL, // e.g., http://localhost:8000/api/admin
+// // // //   withCredentials: true, // cookies are sent automatically
+// // // // });
+
+// // // // // Interceptor to print request cookies
+// // // // api.interceptors.request.use((config) => {
+// // // //   console.log("==== Frontend Sending Cookies ====");
+// // // //   console.log(document.cookie); // prints all non-HttpOnly cookies visible to JS
+// // // //   console.log(config);
+// // // //   console.log("=================================");
+// // // //   return config;
+// // // // });
+
+// // // // export default api;
+
+
+// // // // admin/src/lib/axios.ts
+// // // import axios from "axios";
+
+// // // const api = axios.create({
+// // //   baseURL: process.env.NEXT_PUBLIC_API_URL,
+// // //   withCredentials: true,
+// // // });
+
+// // // export default api;
+
+// // // admin\src\lib\axios.ts
+// // import axios from "axios";
+
+// // const api = axios.create({
+// //   baseURL: process.env.NEXT_PUBLIC_API_URL,
+// //   withCredentials: true, // 🔴 REQUIRED
+// // });
+
+// // export default api;
+
+// // admin\src\lib\axios.ts
+// import axios from "axios";
+// const api = axios.create({
+//   baseURL: "/api/admin",        // ← Best option (relative = always same-origin)
+//   withCredentials: true,
+// });
+
+// export default api;
+
+
 // admin\src\lib\axios.ts
-import axios from 'axios';
-import { getAccessToken, getRefreshToken, setTokens, clearTokens } from './auth';
+import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL, // e.g., http://127.0.0.1:8000/api/admin
+  baseURL: "/api/admin",           // ← this is the key change
+  withCredentials: true,
 });
-
-// Attach access token to all requests
-api.interceptors.request.use((config) => {
-  const token = getAccessToken();
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
-
-// Refresh logic
-let isRefreshing = false;
-let queue: ((token: string) => void)[] = [];
-
-api.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const original = error.config;
-
-    if (error.response?.status === 401 && !original._retry) {
-      original._retry = true;
-
-      const refresh = getRefreshToken();
-      if (!refresh) {
-        clearTokens();
-        window.location.href = '/';
-        return Promise.reject(error);
-      }
-
-      if (isRefreshing) {
-        return new Promise((resolve) => {
-          queue.push((token) => {
-            original.headers.Authorization = `Bearer ${token}`;
-            resolve(api(original));
-          });
-        });
-      }
-
-      isRefreshing = true;
-
-      try {
-        const resp = await api.post('/auth/refresh/', { refresh });
-        setTokens(resp.data.access, refresh);
-
-        queue.forEach((cb) => cb(resp.data.access));
-        queue = [];
-
-        original.headers.Authorization = `Bearer ${resp.data.access}`;
-        return api(original);
-      } catch {
-        clearTokens();
-        window.location.href = '/';
-      } finally {
-        isRefreshing = false;
-      }
-    }
-
-    return Promise.reject(error);
-  }
-);
 
 export default api;

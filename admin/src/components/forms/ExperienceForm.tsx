@@ -1,4 +1,4 @@
-// admin\src\components\forms\SkillForm.tsx
+// admin\src\components\forms\ExperienceForm.tsx
 'use client'
 import { toast } from "react-hot-toast"
 import api from "@/lib/axios"
