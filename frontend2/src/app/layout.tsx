@@ -6,11 +6,13 @@ import Footer from "@/components/commonSections/Footer";
 import Script from "next/script";
 import { Metadata } from 'next';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
-import { getSettings } from '@/lib/data';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import ScrollDepth from '@/components/ScrollDepth';
 import EngagementTime from '@/components/EngagementTime';
 import RecaptchaScript from '@/components/RecaptchaScript';
+import { getBootstrap } from '@/lib/data';
+import { normalizeSettingsFromBootstrap } from '@/lib/normalizeSettings';
+
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 export const metadata: Metadata = {
@@ -47,7 +49,8 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const settings = await getSettings();
+  const bootstrap = await getBootstrap();
+  const settings = normalizeSettingsFromBootstrap(bootstrap);
 
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 

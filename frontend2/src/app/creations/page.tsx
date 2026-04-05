@@ -1,12 +1,16 @@
 // frontend2\src\app\creations\page.tsx
 import { Metadata } from 'next';
-import { getCreations, getSettings, getSEORobots, getDisplayLimit } from '@/lib/data';
+import { getCreations, getBootstrap, getDisplayLimit } from '@/lib/data';
 import CreationCard from '@/components/CreationCard';
 import PageHeader from '@/components/PageHeader';
 import Link from 'next/link';
 import { BookOpen, Sparkles, FileText, Newspaper } from 'lucide-react';
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+import { normalizeSettingsFromBootstrap } from '@/lib/normalizeSettings';
+import { buildMetadata } from '@/lib/seo/metadata';
+import { creationListJsonLd } from '@/lib/seo/jsonld';
+import { websiteJsonLd } from '@/lib/seo/website';
+import { breadcrumbsJsonLd } from '@/lib/seo/breadcrumbs';
+import { speakableJsonLd } from '@/lib/seo/speakable';
 
 const creationTypes = [
   { type: 'blog', label: 'Blog Posts', icon: Newspaper, color: 'from-blue-500 to-cyan-500' },
@@ -19,45 +23,24 @@ export const revalidate = 3600;
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getSettings();
-  
-  const pageTitle = settings.settings.creations_page_title || 'Creations';
-  const pageDescription = settings.settings.creations_page_description || 
-    'Explore my creative writings including blog posts, poems, stories, and articles.';
-  const ogImage = settings.settings.creations_og_image || '/logo.png';
-  const robots = getSEORobots(settings, 'creations');
+  const bootstrap = await getBootstrap();
+  const settings = normalizeSettingsFromBootstrap(bootstrap);
 
-  return {
-    title: pageTitle,
-    description: pageDescription,
+  return buildMetadata({
+    settings: settings,
+    page: "creation-list-page",
+    title: settings.settings.creations_page_title || 'Creations',
+    description: settings.settings.creations_page_description || 
+    'Explore my creative writings including blog posts, poems, stories, and articles.',
+    path: `/creations`,
+    image: settings.settings.creations_og_image || '/logo.png',
     keywords: settings.settings.creations_page_keywords || 'blog, poems, stories, articles, creative writing',
-    alternates: { 
-      canonical: `${baseUrl}/creations` 
-    },
-    openGraph: {
-      type: 'website',
-      url: `${baseUrl}/creations`,
-      title: settings.settings.creations_og_title || pageTitle,
-      description: settings.settings.creations_og_description || pageDescription,
-      images: [{ 
-        url: ogImage, 
-        width: 1200, 
-        height: 630, 
-        alt: 'Creative Writings' 
-      }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: settings.settings.creations_twitter_title || pageTitle,
-      description: settings.settings.creations_twitter_description || pageDescription,
-      images: [ogImage],
-    },
-    robots,
-  };
+  });
 }
 
 export default async function CreationsPage() {
-  const settings = await getSettings();
+  const bootstrap = await getBootstrap();
+  const settings = normalizeSettingsFromBootstrap(bootstrap);
   
   const previewLimit = getDisplayLimit(settings, 'creations_overview', 'items', 4);
 
@@ -80,16 +63,14 @@ export default async function CreationsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'CollectionPage',
-            name: 'Creative Writings',
-            description: 'Collection of blog posts, poems, stories, and articles',
-            url: `${baseUrl}/creations`,
-          }),
+          __html: JSON.stringify([
+            creationListJsonLd(),
+            websiteJsonLd(),
+            breadcrumbsJsonLd([]),
+            speakableJsonLd(),
+          ]),
         }}
-      />
-
+      />    
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         <PageHeader
           title="My Creations"
@@ -156,3 +137,56 @@ export default async function CreationsPage() {
     </>
   );
 }
+
+// export async function generateMetadata(): Promise<Metadata> {
+//   const bootstrap = await getBootstrap();
+//   const settings = normalizeSettingsFromBootstrap(bootstrap);
+  
+//   const pageTitle = settings.settings.creations_page_title || 'Creations';
+//   const pageDescription = settings.settings.creations_page_description || 
+//     'Explore my creative writings including blog posts, poems, stories, and articles.';
+//   const ogImage = settings.settings.creations_og_image || '/logo.png';
+//   const robots = getSEORobots(settings, 'creations');
+
+//   return {
+//     title: pageTitle,
+//     description: pageDescription,
+//     keywords: settings.settings.creations_page_keywords || 'blog, poems, stories, articles, creative writing',
+//     alternates: { 
+//       canonical: `${baseUrl}/creations` 
+//     },
+//     openGraph: {
+//       type: 'website',
+//       url: `${baseUrl}/creations`,
+//       title: settings.settings.creations_og_title || pageTitle,
+//       description: settings.settings.creations_og_description || pageDescription,
+//       images: [{ 
+//         url: ogImage, 
+//         width: 1200, 
+//         height: 630, 
+//         alt: 'Creative Writings' 
+//       }],
+//     },
+//     twitter: {
+//       card: 'summary_large_image',
+//       title: settings.settings.creations_twitter_title || pageTitle,
+//       description: settings.settings.creations_twitter_description || pageDescription,
+//       images: [ogImage],
+//     },
+//     robots,
+//   };
+// }
+
+
+      {/* <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'Creative Writings',
+            description: 'Collection of blog posts, poems, stories, and articles',
+            url: `${baseUrl}/creations`,
+          }),
+        }}
+      /> */}

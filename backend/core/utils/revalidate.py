@@ -4,20 +4,37 @@ import requests
 from django.conf import settings
 
 def trigger_revalidation(paths=None, tags=None):
-    if not settings.FRONTEND_REVALIDATE_URL:
+    """
+    Hybrid revalidation:
+    - paths: exact pages
+    - tags: scalable invalidation
+    """
+
+    url = getattr(settings, "FRONTEND_REVALIDATE_URL", None)
+
+    if not url:
+        print("[REVALIDATE] FRONTEND_REVALIDATE_URL missing")
         return
+
     payload = {
-        "secret": settings.REVALIDATE_SECRET
+        "paths": paths or [],
+        "tags": tags or [],
     }
-    if paths:
-        payload["paths"] = paths
-    if tags:
-        payload["tags"] = tags
+
     try:
-        requests.post(
-            settings.FRONTEND_REVALIDATE_URL,
+        res = requests.post(
+            url,
             json=payload,
+            headers={
+                "Authorization": f"Bearer {settings.REVALIDATE_SECRET}"
+            },
             timeout=5
         )
-    except requests.RequestException:
-        pass
+
+        print("[REVALIDATE] Triggered")
+        print("Paths:", payload["paths"])
+        print("Tags:", payload["tags"])
+        print("Status:", res.status_code)
+
+    except Exception as e:
+        print("[REVALIDATE ERROR]", str(e))

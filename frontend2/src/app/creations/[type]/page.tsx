@@ -1,9 +1,15 @@
 // frontend2\src\app\creations\[type]\page.tsx
 import { Metadata } from 'next';
-import { getCreations, getSettings, getSEORobots } from '@/lib/data';
+import { getCreations, getBootstrap, getSEORobots } from '@/lib/data';
 import CreationCard from '@/components/CreationCard';
 import PageHeader from '@/components/PageHeader';
 import { BookOpen, Sparkles, FileText, Newspaper } from 'lucide-react';
+import { normalizeSettingsFromBootstrap } from '@/lib/normalizeSettings';
+import { buildMetadata } from '@/lib/seo/metadata';
+import { creationTypeJsonLd } from '@/lib/seo/jsonld';
+import { websiteJsonLd } from '@/lib/seo/website';
+import { breadcrumbsJsonLd } from '@/lib/seo/breadcrumbs';
+import { speakableJsonLd } from '@/lib/seo/speakable';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -20,10 +26,6 @@ const typeConfig = {
 export const revalidate = 3600;
 export const dynamic = "force-dynamic";
 
-// export async function generateStaticParams() {
-//   return validTypes.map(type => ({ type }));
-// }
-
 export async function generateMetadata({ 
   params 
 }: { 
@@ -34,37 +36,21 @@ export async function generateMetadata({
   if (!validTypes.includes(type as CreationType)) {
     return { title: 'Not Found' };
   }
-
-  const settings = await getSettings();
-  const config = typeConfig[type as CreationType];
   
-  const pageTitle = `${config.label} - Creations`;
-  const pageDescription = `Explore my ${config.label.toLowerCase()} - creative writings and insights.`;
+  const bootstrap = await getBootstrap();
+  const settings = normalizeSettingsFromBootstrap(bootstrap);
+  const config = typeConfig[type as CreationType];
   const ogImage = settings.settings[`${type}_og_image`] || '/logo.png';
-  const robots = getSEORobots(settings, `creations_${type}`);
 
-  return {
-    title: pageTitle,
-    description: pageDescription,
-    keywords: `${config.label.toLowerCase()}, creative writing, ${type}`,
-    alternates: { 
-      canonical: `${baseUrl}/creations/${type}` 
-    },
-    openGraph: {
-      type: 'website',
-      url: `${baseUrl}/creations/${type}`,
-      title: pageTitle,
-      description: pageDescription,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: config.label }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: pageTitle,
-      description: pageDescription,
-      images: [ogImage],
-    },
-    robots,
-  };
+  return buildMetadata({
+    settings: settings,
+    page: "creation-detail-page",
+    title: `${config.label} - Creations`,
+    description: `Explore my ${config.label.toLowerCase()} - creative writings and insights.`,
+    path: `${baseUrl}/creations/${type}`,
+    image: ogImage,
+    keywords: [`${config.label.toLowerCase()}, creative writing, ${type}`],
+  });
 }
 
 export default async function CreationTypePage({ 
@@ -96,13 +82,12 @@ export default async function CreationTypePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'CollectionPage',
-            name: config.label,
-            description: `Collection of ${config.label.toLowerCase()}`,
-            url: `${baseUrl}/creations/${type}`,
-          }),
+          __html: JSON.stringify([
+            creationTypeJsonLd(config, type),
+            websiteJsonLd(),
+            breadcrumbsJsonLd([]),
+            speakableJsonLd(),
+          ]),
         }}
       />
 
@@ -134,3 +119,61 @@ export default async function CreationTypePage({
     </>
   );
 }
+
+// export async function generateMetadata({ 
+//   params 
+// }: { 
+//   params: Promise<{ type: string }> 
+// }): Promise<Metadata> {
+//   const { type } = await params;
+  
+//   if (!validTypes.includes(type as CreationType)) {
+//     return { title: 'Not Found' };
+//   }
+  
+//   const bootstrap = await getBootstrap();
+//   const settings = normalizeSettingsFromBootstrap(bootstrap);
+//   const config = typeConfig[type as CreationType];
+  
+//   const pageTitle = `${config.label} - Creations`;
+//   const pageDescription = `Explore my ${config.label.toLowerCase()} - creative writings and insights.`;
+//   const ogImage = settings.settings[`${type}_og_image`] || '/logo.png';
+//   const robots = getSEORobots(settings, `creations_${type}`);
+
+//   return {
+//     title: pageTitle,
+//     description: pageDescription,
+//     keywords: `${config.label.toLowerCase()}, creative writing, ${type}`,
+//     alternates: { 
+//       canonical: `${baseUrl}/creations/${type}` 
+//     },
+//     openGraph: {
+//       type: 'website',
+//       url: `${baseUrl}/creations/${type}`,
+//       title: pageTitle,
+//       description: pageDescription,
+//       images: [{ url: ogImage, width: 1200, height: 630, alt: config.label }],
+//     },
+//     twitter: {
+//       card: 'summary_large_image',
+//       title: pageTitle,
+//       description: pageDescription,
+//       images: [ogImage],
+//     },
+//     robots,
+//   };
+// }
+
+
+      {/* <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: config.label,
+            description: `Collection of ${config.label.toLowerCase()}`,
+            url: `${baseUrl}/creations/${type}`,
+          }),
+        }}
+      /> */}

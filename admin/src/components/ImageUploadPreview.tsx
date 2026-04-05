@@ -103,7 +103,14 @@ export function GalleryImageUpload({
   const [previews, setPreviews] = useState<(GalleryImage & { file?: File; tempId?: string })[]>([]);
 
   useEffect(() => {
-    setPreviews(existingImages.map(img => ({ ...img, file: undefined })));
+    // Properly sync existing images with unique keys
+    // This ensures that after saving, when we reload, the images render correctly
+    const syncedImages = existingImages.map((img, index) => ({
+      ...img,
+      // Use id if available, otherwise create a stable key based on index
+      uniqueKey: img.id !== undefined ? `existing-${img.id}` : `new-${index}`,
+    }));
+    setPreviews(syncedImages);
   }, [existingImages]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

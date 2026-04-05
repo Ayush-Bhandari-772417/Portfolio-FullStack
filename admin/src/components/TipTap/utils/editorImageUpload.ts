@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 export async function uploadEditorImage(file: File): Promise<string> {
   const id = crypto.randomUUID(); // ✅ native
   const fileName = `${id}_${file.name}`;
-  const relativePath = `media/editor/${fileName}`;
+  const relativePath = `editor/${fileName}`;
 
   const { error } = await supabase.storage
     .from('media')

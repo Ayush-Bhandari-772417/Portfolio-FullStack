@@ -15,8 +15,7 @@ export function handleImagePaste(view: EditorView, event: ClipboardEvent): boole
 
   uploadEditorImage(file)
     .then(relativePath => {
-
-      const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${relativePath}`;
+      const url = `${relativePath}`;
 
       const { state, dispatch } = view;
 

@@ -1,7 +1,6 @@
 # apps/projects/serializers.py
 from rest_framework import serializers
 from .models import Project, ProjectGallery
-from core.utils.revalidate import trigger_revalidation
 
 # Serializer for gallery images
 class ProjectGallerySerializer(serializers.ModelSerializer):
@@ -35,19 +34,36 @@ class ProjectSerializer(serializers.ModelSerializer):
         return None
 
     def create(self, validated_data):
-        project = super().create(validated_data)
-        trigger_revalidation(paths=[
-            "/",
-            "/projects",
-            f"/projects/{project.slug}",
-        ])
-        return project
+        return super().create(validated_data)
     
     def update(self, instance, validated_data):
-        project = super().update(instance, validated_data)
-        trigger_revalidation(paths=[
-            "/",
-            "/projects",
-            f"/projects/{project.slug}",
-        ])
-        return project
+        return super().update(instance, validated_data)
+    
+
+class ProjectListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Project
+        fields = [
+            "title",
+            "slug",
+            "category",
+            "excerpt",
+            "technologies",
+            "keywords",
+            "tags",
+            "featured_image",
+            "featured_image_alt",
+            "status",
+            "project_type",
+            "started_date",
+            "completed_date",
+        ]
+
+
+class ProjectDetailSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = Project
+        fields = "__all__"

@@ -1,11 +1,12 @@
 // frontend2\src\components\portfolioSections\ExperienceSection.tsx
-import { AllSettings } from '@/types';
-import { getExperiences, getDisplayLimit } from '@/lib/data';
 import ExperienceCard from '@/components/ExperienceCard';
+import { Experience } from '@/types';
 
-export default async function ExperienceSection({ settings }: { settings: AllSettings }) {
-  const experiences = await getExperiences();
-  const limit = getDisplayLimit(settings, 'home', 'experiences', 3);
+interface ExperiencesClientProps {
+  experiences: Experience[];
+}
+
+export default async function ExperienceSection({ experiences }: ExperiencesClientProps) {
 
   if (experiences.length === 0) return null;
 
@@ -22,7 +23,7 @@ export default async function ExperienceSection({ settings }: { settings: AllSet
         </div>
 
         <div className="max-w-4xl mx-auto space-y-6">
-          {experiences.slice(0, limit).map((exp, index) => (
+          {experiences.map((exp, index) => (
             <ExperienceCard key={exp.id} experience={exp} index={index} />
           ))}
         </div>

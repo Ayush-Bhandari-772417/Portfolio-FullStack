@@ -2,7 +2,7 @@
 'use client';
 import { Mail, Phone, MapPin, Send, CheckCircle, XCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { getSettings } from '@/lib/data';
+import { AllSettings } from '@/types';
 
 declare global {
   interface Window {
@@ -10,20 +10,11 @@ declare global {
   }
 }
 
-export default function ContactSection() {
-  const [settings, setSettings] = useState<any>({ settings: {} });
+export default function ContactSection({ settings }: { settings: AllSettings }) {
   const [formData, setFormData] = useState({ email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
-
-  useEffect(() => {
-    async function loadSettings() {
-      const data = await getSettings();
-      setSettings(data);
-    }
-    loadSettings();
-  }, []);
 
   // Check for reCAPTCHA load
   useEffect(() => {

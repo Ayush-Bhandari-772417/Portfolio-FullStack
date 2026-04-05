@@ -1,77 +1,42 @@
 // frontend2\src\app\projects\[slug]\page.tsx
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getProjectBySlug, getProjects, getSettings, getSEORobots, getDisplayLimit } from '@/lib/data';
+import { getProjectBySlug, getProjects, getBootstrap, getSEORobots, getDisplayLimit } from '@/lib/data';
 import ProjectDetailClient from '@/components/ProjectDetailClient';
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-type Props = {
-  params: Promise<{ slug: string }>;
-};
+import { normalizeSettingsFromBootstrap } from '@/lib/normalizeSettings';
+import { buildMetadata } from '@/lib/seo/metadata';
+import { projectDetailJsonLd } from '@/lib/seo/jsonld';
+import { websiteJsonLd } from '@/lib/seo/website';
+import { breadcrumbsJsonLd } from '@/lib/seo/breadcrumbs';
+import { speakableJsonLd } from '@/lib/seo/speakable';
 
 export const revalidate = 3600;
 export const dynamic = "force-dynamic";
 
-// export async function generateStaticParams() {
-//   const projects = await getProjects();
-  
-//   return projects.map(project => ({
-//     slug: project.slug,
-//   }));
-// }
-
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> { 
+  const bootstrap = await getBootstrap();
   const { slug } = await params;
   console.log('Generating metadata for project detail page', slug);
   const [project, settings] = await Promise.all([
     getProjectBySlug(slug),
-    getSettings()
+    normalizeSettingsFromBootstrap(bootstrap)
   ]);
   
   if (!project) return { title: 'Project Not Found' };
 
-  const siteName = settings.settings.site_name || 'Portfolio';
-  const authorName = settings.settings.author_name || 'Ayush Bhandari';
-  const pageTitle = `${project.title} | ${siteName}`;
-  const pageDescription = project.excerpt || project.abstract;
-  const ogImage = project.featured_image_url || settings.settings.default_og_image || '/logo.png';
-  const robotsContent = getSEORobots(settings, 'project-detail');
-
-  return {
-    title: pageTitle,
-    description: pageDescription,
-    keywords: [...project.keywords, ...project.tags, ...project.technologies].join(', '),
-    authors: [{ name: authorName }],
-    robots: robotsContent,
-    alternates: { 
-      canonical: `${baseUrl}/projects/${project.slug}` 
-    },
-    openGraph: {
-      type: 'article',
-      url: `${baseUrl}/projects/${project.slug}`,
-      title: project.title,
-      description: pageDescription,
-      siteName: siteName,
-      images: [{ 
-        url: ogImage, 
-        width: 1200, 
-        height: 630, 
-        alt: project.featured_image_alt || project.title 
-      }],
-      publishedTime: project.started_date,
-      modifiedTime: project.updated_at,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: project.title,
-      description: pageDescription,
-      images: [ogImage],
-      creator: settings.settings.twitter_handle || undefined,
-    },
-  };
+  return buildMetadata({
+    settings: settings,
+    page: "creation-detail-page",
+    title: `${project.title} | ${settings.settings.site_name || 'Portfolio'}`,
+    description: project.excerpt || project.abstract,
+    path: `/projects/${project.slug}`,
+    image: project.featured_image_url || settings.settings.default_og_image || '/logo.png',
+    publishedTime: project.started_date,
+    modifiedTime: project.updated_at,
+    keywords: [...project.keywords, ...project.tags, ...project.technologies],
+  });
 }
 
 export default async function ProjectDetailPage({ 
@@ -79,11 +44,11 @@ export default async function ProjectDetailPage({
 }: { 
   params: Promise<{ slug: string }> 
 }) {
-  // ({ params }: Props) {
+  const bootstrap = await getBootstrap();
   const { slug } = await params;
   const [project, settings] = await Promise.all([
     getProjectBySlug(slug),
-    getSettings()
+    normalizeSettingsFromBootstrap(bootstrap)
   ]);
 
   if (!project) notFound();
@@ -107,11 +72,85 @@ export default async function ProjectDetailPage({
     })
     .slice(0, relatedLimit);
 
-  const authorName = settings.settings.author_name || 'Ayush Bhandari';
-
   return (
     <>
       <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            projectDetailJsonLd(project, settings.settings),
+            websiteJsonLd(),
+            breadcrumbsJsonLd([]),
+            speakableJsonLd(),
+          ]),
+        }}
+      />
+
+      <ProjectDetailClient 
+        project={project} 
+        settings={settings}
+        relatedProjects={relatedProjects}
+      />
+    </>
+  );
+}
+
+// export async function generateMetadata(
+//   { params }: { params: Promise<{ slug: string }> }
+// ): Promise<Metadata> { 
+//   const bootstrap = await getBootstrap();
+//   const { slug } = await params;
+//   console.log('Generating metadata for project detail page', slug);
+//   const [project, settings] = await Promise.all([
+//     getProjectBySlug(slug),
+//     normalizeSettingsFromBootstrap(bootstrap)
+//   ]);
+  
+//   if (!project) return { title: 'Project Not Found' };
+
+//   const siteName = settings.settings.site_name || 'Portfolio';
+//   const authorName = settings.settings.author_name || 'Ayush Bhandari';
+//   const pageTitle = `${project.title} | ${siteName}`;
+//   const pageDescription = project.excerpt || project.abstract;
+//   const ogImage = project.featured_image_url || settings.settings.default_og_image || '/logo.png';
+//   const robotsContent = getSEORobots(settings, 'project-detail');
+
+//   return {
+//     title: pageTitle,
+//     description: pageDescription,
+//     keywords: [...project.keywords, ...project.tags, ...project.technologies].join(', '),
+//     authors: [{ name: authorName }],
+//     robots: robotsContent,
+//     alternates: { 
+//       canonical: `${baseUrl}/projects/${project.slug}` 
+//     },
+//     openGraph: {
+//       type: 'article',
+//       url: `${baseUrl}/projects/${project.slug}`,
+//       title: project.title,
+//       description: pageDescription,
+//       siteName: siteName,
+//       images: [{ 
+//         url: ogImage, 
+//         width: 1200, 
+//         height: 630, 
+//         alt: project.featured_image_alt || project.title 
+//       }],
+//       publishedTime: project.started_date,
+//       modifiedTime: project.updated_at,
+//     },
+//     twitter: {
+//       card: 'summary_large_image',
+//       title: project.title,
+//       description: pageDescription,
+//       images: [ogImage],
+//       creator: settings.settings.twitter_handle || undefined,
+//     },
+//   };
+// }
+
+
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -129,13 +168,4 @@ export default async function ProjectDetailPage({
             keywords: [...project.keywords, ...project.tags, ...project.technologies].join(', '),
           }),
         }}
-      />
-
-      <ProjectDetailClient 
-        project={project} 
-        settings={settings}
-        relatedProjects={relatedProjects}
-      />
-    </>
-  );
-}
+      /> */}

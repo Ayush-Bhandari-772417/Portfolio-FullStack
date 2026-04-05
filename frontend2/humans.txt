@@ -1,0 +1,3 @@
+Author: Ayush Bhandari
+Site: https://bhandariayush.com.np
+Tech: Next.js, Django, PostgreSQL

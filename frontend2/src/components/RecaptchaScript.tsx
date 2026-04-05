@@ -1,3 +1,4 @@
+// frontend2\src\components\RecaptchaScript.tsx
 'use client';
 
 import Script from 'next/script';

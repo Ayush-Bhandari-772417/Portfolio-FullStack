@@ -1,0 +1,2 @@
+Contact: mailto:your@email.com
+Expires: 2026-12-31
