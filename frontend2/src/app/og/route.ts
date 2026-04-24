@@ -1,4 +1,4 @@
-// src/app/og/route.ts
+// frontend2\src\app\og\route.ts
 import { ImageResponse } from "next/og";
 import { createElement } from "react";
 

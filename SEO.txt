@@ -1,0 +1,2824 @@
+SEO
+
+    - Advantage (Coverage)  (Rambabu Thapa - Youtube video)
+        - On page SEO
+        - Google platforms
+        - SEO audit (
+
+        )
+        - schema
+        - link building
+        - google analytics
+        - web structure
+        - migration
+        - redesign
+        - relation between keywords and pages]
+        - high authority backend
+        - find errors
+        - SEO Optimized content
+
+        - professional CV
+
+
+
+    - Intro of SEO
+        - Keyword = page to rank pages
+        - SEO addresses hbest result of query
+        -   not only webpages, all online entity (like pdf, images, third party websites)
+        - why SEO?
+            - to make contents wide
+            - optimize the contents of business
+
+        - local SEO
+        - technical SEO
+
+        - nist selection (जरूरी) (के को लागि)
+
+
+
+    - Career Opportunities
+        - internship (PAID)
+        - beginner level job (if have advanced skill)
+      knowledge based industry
+        - high paying job    (consulatnt)
+        - freelancing
+        - owwn SEO agency
+        - we can take upfront paayment (even 100%)
+
+
+    - Tools for SEO
+        - if you have, no need to guess SEO
+        1.  keyword research Tools
+            - google Tools
+            - googe trends
+            - Answer the public
+        2. SEO Audit Tools
+            - Search controls
+            - Scrremming Frog
+        3. Project Managent
+            - tRELLO
+        4. communication
+            - Slack
+            - Whatsapp
+        6. Publishing
+            - Wordpress (Recommended)
+            - Medium
+            - Blogger
+
+
+
+
+    - Pick a Niche (Area of focus)   - needs
+        - be specific to increase specializationn
+        - For what SEO ??? Passion
+            - personal branding (special)
+            - eg. personal SEO, blog, content
+            - For Opportunities:- home service
+            - Warning :-    eg. Fast food, restaurants
+
+
+            (mentor) personal   -> EDV -> SaaS
+            
+            - needs specific SEO, so be specific
+
+            - traffic affiliate / google ad-seense
+
+
+
+
+    - Keyword Research and Tools
+        easy stuff
+        - keyword = Everything you write on Search Engine (SE)
+        - SEO for right customer        right customer = right keywords
+        - keyword research for right keyword (max 20)
+        
+        - working of SE
+            i) Relevancy
+            ii) Authenticity  -(backlink from trusted site)
+
+        - start from
+            - Ubersuggest
+            - semrush
+            - answer the public
+            - google trends
+            - google console for viewing your content
+
+        - work for searched keywords in your work/content
+        - know the target
+
+        (mentor) - e-school - beginners - eorld-wide trend   - compare
+
+        - do not work to optimize for vast/broad topic
+        - relevant keywords
+        - maintain in excel
+        - जति थोरै उति सजिलो
+        - focus on low traffic keywords initially with some volumed
+
+    
+
+    - Keyword and Search Intent
+        - intent = why behind each keywords
+        - types of intent
+            i)  informational search intent
+            ii) navigational search intent
+            iii) Commercial intent
+            iv) transactional intent
+        - answer the intent in your content
+
+
+
+
+    - Understanding search intent
+
+
+
+
+    - Understanding Keyword Types
+        - Keyword Types
+            i)  Primary
+            ii) Secondary
+            iii) Supporting
+        - One topic = One page (only)
+        - Go for primary keyword (broad idea)
+        - Secondary keyword follow primary keyword
+        - Secondary keyword = more conversion rate
+        - Supporting keyword = easier to rank
+
+        - primary
+                in title
+                with competitors
+                in search console
+        - Secondary
+                some prefix/modifier
+                as trends / suggestion
+                related search
+        - Supporting
+                table of content of wiki (lon phrases)
+                people also ask for     - google
+                answer the public
+                low search volume
+                no commercial purpose
+                for branding primary and secondary
+
+
+
+
+
+    - Relation between keywords and Pages
+        - do not optimize more pages for same keywword
+        - optimize same page for for a cluster of keywords
+        - one page = one keyword
+        - if appropriate not found, make a new page/content
+
+
+
+    
+    - SEO Optimized article
+        - follow structure for automatically SEO optimized article
+        - intention
+        - know what and why searchers search
+        - Create answer
+        - Present in best possible way
+        - SEO optimization for free traffic
+        - SEO = money in the bank
+        - 7 steps:
+            - target keyword
+            1. Research seach intent for target keywords
+                - to select outline
+            2. Create an article outline
+                - Title ideas
+                        Do not stick to 1 title, you can have upto 3
+                        Spend 20% time to make it attractive
+                - Goal
+                - Keyword
+                        Choose the appropriate keywords
+                - Search intent
+                        make angle
+                        do not do like essay
+                        pack linko article
+                - Unique sell proposition
+                        what is unique
+                - Intro
+            3. Write draft
+                - Fill each topic
+                - Express all thed idea
+            4. Get Feedback and revise the draft
+            5. Edit and format the draft into a proper article
+                proper heading
+                best answer
+                simple words
+                grammatical error
+            6. Set SEO elements
+            7. Update internal links
+        - loom video
+
+    - building Wordpress website
+        - for hosting mentor used babal.host
+        - need domain
+        - use nameserver
+        - buy host
+        - create profile in babal host
+        - domain and host bought at Rs 2000
+        - domain age = value
+        - Go to CPanel
+        - Install WordPress from Substaculus using https
+        - monosnap for screenshot
+        - need SSL
+        - Set site name, description, username & pwd for site
+        - Default wordpess site
+        - from wp-admin of wordpress/site we can publish page, post
+        - create Home page
+        - for better, page build, use elimentary inside plugin
+        - for SEO friendly url, Setting -> permalink ->  select 'Post name'  as slug url created
+        - Choose the Theme for page - install/activate Astra
+        - Create main menu from 'menu' & set it as primary navigation
+        - SEO plugin
+        - Use 'Rank Math' - install plugin
+        - Continue from 'Setup wizard'
+        - Edit appearance - set siteicon, logo, etc. in main menu 
+        - Edit home page (Preview Snippet Editor)
+            put primary keyword
+            checks the content
+            Rank Math evaluates all
+            connect to content
+            befor ready use disourage search engine (SE)
+
+
+    - Build your Wordpress website
+        - babal host
+        - elementor -> demo layout
+        - elementor is the free plugin, need to install
+        - elementor = builder
+        - install and setup elementor
+        - SEO Plugin -> Rank Math
+        - themes -> Astra
+        - Starter Template -> given by Astra -> to load nice   free layout and build professional website easily
+        - after activating Starter template
+            - go to library
+            - For builder: Choose the type -> layout type(free)
+            - eg. Free blog layout
+                - select logo
+                - enter info
+                - import dummy content
+                - go to edit page
+                - change with elementor
+                - Update each section
+                - upload photos in media
+                - change texts
+                - attention to detil matters
+                - third party link for external links
+                - Update each template
+                - Keep privacy policy page using standard template
+                - Keep testimonials
+                - make navigations
+                - make blog pages from 'page'
+                - keep post page from Setting
+                - keep blog page in menus
+                - if you want to write, write in posts
+                    write title
+                    select layout from elementor (drag and drop)
+                    make the sections / layout
+                    select feature image (social media pulls this)
+                    publish at last / you canb preview before publish
+                    Use sub-headings for SEO perspectives
+                - You can duplicate the blog and chage content
+                - add category
+                - Rank Math plugin
+                    connect with Rank Math account
+                    open external links in new tab
+                    use Google search console code in it (can be used in header)
+                    bing verify
+                    analytics
+                    set content AI
+                    set post type
+                    title & Meta
+                    set Local SEO
+                    set social media links
+                    site map setting (only needed)
+                    instant indexing
+                    SEO analysis
+                    Status and tools
+                    Set security plugin -> Wordpress Security
+                        Woedfence
+                        Firewall
+                            Use strong username, not common and hostname
+                - can use form
+                    
+
+                - all uploaded are in media manager
+                - delete unwanted
+                - do not use unnecessary plugins
+
+
+                - conversionate optimization (Imp)
+                - submit case studies
+
+
+
+
+
+    - On-page (On-site) SEO
+        - inside the page
+        - giving signal to googe on crawling
+        - common keyword is on title
+
+        - optimize the content of page
+        - content for user, not for SE
+        - title, meta description, link, image alt, etc.
+        - exact keyword on title
+        - factors:
+            UX
+            Page loading time
+            Bounce Rate and Dwell Time
+            Search intent
+            Click-through-rate (title & meta-description)
+
+
+
+
+
+
+    - Optimize content for SEO
+    
+    
+
+
+
+
+    - Everythingyou need to knoW about On-page SEO
+        - elements
+            keyword
+                use primary keyword in 1st 100 words
+                make more frequency naturally
+            content
+                unique content
+                valuable
+                satisfying content
+                comprehensive intents
+            heading
+                H1-H6
+                H1 only one in a page (primary keyword)
+                Meta description
+                    unique
+                    keyword rich
+                    sometimes automatic by google
+                    important for ctr
+                    keep url short
+                image optimization (alt attribute relevant)
+                UX
+            formatting
+            SEO title
+            Meta description
+            URL
+            Images
+            UX
+            Links
+                incoming
+                outgong
+            Page speed
+                no slow page
+            Schema
+            Open graph
+                thumbnail appeared on sharing links
+            LSI keywwords
+                closely related terms
+
+
+
+
+
+    - How to Perform On-Page SEO (Part 1)
+        - login WordPress
+        - trash different default post & page
+        - Inn post :
+        - write title
+        - copy content
+        - categorize  words
+        - write major keywords/phrase to be optimized for
+        - keep featured image and alt text
+        - slug gets generated on the basis of title
+        - SEO section
+            write focus keyword
+            keep tags
+            Then, plugin suggests
+            Don't over-optimize
+            3 tabs
+                SEO
+                    title < 600 pixels (else ... appears in SE)
+                    make exact keyphrase match in title
+                    brand ko name rakhda nice
+                    write meta description - keep one section of your content
+
+                Readability
+                Social
+        - publish
+
+
+
+
+
+
+
+
+    - How to Perform On-Page SEO (Part 2)
+        - On the basis of elements
+            - make formatting readable
+            - if there is image also in text, don't forget to keepalt attribute
+            - make headings different (H2-H6)
+            - make title sounds real
+            - make proper foematting like Bold and italic, etc. as per need
+            - use secondary keywords as different headings as far as possible
+            - links:
+                make internal (link in related phrase)
+                external link - in separate tabs
+                keep https:// as far as possible
+                internal link - no new tab (2-3 if possible)
+                outbound links
+            - keep keyphrase in introduction paragraph as far as possible
+            - 6 appearance of keywwords recommended
+            - open graph
+                - in yoast - in social tab
+                - apply how links to be appeared/shared on different social media
+            - Readability
+                - follow recommendation
+
+
+
+
+
+
+
+
+
+    - Understanding site structure
+        - how primary, secondary & supporting keywords goes to the site
+        - general site structure
+            home page (.com)
+            parent page
+            child page
+        - however sometimes,
+            domain
+            category
+            parent page
+            child page
+        - so, no blog page - it gets left out
+        - this is physical
+
+        - we work on virtual site structure
+        - link building flow
+        - rank for primary keyword
+        - one primary keyword = one page = target page
+        - secondary keyword goes to target page
+        - target page = not  home page
+        - home page = brand related keyword
+        - supporting keyword goes to article, blog, post, etc.
+        - i.e. target page (Primary keyword + Secondary keyword)
+        - external backlinks
+
+        - virtual structure
+            home page
+            target page
+            articles, blog posts
+            external backlinks
+        - link flow is reverse order
+
+        - if not proper, more than 3 level, won't get proper crawled
+
+
+
+
+
+
+
+
+    - Website Structure :- Foundation for SEO
+        - imp for minimizing SEO mistakes
+        - architecture/foundation for internal linking
+        - important for money page
+
+        - how pages are structured and linked together
+        - main purpose: to make easy for crawl
+        - to build authority
+        - to help bots to crawl for ranking
+
+        - structure/architecture in user point of view
+            home page
+            money page
+            supporting page
+        - also called flat structure
+
+        - organize important for large sites
+
+        - eg. of proper structure
+            wayfair.com
+                to remove clutter - menu is created - not for SEO
+                home page to category
+            camaloon.com
+            gyapu.com
+                mistakes
+                    should not contain duplicate
+                    make proper category
+                    all canonical pointing to home page
+
+        - tool for SEO analysis of any page
+            SEO Minion
+
+        - broken links for getting backlinks
+
+        - URL structure
+            should have category/sub-category
+
+
+
+        - From SEO perspectives (authority / Relevancy)
+            - Reverse silo
+                supporting articles/pages has high quality backlinks
+                one target page needs 2-3 blog/articles
+                supporting pages link with each other
+                all supporting pages link money page
+                but, money page link only one supporting page
+                target page connects to home page
+
+                authority / ralevancy passing
+                not visible
+                you should plan / design
+
+                generally no onne give backlink to target page diectly
+
+
+            - flat site architecture use (each page 4 clicks or less from home)
+            - use category
+            - use sitemap
+            - use internal links
+            - use HTML to create links using <a> tag (because bots only understand it)
+            - sitelinks   - optimize architecture
+
+
+            - Tools
+                - sitebulb
+                - Ahrefs: Technical SEO Audit Tool
+                - Simplemind: Mind map tools
+                - Gloomaps
+
+
+
+
+
+
+    - Right internal link building
+        - to boost SEO
+        - link within page(s) of a website
+        - google won't find pages without link
+
+        - it makes easy for google to find pages in a site
+        - relavancy
+        - gives structure of website to google
+        - at least 5 incoming and 5 outgoing links if possible
+
+        - target page should have exact match
+        - make valuable links
+
+        - keep on mind
+            anchor word should be keyword rich
+            link to important page i.e. target page from other pages
+            do not use same anchor text for different pages
+            keep internal links in above the fold to decrease bounce rate
+            use do-follow links, no no-follow links
+            no orphan page
+            link strategically from home page
+            give link to the new pages from existing page
+
+
+
+
+
+
+    - Google Search Console
+        - Free of cost
+        - add the domain
+        - keep txt record
+        - or url
+        - meta tag
+        - in theme editor of Wordpress - in head meta tag
+        - keep Google Analytics Tag in either Header or Footer
+        - verify ownership
+
+        - crawl stat
+        - you can remove accidental indexed pages/sites
+        - setup the site map
+        - coverage
+
+        - more advanced functions
+
+
+
+
+
+    - Google Analytics
+        - Keep track of real time
+        - Tracking tool
+        - different data
+
+        - real time data
+        - bounce rate (-ve for SEO)
+        - traffic channel
+        - majority of traffic
+        - if no intended traffic appear, SITE is spam, need to be blocked
+        - which device
+        - easy to design the site
+        - which browser / OS / ISP / Screen
+        - User behaviour
+        - social channel
+
+        - can be linked with Google Search Console
+        - which pages is creating traffic
+        - behavioral flow (Flow of user)
+
+        - conversion tracking (tracking goals)
+
+        - GFO
+            - users
+            - engagement time
+            - real time data
+            - reporting
+
+        - property setup and tracking
+            - make an account
+                property setup
+                use GFO
+            - create
+            - which platform ? -web
+            - write web URL
+            - stream name
+            - create stream
+
+            - tagging instruction
+            - use g tag
+            - copy g tag in head section of HTML
+
+            - setup using theme file in header.php -> script
+            - and then update
+
+        - view real time user
+
+        - goal tracking
+
+
+
+
+
+    - Google Business Profile
+        - Local SEO
+
+        - Local SEO is a practice of improving online presence in local area
+        - 30% of mobile serches are related to location, so important
+        - 2 types
+                map pack
+                normal search
+        - Steps:
+            - Local SEO keeyword research
+                find service-based keywords - different keywords like dental crown, dentist, etc.
+                find search intent
+            - check search volume
+                state, city, town - use google planner
+                national level - Ahrefs, Keyword Explorer
+            - check for local intent
+                check map pack if available or not
+            - assign keywords to pages
+
+        - proximity matters
+
+        - Ranking factors
+            primary GMB Category
+            keywords in GMB business title
+
+            profile can be edited in GBP
+            in info
+                title
+                primary category,     other categories can be added as secondary
+
+            - PlepPer.com
+                - category helper
+                    suggests secondary category
+                - no need to keep all
+                - needs experiment
+
+
+
+        - Local SEO Tools
+            Google Business Manager
+            Surfer Local
+            Bright Local
+            Local Viking
+            Local Falcon
+
+
+
+    
+
+
+
+
+    - SEO Audit
+        - Advance part
+        - Problem fixing
+
+        - It is the comparison of website with the best practices
+        - 5 parts
+            Technical SEO
+                Crawlability
+                    Google can crawl or not
+                Site speed
+                Mobile Friendliness
+                Security
+            On-Page SEO Audit
+                headings
+            Backlink audit (Off-page audit)
+            Content audit
+            Validate your fix
+
+
+        - Tools
+            mobile friendly tool - Google
+            google search console
+            screamingfrog
+            semrush - free version
+            Ahrefs
+            page speed test - Google
+            gtmetrix
+            pingdom
+
+
+
+
+
+    - Technical SEO Audit
+        - steps
+            - make Mobile friendly
+                Tool for test
+                    mobile-friendly - Google
+            - make only one version of your site
+                4 version possible
+                    best - https://
+                other 3 versions should redirect to that one
+            - speed up your site
+                do speed test
+                    make fast loading by solving issues
+                use speed test tools
+                    pagespeed/insights of Google
+                    gtmetrix
+                    pingdom
+                use image optimization tools
+                    tinypng
+                    shortpixel
+                make image to appropriate size
+            - find and delete "Dead Pages" / make No-index
+            - Find and fix indexing problems
+                - Tools
+                    google search console
+                    screamingfrog
+                    seobility
+                    semrush
+                    shrefs
+            - fix broken links
+                - linksw that are dead
+                - Tools
+                    seach console
+                    screamingfrog
+                    semrush
+
+
+
+
+                - semrush
+                    - errors seen
+                    - sholudn't be mix links
+                    - minification - speed optimization
+                        files should be compressed before uploading
+                    - blocked
+                    - hsts
+                    - Crawlability
+
+
+                - wordpess support club
+                - keep before & after of report before & after
+
+
+    
+    
+    
+    
+    
+    
+    - Technical SEO Intro and Tools Audit
+        - Template
+
+        - Free tools
+            Google Search Console
+            Google Analytics
+            Page Speed Insights
+            GT Metrix
+            Web Developer Toolbar (Extension)
+            Google Structured Data Testing Tool / Rich Snippet Tool
+            Google Mobile-Friendly Testing Tool
+            Merkle Schema Markup Generator
+            Redirect Path (Extension)
+        - Paid Tool
+            ahrefs (free / paid)
+            Screaming Frog
+            semrush
+        - checklist needed
+
+        - Google Search Console
+            - Setup using Meta Tag
+            - error / warning / ...
+            - page with redirect
+            - remove link if page doesn't exist
+            - sitemap submit
+            - page experience
+            - core web vitals
+            - mobile usability
+                pages
+            - crawl stats
+                evaluation needed & to be fixed
+
+        - ahrefs
+            - health issues
+            - crawl
+            - warnings
+            - notices
+            - all issues (technical issues)
+                - observe all on the basis of errors
+                - fix them
+                - manage them which ultimately makesx your checklist
+            - crawl setting
+                - setup
+                - crawl in default
+                - keep html tag in header of your site
+            - overview
+
+
+            - meta tags' description 110 to 160  characters
+
+            - SEO Minion - a tool
+
+            - missing alt text can be viewed using SEO m Minion
+
+        - semrush
+        
+
+        - Screaming Frog
+            - download and use
+
+
+        - Steps  (7:37-7:39)
+
+
+
+
+
+
+
+
+    - Technical SEO Health Issues and Fixes
+        - Fixing after Audit
+        - All can't be solved alone
+        - error may be in hosting level, thedmes, etc.
+        - Following checklist:
+            - Latest version of Wordpress CMS
+            - Latest versions of plugins
+                - Updtae all to latest one by one by taking backup of site
+                - delete if double or inactive
+            - Setup GSC and GA
+            - Review XML Sitemap
+                - Given by SEO plugin (Rank math)
+            - Review HTML Sitemap
+                - Plugin -Simple sitemap
+            - Review Robots.txt
+                - to ensure robots are allowed to crawl
+            - Check malware in GSC
+                - Security and manual action
+            - Checik manual penalty in GSC
+            - Claim all versions of URL
+                - From GSC     from add property in left sidebar
+                - control traffic to unwanted version
+                - traffic should be in preferred version only
+            - Check for issues (5xx, 4xx, 3xx)
+                - From GSC
+                    - In coverage
+                    - In Settings -> Crawl stats
+                        - Evaluate each
+                        - make favcon as .ico
+                        - get package
+                        - File manager plugin of CMS
+                        - keep favicon (.ico) in root
+                        - you can use code
+                - From ahrefs
+                    - view problems
+                    - you can edit theme file of wordpress to fix issues
+            - Review CDN (Content Delivery Network)
+            - Mobile-friendly
+            - improve mobile site-speed
+                - google page speed insights
+                    - In mobile as well as desktop
+                    - see Opportunities and fix the issues
+                        - eg. make image small
+                - similarly from ahrefs
+                    - use thumbnails for image
+                    - function of wordpress can be used
+                        Function :- the_post_thumbnail()
+                        you can define the size
+                    - use image optimization tools
+            - Check for HTTP(S) server errors
+                - use ahrefs to view
+            - Review broken links
+            - improve site speed
+                - may take upto 20 hours
+                - differentsteps requied
+            - Check for structure issues (HTML / CSS)
+            - Check for URL structure
+            - Check for duplicate content
+                - use ahrefs
+                    duplicate tab
+                - fix duplicates
+            - Optimize meta titles with unique titles
+                - use ahrefs
+                    under duplicate tab, title recommendation
+                    edit it using WordPress CMS
+                    easured in pixels
+            - Review Hotflang
+                for multilingual and /or big sites
+            - Review schema
+                - use schema validator
+                    validator.schema.org
+            - Open graph tags
+                use ahrefs - observable in issues of ahrefs
+                            and in notices
+            - Review the content
+                thin content
+            - Maintain proper reverse SILO structure
+            - Collect primary, secondary, LSI keywords
+            - Set up GMB
+            - Review publisher tag
+                not so important
+            - Review proper citation signal (NAP)
+                should be consistent
+                name, address, phone number should be same all over internet
+            - Add Google Map in the Footer
+            - Setup Footer correctly
+                informational
+                links accessible
+            - Check for proper site title, tagline and favicon
+            - Check for social media page links
+            - Check for demo pages and contents
+                should not have
+                    lorem
+                    ipson
+            - Check for the links of the header, footer, sidebar and menus
+            - Compare Sitemap with Staging and live site
+            - Maintain existing redirects
+            - Check for image loading issues
+            - Review H1 tags
+
+            You can add other
+
+        - ahrefs
+            - errors
+            - warnings
+                eg. no index page
+                    CGI - hosting related
+                    Meta description too short
+                    Missing alt text
+        
+        - semrush
+            - can be checked instantly
+    
+
+
+
+
+
+
+
+
+    - On-Page SEO Audit and Content Audit
+        - On-Page SEO Audit is done before starting project
+        - Focus on white hat SEO (right way)
+        - Do not focus all pages in a website
+        - Focus on target page or main page
+        - Do not focus on low content page or category page
+        - Focus on:
+            - Use short URL
+                target keywoprd but short (to the point)
+                Don't use underscore, use dash
+            - Use LSI keywords
+                relevant term / topic
+            - Publish long content
+                long comprehensive content
+                error - low word count
+                1500+ words
+            - Optimize your Title tag for CTR
+                Use numbers if possible in title, brackets
+            - Use External Links
+            - Use Internal Links
+                withinn different pages of your site
+                edit previous page
+                results in low crawling cost
+            - Use multimedia
+            - Title and meta description
+                title < 600 px
+            - Use only one H1 tag
+            - Start adding Schema
+                feature snippet
+                rating
+
+
+
+            Others
+                Focus on creating more informative content.
+                Provide a more relevant title (Include your keyword in your title tag
+                Provide a more relevant meta description.
+                Include your keyword in first 100 words
+                Add 5+ external links
+                Add 5+ internal links
+                On Page SEO Audit Content Audit
+                Use LSI keywords (Enrich your page content)
+                Make Sure all images have alt attribute
+                Use Canonical Tag
+                Make sure there's no mixed content http://resources) (http and https)
+
+
+        - LSI keyword
+            - In Google, it is 'searches related to ...'
+            - mentiion it in content
+
+        - semrush tool
+            - Gives ideas
+                - On Page SEO Checker: learnso
+                - Content
+                - Semantic
+                - backlinks
+                - Technical issues
+                - UX
+                - Strategy
+                - SERP Features
+
+
+
+
+    - Content Audit
+        - analyze the performaance of all the content of your site
+        - how to do?
+            - Leave as it is
+            - redirect or Update
+            - Delete
+            - Manually review
+
+        - Manually Review
+            - Leave as igt is
+            - No index
+            - Update
+            - Redirect and/or consolidate
+
+        - content Audit Flowchart (9:04:55) (From ahrefs)
+
+        - thin content
+            - content that has little or no value to the user
+            - dummy content
+            - mini blog
+
+        - Duplicate Content
+            - exactly or near (more than 30%)
+            - withhin same website or different sites
+
+            - why is duplicate content bad for SEO?
+                - Undesirable or unffriendlyh URLs in search results
+                - Backlink dilution
+                - Burns crawl budget
+                - Scraped or syndicated content outranking you
+                    use DMC to exclude it
+
+            - Common Causes
+                - Teschnical error
+
+                - Faceted/filtered navigation
+                    use AJAX for filters
+                    use Robots.txt
+                    make canonical URL
+                    - occurs mainly in business/e-commerce sites
+                
+                - Tracking parameters
+                    - Tracking campions using Google Analytics use different parameters like UTM causes duplicate contents
+                    - main page as well as parameter page
+                    - make main page as canonical page/URL in backend
+
+                    - proper redirecting 4 forms of webpage into 1
+                        use Search Console by making property
+
+                - Case-sensitive URL
+                    - make lower case in all cases
+                    - make link consistent
+
+                - Trailing slashes vs non-Trailing slashes
+                    - both are different
+                    - use redirection
+
+                - Print-friendly URL
+                    - print friendly versionn should be canonicalized to SEO-friendly version
+
+                - Mobile-friendly use
+                    we use m. version for mobile
+                    we should canonicalize it to SEO-friendly version
+                    otherwise use rel="alternate"
+                    - concept is less after responsive design
+
+                - AMP URLs
+                    - Accelerated Mobile Page (AMP)
+                    - large new site uses it for speed optimization
+                    - separate URL gets created
+                    - canonicalize and use rel="amphtml" to avoid duplication detection
+
+                - Tag and Category Pages
+                    - 2 Tags for same blog makes duplicate content
+                    - Don't use tags as it has no value nowadays or make it no-index
+                    - make limited categorize
+
+                - Attachment image (page) URL
+                    - by default Attachment page gets created in CMS
+                    - disable it
+                    - or direct it to absolute attachment page
+                
+                - Paginated Comments / pages
+                    - exclude pagination or canonical
+                    - title or meta are duplicated
+
+
+                - Localization
+                    - Same page for different languages / for different regions
+                    - Use proper hreflang tag
+
+                - Search Result Page
+                    - search makes new URL for each search
+                    - can't be fixed
+                    - expire it and block it
+
+                - Staging environments
+                    - make no staging, index
+                    - make http protect
+                    - in WordPress, discoueage visibility
+
+
+
+
+
+    - Rich Snippets
+        - additional information displayed
+            like reviews, stars
+        - structure data or micro data that is on the page
+
+        - The vast majority of Google search results display the same 3 pieces of data:
+            Title tag
+            Meta description
+            URL
+
+        - importance
+            - for making better CTR
+
+        - Popular rich snippets
+            - Articles
+            - Recipes
+            - Products
+            - Star Ratings and Product Reviews
+            - Videos
+            - Organization
+            - Video
+
+        - data-types/how-to
+
+
+
+
+    - Schema and JSON-LD
+        - Schema is used for additional information for SE
+        - use schema.org for knowing standards
+        - you can use Google also for this
+
+        - Schema.org
+            - can be searched for what we want
+
+        - 3 methods to implement
+            - Microdata
+            - RDFs
+            - JSON-LD
+
+        - Microdata
+            - edit each html property
+            - itemprop or itemscope or itemtype like property
+
+        - JSON-LD
+            - JSON format
+            - keep it in headder
+
+        - In WordPress
+            - Plugin can be used
+            - Custom method can be used
+
+        - Tool
+            - Google structured data testing tool
+
+
+
+        
+    - Implement JSON-LD data on your website
+        - Tools can be used to generate data
+        - WordPress
+            -  header and footer Plugin
+
+
+        - Tools to create JSON-LD
+            json-id/playground/
+            technicalseo.com/tools/schema-maarkup-Generator
+        
+        - only change values
+
+        - wrap JSON-LD in script
+
+        - don't use one schema in all pages
+
+        - FAQ Schema implement in a page
+
+        - Google LD validator
+
+
+
+
+    - Off-Page SEO
+        - SEO efforts done outside the website / webpages
+        - helps in building trust and authority
+
+        - backlink building
+            - a kind of vote
+            - from high authority websites on/about the topic
+        
+        - important aspect in building backlink
+            1.  linking site's popularity
+            2.  how related the linking site's topic is to the site being related to
+            3.  freshness of the link
+                    content up-to-date
+            4.  anchor text used
+            5.  trustworthiness of linking page
+                    how popular is the linking page
+            6.  no. of other links on linking page
+                    other page link given by linking page
+            7.  authority of linking domain and page
+                    DA, DR, PA, PR, Span score
+                    third party matrix
+
+        - non-link related off-site SEO
+            1.  Social media marketing
+                    Social signal
+            2.  Content marketing
+                    mmentions from anywhhere
+            3.  Guest Posting
+                    Publishing blog in other sites 
+            4.  Linked and unlinked brand mentions
+            5.  Influencer marketing
+            6.  Reviews
+                    trusts pile up
+            7.  Podcast
+                    mentions
+            8.  Forums
+                    quora, reddit, etc.
+            9.  Events
+            10. PR (Press Release)
+            11. Word-of-mouth referrals
+
+        On Page SEO                                 Offd-Page SEO               Technical SEO
+        - Site content                              - Link building             - Site speed
+        - Title tag & meta tag optimization         - Content marketing         - Structured data
+        - H tag optimization                        - Social media              - Canonicalization
+        - Internal linking                          - Podcasts                  - XML Sitemaps
+        - Image optimization                        - Reviews                   - hreflang
+        & more                                      & more                      & more
+
+
+        - to learn more:
+                https://moz.com/learn/seo/off-site-seo
+                https://www.semrush.com/blog/off-page-seo/
+                https://backlinko.com/off-page-seo-guide
+
+
+
+    
+
+    - Backlink Building for your SEO Authority
+        - Ranking on the basis of authority
+        - relevancy = indexing on topic
+        - authority = ranking on the basis of authorization
+
+        - backlink
+            - external site pointing to your page/site
+            - relevant site
+            - high quality backlink needed
+
+            - how to find high quality site
+                - ahrefs
+                - MOZ
+                - semrush
+
+            - Guest Post
+                - Check the authority of site
+                - No-follow / Do-follow attribute
+                    Do-follow = passes SEO value / SEO signal
+
+                - How to get Quality Backlinks
+                    1.  Visual Assets
+                    2.  List Posts
+                    3.  Original Research and Data
+                    4.  In-Depth Ultimate Guides
+                    5.  Email Outreach
+                    6.  Reverse Engineering of high ranked site
+                    7.  Broken liink Building
+                            Google - Broken link checker
+                            linking to the broken link of authorized site
+                    8.  Get Easy Links With Link Reclamation
+                            Google alerts
+                    9.  Social Media
+
+
+            
+    - How to build backliinks in the right way
+        - backliinks = Other website to your website
+                        vote
+        - quality of backliinks count
+
+        - Traits
+            1.  They come from trusted, authoritative website
+                    Should be from site with high DA
+                    domain authority
+                    not only backlink, but domain authority gets passed to your site
+            2.  They include Your Target Keyword in the Link's Anchor Text
+                    same target words from many sites is not recommended
+            3.  The site (and page) linking to you is topically should be topically related to your site
+            4.  Link should be "Dofollow" link
+            5.  The link should be from different domain/sites
+
+        - Best  practices
+            1.  Create linkable assets
+            2.  Guest posting
+            3.  Infographics and other visual assets
+            4.  Submit testimonials
+            5.  Blogger reviews
+            6.  Link reclamation
+            7.  Use HARO (Help and Reporter Out)
+            8.  Reverse Engineering of your competitors' site
+
+        - Resources
+            https://ahrefs.com/blog/how-to-get-backlinks/
+            https://www.semrush.com/blog/how-to-get-backlinks/
+            https://backliinks.com/high-quality-backliinks
+
+        
+
+
+    
+
+    - Backlink Audit
+        - backlink = external website pointing to your website
+                    works as a vote
+        
+        - don't build links, build relation
+
+        - Goal of backlink audit
+            - to remove toxic backliinks from our site to improve site's SEO health
+            - to find new backlink opportunity
+            - to fix broken backlinks
+
+        - Use tools to find from where competitors are getting backlinks
+
+        - link types
+            Dofollow
+            Nofollow
+            Spoonsored
+            ugc (User generated content)
+        
+        - get rid of toxic backlinks
+            MOZ link Explorer
+            SEMRush BacklinkAudit Tool
+            Search Console
+
+        - SEMRush
+            - In Projects -> backlink audit -> setup -> give access to Seach Console
+
+        - MOZ
+            - In spam score
+            - more score = remove link
+            - export and see if needed
+
+        - Search Console
+            Property -> links
+
+        - time consuming task
+        - if no response from the concerned site
+            use disavow
+                make txt file
+                use format:
+                    domain:site
+                and then upload
+
+
+
+
+
+
+    - Technical SEO Guide for WordPress
+        - Challenges and Opportunities
+        - 14 years of experience in SEO & WordPress
+
+        - Security
+            DOS Attacks
+            Search loophole in WordPress
+            ranking in other domain / keywords
+            Nulled Themes / Plugins
+                Japanese spam attack
+
+        - Site Performance
+            WordPress Speed Optimize
+            not the factor, but ...
+            Hosting
+            Cache
+            DNS
+            Minification
+
+        - Updates
+            WordPress
+            Themes
+            Plugins
+            Database
+
+            but do not update without knowing
+                backup restore if needed
+
+        - Website Migration
+            - Types
+                - domain/subdomain transfer
+                - hosting transfer
+                - site redesign
+                - backup/restore
+                - redirection
+        
+        - Robots.txt
+            - information for SE Bots
+
+        - Sitemaps
+            - information for Google Search Engine Bots
+            - HTML Sitemap needed
+            - XML Sitemap
+            - In footer (apple.com)
+
+        - Site Structure
+            - Types
+                Flat
+                        better  - 3 clicks
+                Deep
+            - For Users
+                dual time of user
+            - For SE
+            - Physical vs virtual site
+
+        - Page Structure
+            - UX
+            - Structure Order
+                URL
+                H1
+                featured image
+                H2
+                image
+                H3
+                ...
+        
+        - Faceted Navigation
+            Pagenation
+            - UX
+            - Crawlability
+            - Duplicate Meta Data
+            - Dead Weight Pages
+
+        - Multi-lingual Site SEO
+            - Tranlation nad Hreflang
+
+
+
+
+
+
+
+
+
+
+
+
+
+2nd video
+
+    - Advanced Technical SEO (Intro)
+        - process of enhancing standard iof your website
+        - 4 main concepts
+            - crawling
+            - indexing
+            - rendering
+            - website architecture
+        
+        - Some Terminolgy
+            - Robot.txt
+                robot that crawls our website
+            - XML Sitemaps
+                defining the site
+                tools used - ahrefs
+            - Site Architecture
+                bad / good
+            - URL Structure / Links / Broadcrumb
+            - Structure Data / Schema / Rich Result
+            - Thin Content
+            - Duplicate Content
+            - Hreflang
+            - Canonical Tags
+            - 404 Pages
+            - 301 redirects
+            - Core Web Vitals
+        
+
+
+
+    
+    - Core Web Vitals / Website Speed Optimization
+        - WordPress and Shopify (mentor)
+
+        - elementary builder, Speed Optimization = WProcket, Pocomatters
+
+        - to optimize time for bots
+
+        - How should we start? (checklist)
+            - Check Initial speed, (test on google page speed insight, GTMetrix, Search Console)
+            - Take necessary screenshots/or create a loom video explaining the problems
+            - Create a speed optimization log (google doc works best)
+            - Take a complete site backup (using all in one wp migration plugin)
+            - Start by optimizing the images
+                - Enable webp image upload feature
+                - Optimize the large images
+                    - Optimize size (Photoshop/Paint) "don't use paint to resize transparent png image
+                    - Optimize the size using Shortpixel (use loss/lossless as needed)
+                - Add width/height as suggested by Core Web Vitals
+                - Don't let any images unoptimized.
+
+            - Enable Cache and Minification (Assets optimization)
+                - Install wp-rocket plugin/followed by Perfmatters
+                - Configure both plugin properly to avoid any conflicts
+                - Now test the speed (check browser console for any errors/warnings related to js)
+                - Make sure all the files are minified/cached
+                - Exclude jQuery file from minification/combine/caching
+                - Defer Javascript (Delay Javascript (https://perfmatters.io/docs/delay-javascript))
+            - If the site uses cloudflare configure it on wprocket settings
+            - Enable Google Analytics
+            - Work on Font Optimization (use perfmatters)
+                Font Preload (only if needed/ else it will affect the score negatively)
+                Font Display Swap
+                Font Loading Locally (Google Fonts)
+            - Evaluate third party Scripts and delay their loading (use perfmatters)
+                ref: https://perfmatters.io/docs/delay-javascript/
+            - Plugins Optimization
+                Check all the plugins to list unused plugins (take client's help)
+                Get rid of unused plugins
+            - Database Optimization
+                Optimize database using wp optimize plugin (make sure to take a db backup first)
+                Cleanup database (to clean the remaining database tables from the removed plugin)
+                Cleanup autoload data from the database
+            - Preload       (ref: https://perfmatters.io/docs/preload/)
+                Preload key requests (Fonts) (use perfmatters)
+                Render-blocking resources (CSS/JS)
+            - Preconnect (carefully, don't preconnect unused resources, it will have a negative impact)
+                Check the sites/host/domains carefully
+                Don't preload fonts, after loading them locally
+            - Server Optimization
+                Enable gzip
+                Enable Latest PHP version
+            
+
+            - pagespeed/insights
+                - target = 90% +
+                - mobile and CP are different
+                - test on final URL, not other form of URL
+
+        - use LOOM tool for video
+        - use monosnap for multiple screenshots
+
+        - Error fixing
+            - test on final URL, not other form of URL
+                other should be re-directed, so obviously slow
+            - use loom for video record & monosnap for multiple screenshots at a time
+                in docs keep screenshots
+                keep description as needed
+                mobile & desktop have different scope
+                keep date in docs
+                ss of screenshots
+            - Take backup of your site before working for optimization
+                WordPress plugin: All-in-One WP Migrations
+                Backup is in Backups
+                then start optimization
+            - Need access
+                Website access
+                Hosting access
+                FTP and SFTP access
+            - Start from Image Optimization
+                Use WebP image for small size
+                Edit dimension
+                You can use MS-Paint
+                Use https://www.shortpixel.com for optimization
+                Use / define size
+                See the size by inspecting
+                    Resize to double of what is used actually observed in the site
+                    You can edit also in Photoshop / MS-Paint
+                    In Photoshop
+                        Crop and save
+                        Ctrl+Shift+alt+s in Windows for 'Save for Web'
+                    In Shortpixel
+                        You can compare before and after optimization as there are 3 choices
+                    For WebP
+                        Use convertico to convert from png
+                        To upload use plugin or enable script
+                - Dimension + Size + Extension Optimizes
+            
+            - Use wp-rocket and / or Perfmatters
+            - Configure properly
+            - One page might be optimized but other dependent pages might get break
+            - Use/view console for errors
+
+            - WP-Rocket
+                - Paid Plugin
+                    - Settings / Test on each and every step
+                    - Clear object cache for testing
+                    - Green is favorable
+                        - Cache
+                            enable separate cahe for mobile and desktop
+                            Don't do for logged in user
+                            for 10 hours
+                            enaable cache at last
+                        - File Optimization 
+                            - CSS Optimization
+                                - Minify
+                                - Combine CSS file
+                                    Format mmight बिग्रिन्छ /layout might damage
+                                - Optimize  CSS delivery
+                                    fixes render blocking
+                            - JavaScript Optimization
+                                - Minify
+                                - Combine
+                                - Defer
+                                - Delay
+                                For minification, combine and caching, exlude jquery and jquery-migrate
+                                For necessary JS that must appear befdore user interaction, mention it in exclude section
+                                Unused JavaScript = Third-party JavaScript
+                                                    dhould be done in another way
+                        - Media
+                            - Lazyload
+                                - Enable for images
+                                - Enable for iframes and Videos
+                                - WebP caching
+                                Exclude the pictures above the fold
+                        - Preload
+                        - Advanced Rules
+                        - Database
+                        - Heartbeat
+                        - You can export and import for backup
+                    
+                    Errors
+                        - Render blocking
+
+            - Perfmatters
+                - Paid Plugin
+                    - Settings
+                        - Activate and deactivate
+                        - Lazyloading for images
+                        - Font optimization
+                        - WooCommerce, CDN, Google Analytics Delay locally and others can be used if needed
+                        - you can delay tag manager, facebook, etc. from delay JavaScript
+                        - Third-Party Script Manager
+                            you can deactivate un-needed Scripts
+                            contact forms
+                        - delay better in this
+                        - Preloading anything like font, reCAPTHA, capcha, etc. for reducing extra time for loading site beforehand with cross origin
+                        - Disable reCAPTHA from preload as well as site
+                            remove keys for it
+                        - Delay, Defer = पछि
+                          Preload = अघि
+                        - Perge for clearing cache oif Perfmatters from extras
+
+                    - Check Console for error
+                        - no JS errors should be present
+                    
+                    - cloudflare can be handled in WP Rocket
+
+        - Plugin cleanup
+            - One time / not needed plugin can be deleted
+            - Regular needed hould be used
+
+        - Database Optimization
+            - WP Optimization
+                - one time plugin
+                - you can delete not needed one
+                - you must backup beforehand
+                - you can delete the plugin at last
+
+
+
+
+
+
+
+    - Multilingual and Hreflang
+        - Used for multiple place and/or multiple language
+        - HTML attribute used to specify the language and geographical target
+        - handling multiple versions without indicating duplication and appropriately
+        - makes / create clusters and shares ranking/authority
+
+        - In HTML
+                <link rel="alternate"href="link",hreflang=""/>
+        - you can use multiple Hreflang in a single page
+
+        - handles multi-currency ecommerce
+            - display right page in right location
+
+        - Rules
+            - it is / should be bi-directional
+            - self referential are good practice
+            - X-default pages are recommended
+
+        - Implementations
+            - HTML tags (recommended)
+            - HTTP Header
+            - Sitemaps
+
+        - HTTML tags
+            - In header section
+
+        - HTTP headers
+            - used for non- html sites
+            - migh be slow
+        
+        - sitemap
+            - use <loc>
+            - might be hectic/lengthy
+
+        - can be handled dynamically
+
+
+
+
+    - 404 Pages
+        - non existent pages
+
+        - handling
+            - most pages get redirected to home page (but not recommended)
+            - so, make 404 page especially
+            - Google treats your homepage as soft 404 page
+
+        - using 404 Pages for Good
+
+        - design custom 404 pages to engage visitors
+
+        - doesn't pass link juice
+
+        - when not to use 404 page / use redirect
+            - have very inm. external links
+            - have more traffic
+
+
+
+    - cONVERSION rATE oPTIMIZAATION (cro)
+        - gives meaning to SEO
+        - is a separate career too
+
+        - it is a practice of doing the work that we want user to do in our website
+        - 3 main factors
+            - DRFIVERS
+            - BARRIERS
+            - HOOKS
+        - COR = No. of conversions(Desired action taken) / Total visitors * 100
+            10% is OK
+
+        - Where to implewment?
+            1.  Homepage
+                80-90% of traffic
+            2.  Pricing Page
+                Design
+                Messaging
+                Option
+                Text
+                Ease of use
+            3.  Blogs
+            4.  Landing pages
+                Convert visitor into customer
+
+        - Conversion Rate Optimization Strategies
+            1. Create text-based CTAs within blog posts.
+            2. Add lead flows on your blog.
+            3. Run tests on your landing pages. (A/B testing)
+            4. Help leads to immediately become a marketing-qualified lead.
+            6. Add messages to high-converting web pages. (livechat)
+            7. Optimize high-performing blog posts.
+            8. Leverage retargeting to re-engage website visitors.
+
+        - ORKA Socials
+            - Links for conversion
+
+        - exit intent popup
+            - popup when trying to exit
+
+        - Come, do something and go
+        - Reviews, testimonials are not only SEO but CRO too
+        - Blog बाट नि पठाउने
+        - Make people take action in your website
+
+
+
+
+    - Best Way to Perform SEO Site Migration
+        - Common migration
+            - Redesigning new site and dropping old one
+            - Re-branding - Domain change
+                            sub-domain into main domain
+            - Platform migration - eg. WordPress to Shopify
+
+        - If not handled, traffic gets lost
+
+        - There are several common issues that can arise during site migration, including the following:
+            1.  Loss of data or content:
+                        This can happen if the migration process is not carried out properly, leading to the loss of important data or content from the site.
+            2.  Broken links and images:
+                        Site migration can cause links and images on the site to break, leading to a poor user experience and potential loss of traffic and revenue.
+            3.  Loss of search engine rankings:
+                        If the migration is not carried out carefully, it can result in a loss of search engine rankings, leading to a decrease in organic traffic to the site.
+            4.  Downtime:
+                        Site migration can result in downtime, which can be frustrating for users and lead to a loss of traffic and revenue.
+            5.  Compatibility issues:   
+                        In some cases, the new site may not be compatible with certain browsers or devices, leading to poor user experience and potential loss of traffic.
+            To avoid these issues, it is important to carefully plan and execute the site migration process, and to test the new site thoroughly before making it live.
+
+        - Checklists for site migration (Priority given to WordPress)
+            Backup, Backup, Backup
+            Latest version of CMS (WordPress)
+                Need update
+            Latest version of Plugins (WordPress)
+                Need update
+            Set up GSC and GA
+            Review XML Sitemap
+            Review HTML sitemap in the website
+            Review Robots.txt
+            Check malware in GSC
+                NEED or not
+                ensure the traffic
+            Check manual penalty in GSC
+            Claim all 4 versions of website (Review www redirects)
+            Check for issues (5xx,4xx,3xx)
+            Review Content Delivery Network (CDN)
+            Make sure the website is mobile-friendly
+            Improve mobile site speed
+            Check for HTTP(S) server errors
+                SSL / Mixed content
+            Review broken links
+            Desktop site speed
+            Check structure issues (HTML/CSS)
+            Check for URL structures
+                If changed, need user mapping
+                staging needed
+                comparison needed one by one
+                test using ahrefs and Search Console
+                Use webmaster tool of ahrefs
+            Check for duplicate content
+            Optimize meta titles with unique titles
+            Review HREFLANG
+            Review schema
+            Review Open Graph Tags
+                Cards seen when shared on social media
+            Review thin contents
+            Maintain proper reverse SILO structure
+            Collect primary, secondary, LSI keywords
+            Set up GMB
+            Review publisher tag
+            Review proper citation signal (NAP)
+            Add Google Map in the footer
+            Set up footer correctly
+            Check for proper site title, tagline, and favicon
+            Check for social media page links
+            Check for demo pages and contents
+            Check the links of the header, footer, sidebar. and menus
+                Sidebar is blank in blog posts, footer menu isn't working
+            Compare Sitemap with Staging and Live site
+            Maintain existing redirects
+            Check for images loading issue
+            Review H1 tags
+
+        - Once you have completed the site migration process, there are several steps that you may want to take to ensure that your new site is functioning properly and that your business continues to run smoothly. Some of these steps may include the following:
+            - Test your site thoroughly
+                    After migrating your site, it is important to test it thoroughly to ensure that everything is working properly and that there are no issues. This may include testing links, images, and other features to ensure that they are functioning correctly.
+            - Monitor your site's performance
+                    After your new site is live, you should monitor its performance to ensure that it is running smoothly and that there are no issues. This may include monitoring site traffic, user engagement, and other key metrics to identify any potential problems and address them promptly.
+            - Update your site regularly
+                    To keep your site running smoothly and to ensure that it remains relevant and engaging, you should regularly update it with new content and features. This may include adding new blog posts, products, and other content to keep your site fresh and engaging for your visitors.
+            - Monitor your site's security
+                    It is important to regularly monitor your site's security to ensure that it is protected against potential threats. This may include installing security app/plugin, keeping your site's software and plugins up to date, and regularly backing up your site to prevent data loss.
+            - Monitor your site's SEO performance
+                    After migrating your site, you should monitor its SEO performance to ensure that it is ranking well in search engine results and that it is attracting organic traffic. This may include monitoring your site's search engine rankings and implementing SEO best practices to improve your site's visibility and attract more traffic.
+
+        - Tools needed
+            ahrefs, sitebulb, GSC, ScreamingFrog, semrush
+        
+        - For backups
+            All in one WordPress Migration, Hosting's Backup, WordPress Directory(check update date and reviews)
+
+        - Security
+            WordFence, Hide login Path, XMLRP Disable, Disable file editing
+        
+        - keyword net expand
+        - content hub
+        - social signal
+        - CRO
+        - funnel
+        - lead capture
+        - upsell
+
+
+
+
+
+    - Protect Your Site From Hackers
+        - Website hack may be encountered
+        - Website must be secured
+
+        - site may be hacked and later on Google might not Rank your site later on too
+
+        - 1st hack
+            - hacked by Arabic and BeenLaden's music
+            - security plugin for WordPress
+            - content change
+            - redirected to unwanted site
+            - viagra due to many HTML attack at backend by creating many unwanted pages
+            - site hacked and attacked only one URL
+
+            - consequence of hack
+                - Search Console
+                    - traffic : decrease
+                    - indexing : unwanted page added and indexed
+                        Search in SERP does not show but SC takes time
+                        unwantes page gets easily indexed (irony)
+                - domain blacklist can happen
+
+            - security configure Checklist
+                - Basic Security Configuration
+                    keep daily/weekly backup - automated
+                    WordPress Update
+                        Schedule and update 15 days
+                    Plugins Update
+                        twice a month
+                    Themes Update
+                    Update Password
+                        Update in 3 months
+                    Delete any plugins or themes the we're not using
+                    Never use "addmin", "login", "administrator", "user", "test" as your username
+                - Advance Security Configuration
+                    Change Login Path (/wp-admin. /wp-login.php, /admin) (Hide my login)
+                    Hiding username from the author archive URL (functions.php snippet)
+                    Limit login attempts (3/5-block)
+                    Change file permissions (Server Side)-read/write (hosting support)
+                    Disable file editing via the dashboard (snippet in wp-config.php)
+                    Create Custom Secret Keys for wp-config.php File (link in wp-config.php)
+                    Lising Google Re-captcha in all Forms to prevent spams (CleanTalk-paidi
+                    Change the Database Prefix (default wp
+                    Hide Your WordPress Version
+                    Protect Critical Files wp-config.php, htaccess, etc (no read/write permission)
+                    Install and Configure WordPress Security Plugin (WordFence(free), Sucuri...) - 20min
+                    Scheduled Backup of WordPress Website automated
+                    Automatic Email notification for Security and Updates -5min
+
+            
+
+
+
+
+
+    - Measuring and Tracking SEO Success
+        - difference in Conversion Rate from GSC or GA
+        - use Google Manager (new)
+        - 
+        - Information that can be tracked in GA
+            - Revenue
+            - Tag manager
+            - form fillup
+            - service bought
+            - Ry
+            - Phone clicks by trigerring event
+            - Total sells and related
+
+        - Google Analytics (GA)
+            - Conversion tab -> goals -> Overview
+            - View -> Goals :   To setup goals
+                                It is event tracking
+            - should keep script
+            - split testing
+            - keep different goals so you can detect which one is giving convergence
+            - keep goals for each item
+            - script should be used
+
+
+
+
+    - Track Keyword Rankings and CTR
+        - Seach Console
+            - Overview
+                - Performance
+                    last 3 month's data
+                    compare
+
+                    queries
+                    page wise compare
+                    you can look for keyword position and others
+
+                    Ranking
+                    Page
+                    For which a page is getting ranked for
+
+            get recommendation from semrush
+
+    
+
+    - The Only SEO Checklist You Need
+        - Some task should be :
+                                    done once
+                                    repeat periodically
+                                    do on each page
+        - SEO Basics
+            Set up Google Search Console
+                See the keywords you rank for
+                Check ranking positions
+                Find website errors
+                Submit siternups
+            Set up Bing Weomaster Tocis
+            Set up Ahrefs Webmaster Tools
+                Scan your site for 100+ SEO issues
+                See all your backlinks
+                See all the keywords you rank for
+            Set up Google Analytics
+                Google GFO (new & Recommended)
+            Install SEO plugin
+                Yoast SEO
+                Rank Math
+                The SEO Framework
+            Create and submit a sitemap
+                exclude pages which shouldn't be crawled/indexed
+            Create a robot.txt file
+
+        - Technical SEO
+            Plan your website structure
+                Maintaion hierarchy
+                Basic navigation structure
+                Advanced internal linking
+            Make sure your site is crawlable
+            Make sure your site in indexable
+                indexability can be checked in ahrefs
+            Make sure you're using HTTPS
+            Make sure your website is accessible at one domain
+                Set up for 4 versions
+            Make sure your site loads fast
+            Make sure your site is mobile Friendly
+            Install an image compression plugin
+            Fix broken pages
+                Search backlinks anf fix
+            Fix duplicate content issues
+                make canonical page / tags
+
+        - Keyword Research
+            - Find a primary keyword
+                one page for one keyword
+                otHer keywords get ranked automatically later on
+            - Assess search intent
+            - Assess your chances of ranking in Google
+                keyword difficulty = low(0,1,20) -> easy to rank
+                                    = high      -> difficult to rank
+                - Focus on
+                    High-quality backlinks to the high-quality pages
+                    Predominantly big brands in the top 10
+                    High topical relevance of the top-ranking sites
+            - Research what people want to know
+                - People Also Ask (PAA) should be covered
+                - Use content gap tool of Ahrefs to know more on ranking keywords of top 3 competitors sites
+
+        - Content
+            Solve the reader's problem
+            Write a winning intro
+                - to hook visitors
+            Use subheadings to create hierarchy
+                - One H1 in 1 page
+                - H1-H6 available
+            Break things up with images
+            Use short sentences and paragraphs
+                Use Hemmingway, Grammerly, Readability, Grade 7 to be helped for writing
+            Add a table of contents
+
+        - On-page SEO
+            Use short, descriptive URLs
+                should be short & to-the-point
+            Write a compelling title tag
+                copyrighting skill is recommended
+            Write a competting meta description
+                Expand on the title
+                Double down on search intent
+                Use an active voice
+                Keep it under 120 characters
+                Include your primary keyword (where it makes sense)
+            Link to relevant resources
+                internal and external links as needed
+            Optimize your images
+            Add schema markup
+            Add internal links
+                Create a free Ahrefs Webmaster Tools account
+                Crawl your website with Site Audit
+                Go to the Link Opportunities report
+                Add a "Target page" filter and set it to your new page
+
+            Combine site structure + internal linking if you can (nice and recommended)
+
+        - Link building Checklist
+            Replicate your competitors' link
+                Go to Content Explorer
+                Search for "competitor 1" AND "competitor 2")-"your brand"
+                Hit search
+                Toggle "One page per domain
+            Reclaim lost links
+            Pursue unlinked mentions
+            Publish guest posts
+                Go to Ahrefs Content Explorer
+                Enter a relevant topic (e.g. "keyword research")
+                Choose "In title" from the drop-down
+                Hit "Search"
+                Go to the "Websites" tab
+            Pitch resource pages
+            Find people linking to inferior content
+                Go to Content Explorer
+                Search for your topic (eg, long tail keywords)
+                Choose "In title" from the drop down
+                Filter for pages with lots of referring domains (linking websites)
+            Tell more people about your content
+
+
+
+
+    - The Most Common SEO Mistakes
+        - Over optimization
+            Don't repeat the keywords very
+            Many internal links
+        - Optimizing existing content only
+            Do content gap analysis
+            Content coverage should be done
+            Work on cluster
+        - Not having a process (SOP)
+            Ubersuggest for keyword research
+            work on process
+            do not work randomly
+        - Trying to rank everything
+            do not try to rank all the pages like contact page and so on
+        - Expecting faster result
+            do not try shortcuts
+            genuinely work for SEO
+            you may reach black-hat SEO which is dangerous
+        - Poor attention to details
+            Same words different spelling
+            Anchor text selection
+            Replace meta data, title, meta tags ehile copying
+            Need formal process
+        - Not measuring SEO success
+            need to report the vendor
+            ultimate goal is the activity, not only impressions, traffic
+        - Ignoring technical SEO
+            not just fixing issues of ahrefs
+            overall satisfaction of visitors
+            lead that we recieve
+            Mobile-friendly
+            Cross-platform (Chrome, Safari, Edge, Mobile, etc.)
+        - Site security
+        - 2 sites due to work in copy version, initially no-index, but after going live it should get index
+        - Relying on outdated SEO techniques
+            Check if the technique is new, recent or not
+            Google.com & google.com.np are different
+        - Poor communication
+            When worked on team
+                Overwriting may happen
+                Delivering goals to all
+        - Not knowing your audience
+            how audiece get attracted to your site
+        - Creating the wrong type of content
+            it may have 0 convergence although much traffic
+        - Reelying on free SEO tools only
+            insights may be limited
+        - Creating duplicate content
+            use original content
+        - we feel like we found the right company to do SEO, dhukka vayera pay garxam, but nothing improves. so basic knowledge aafailai tha vayo vane better
+        - ahrefs को KD(Keyword difficulty & others) may be different/wrong
+        - you can take one aand grow
+        - proof reading for AI generated content is required, otherwise itt may hamper
+
+        - Blogger site
+            but do you own
+                standard
+
+        - on-site = relavancy
+          off-page = authority
+
+
+
+
+    - Unloxk the Secrets of Stress-Free SEO
+        - Study may be difficulty
+        - not seeen instantly, so it may develop stress
+        - never complete
+        - content writing needed
+        - Conversion needed
+        
+        - Accept the challenges
+        - mentally prepare
+        - SERP problem
+
+        - Lack of attention to detail
+        - you should observe the pattern nicely
+        - high-quality, error-free, timely delivery is expected
+        - have basic understanding
+        - prioritize the work
+        - organize the work
+        - responsibility
+        - work and study for exam & communicate with higher authority
+        - attach solution with reporting problems
+
+        - re-optimizing top 3 need much analysis, don't go for on-page SEO
+            - be clear on ehat to optimize
+        - mistake is obvious for newcommer
+        
+        - eraser = backup of site/page
+        - we can watch revision/history
+
+        - analyze new technique and make sure it is genuine
+
+        - accept your mistake
+        - pre-inform about new technique
+        - be confident on what you know and you don't know
+
+        - organize the files created / make folder and organize with proper sharing in group
+        - predict the mistakes
+        
+        - take help always
+        - follow the process of organization & know your role
+        - ask for resources and learn
+        - be proactive as it is for your growth
+        - learning at home & work at work time
+
+
+
+
+
+    - Unlock the Power of SEO with AI
+        - How to become an SEO Specialist?
+            - use AI in test project to implement the learning
+            - extension can be used in top of Chatgpt
+
+            - keyword everywhere extension in browser
+                - need to install and enable
+            - 2 options seen in Chatgpt
+                - templates
+                - prompts
+            - templates
+                - category
+                    - use SEO
+                    - On-page Optimization
+                        - 3 templates seen
+                            - Meta title and description generator
+
+                            - prompt on the basis of options selected get generated
+
+            - different options can be selected as per need for our site
+
+            - validate the keywords generated by Chatgpt using other tool
+            - use common sense and update the content generated
+            - give finishing touch yourself
+
+            - try AI for your work, don't totally depend on it
+            - evaluate the tools before starting the project
+
+
+
+            
+
+
+    - SEO and ChatGPT
+        - Learn from LinkedIn Community
+
+        - Extension : AIPRM for ChatGPT
+            - use in browser
+                - you can save keywords as well as prompts - Public & your keywords and/or prompts
+
+                - Optimize gmb IN ONE click
+                - See the rankings
+                - Outrank Article
+                - if clicked, prompt gets activated
+                - should copy the competitor's link
+                - you can use preset tools
+
+
+                - Keyword Strategy
+                    - we should search for keyword that we want to use for content
+                    - table is seen as result
+
+                - Outline for Blog Article
+                    - info keyword - input
+                    - title/subtitle given
+
+                - Get 15 SEO Optimized Google Business Posts (GMB)
+                    - Give brief introduction with target keywords
+
+            - Rename the chat
+
+            - if not in table format, install it again or try with enhanced prompts
+            - rewrite the content, don't paste exactly
+
+            - Activity = Outreach
+
+            - Activity = Research
+                - Youtube TAG Generator With Keyword
+                    - Youtube title name - should be entered
+                    - Tags get generated
+                    - we can save template too
+            
+            - Activity - Writing
+                - Fully SEO Optimized Article including Meta Description and FAQ's.
+                    - Enter keyword or title
+
+        - Use extensions and experiment
+        - Start sharing what you know
+        - do test  site and experiment and try
+
+
+
+
+
+
+    - Scale SEO Content Using ChatGPT
+        - jasper ai before ChatGPT
+        - Prompt:
+            I Want You To Act As A Content Writer Very Proficient SEO Writer Writes Fluently English. First Create Two Tables. First Table Should be the Outline of the Article and the Second Should be the Article. Bold the Heading of the Second Table using Markdown language. Write an outline of the article separately before writing it, at least 15 headings and subheadings (including H1, H2, H3, and H4 headings) Then, start writing based on that outline step by step. Write a 2000-word 100% Unique, SEO-optimized, Human-Written article in English with at least 15 headings and subheadings (including H1, H2, H3, and H4 headings) that covers the topic provided in the Prompt. Write The article In Your Own Words Rather Than Copying And Pasting From Other Sources. Consider perplexity and burstiness when creating content, ensuring high levels of both without losing specificity or context. Use fully detailed paragraphs that engage the reader. Write In A Conversational Style As Written By A Human ( Use An Informal Tone, Utilize Personal Pronouns, Keep It Simple, Engage The Reader, Use The Active Voice, Keep It Brief, Use Rhetorical Questions, and Incorporate Analogies And Metaphors). End with a conclusion paragraph and 5 unique FAQs After The Conclusion. this is important to Bold the Title and all headings of the article, and use appropriate headings for H tags.
+            Now Write An Article On This Topic "[Can I do my own SEO?]"
+
+            Now Write An Article On This Topic "[Law Firm SEO]"
+            Now Write An Article On This Topic "[eCommerce SEO]"
+
+        - You can use AI for conntent writing too, but make sure to re-check and make it better
+        - don't blindly use it
+        - don't worry for AI detection
+        - make sure user are engaged in your site
+        - use Grammerly for the content
+
+
+        - knowledge + skill भन्दा पनि value we deliver
+        - don't be average, be exceptional
+        - don't be limited to free resources only
+
+        - GMB - local phone number
+        - Make proper structure
+        - how creatively are we working matters more
+
+
+
+
+
+
+    - Are You Qualified to Learn and Build Your Career?
+        - Easy to learn
+        - But, roadblocks may be there
+
+        - how to gain foreign customer / job?
+        - 13 years of experience (mentor)
+
+        - no language barrier, but your english language need to grow and improve by the time
+        - strong language on the field of job is OK
+        - you can use Grammerly or Google to check if not confident
+        - continuous learning is must
+        - SEO can be started from zero easily
+        - action changes life not thinking only
+        - Technologies:
+            HTML
+            CSS
+            Web Development
+            JS
+            PHP
+            WordPress
+            Android app Development
+            SEO
+            UI/UX
+        - Why SEO?
+            When searched name og Google
+            Company
+            DV / Lottery
+            SEO upsell
+        - Programming to SEO - many people
+        - DA improve is not the only
+        - SEO future is bright as new business are initializing and all need to rank themselves
+        - How to do/start?
+            - start talking in social media
+            - then, cross linking
+            - share case studies in Facebook, LinkedIn
+            - make Google Business Profile and advertise yourself
+            - for international, try freelancing platform like LEGIT
+            - International communities
+            - Solve the problems on community posts
+            - Give value to your work
+            - There are many communities, show you and your idea appropriately
+            - Go to / use mastermind
+                invest on knowledge
+            - Invest on courses / resources
+        - Share case studies
+        - Focus on content, internal linking
+        - Fix security
+        - Do not focus on many recommendations
+
+        - Prove your value
+
+
+
+
+    - Opportunities in SEO
+        - Company job is small
+
+        - Opportunities
+            - 9-5 job
+            - freelancing
+            - blogging
+            - teaching
+            - side-skills
+            - & many more
+                - globl reach
+                - work from anywhere
+                - become a specialist
+                    - technical, on-page or off-page
+                    - but each one has a deeper and deeper field
+                    - catch only one sector
+                - niching down
+                    - be expert in one only
+                    - make a general process
+                    - process is same for every project
+                - 7 figure agency
+                    - one million dollar agency
+                    - own process
+                    - niching down is very important
+                    - skill wise & niche wise
+                - joint venture
+                    - with web page designing company
+                    - or social media handler
+                - rank & rent
+                    - make a website & rent for others
+                - skill leads
+                    - data through blogs' comment
+                - affiliate income
+                    - commission for mention in blogs
+                    - if original website is getting link
+                - upfront payment
+                    - beforehand getting payment
+
+
+        - How to be keyword research expert
+            - volume high, difficulty low
+            - know the target audience and their intent/action
+            - see the specific tutorial
+            - be confident to give titles too for content creation
+
+        - do not use AI-Written Content
+            - know the audience
+            - and target platform
+
+
+        - focus on one skill
+        - grow with hunger
+
+        - you can collaborate with competitors too if needed
+
+
+
+
+
+
+    - Technical SEO as a career
+        - not only to rank site/page on Google
+
+        - newsletter of Orka Socials for SEO
+
+        - 600 Dollar for 3 hours
+
+        - SEO should start before website development
+            - should research
+            - it's called technical SEO
+
+            - better if you go with web development
+            - troubleshooting SEO and fall in traffic / traffic block
+            - site analysis
+
+            - HTML to Server Management and DNS level basic knowledge needed
+                - Conversion tracking too
+        
+        - Mentor's journey
+            - Web designer initially
+            - HTML
+            - CSS
+            - Server side programming
+            - Security
+            - Performance
+            - UX
+            - Fast loading of site
+            - Proper placement of content
+            - making easy for user
+
+        - fixing hack - 2 month required, negative ranking, spamy URL
+        - can give consultation too
+
+        - spamy URL - search query
+            - block from robot.txt
+            - use robot.txt
+            - use regex
+            - make search page, no index
+            - problematic more in WordPress like
+
+            - seen in page source
+                - appear in title, metadata, open-graph but page doesn't exist
+                - block such URL
+                    - eg. forbidden shown in ORKA Socials
+
+                - shoould know to implement basic security
+
+            - protect
+                    - WordFence in WordPress
+                    - Server level security - htxs
+                    - Critical file write permission
+                    - username / pwd
+                    - difficult login path
+                    - protect forms
+
+            - protect against bot traffic
+                - Paid service
+                    - cloudflare
+                    - stop bad bots - plugin of WordPress
+                    - CLEAN talk
+
+                    - block from DNS only
+
+        - Youtube handle
+
+        - analyze graph from ahrefs paid version - all time history to know before history
+        - technical SEO doesnot rank directly
+            - only protect, and making signal awesome
+            - analyze user pattern
+
+        - if your communication is better, go for Off-Page SEO
+
+        - if no-coding, don't go for technical SEO
+
+        - technical SEO
+            - reverse engineering from competitors
+            - should design schema
+            - Need For WordPress, HTML, PHP, Server management, web hosting, site host, site backup
+            - Load and use Google Font locally - issue
+            - not just fixinng issue of ahrefs
+
+            - should backup and restore
+            - security scan
+
+            - should be able to understand schema
+
+        - google tag manager makes site slow
+            - know about speed compromise
+            - research how to optimize it
+
+        - learn to study C Panel of host and others
+
+        - make template of schema and do dynamically
+
+        - CPC (Cost Per Click)
+
+        - content is important
+
+        - migration - needs URL map
+                    - internal linking
+                    - redirect
+                    - proper slug
+                    - 404 errors mostly
+
+
+
+
+
+
+
+    - High-Paying SEO Jobs
+        - Clarity on opportunities
+            - Ready or not?
+                - Missing part and how you grow?
+
+        - Agency model or not, you can grow
+        - must be up-to-date on current trends
+        - work from anywhere
+        - result needed any beforehand
+
+        - www.seojobs.com
+            - how to grab?
+            - read job description nicely
+            - know about company
+            - evaluate your capacity
+            - don't just send CV
+
+            - focus on one and continuously
+            - skills needed
+            - don't try to master all
+            - make your strategy
+            - uplift to big agency
+            - difficult to take project at entry level
+            - go in detail in one
+
+            - SEO Serpa - agency
+
+            - high opportunities
+
+            - not only on basis of CV only, you should showcase your work
+
+            - grow as a team
+            - HTML, CSS & JS are compulsory
+            - know the skills that are required to gain from job description
+            - preparation needed
+
+            - app store optimization (ASO)
+            - B2B and B2C SEO
+
+
+            - crunjchbase
+            - grammerly
+
+            - don't just apply, be serious, even facing and reaching till interview is good
+
+            - freelancing platform - comparatively low income
+
+
+        - https://rambknows.com/resource
+        - SEO newsletter
+
+        - eliminating unused JS and CSS
+
+
+
+
+
+
+
+
+    - How to build a CV
+        - Standard CV for job
+        - Priority given to CV
+
+        - Subject line in Email
+            - Make proper
+            - Indicate job title
+            - keep your name in CV file
+            - keep attention to detail
+
+            - explain in mail in few words (cover letter)
+
+        - Don't uxse simple layout
+        - No Father / Mother names required
+
+        - Skills shouldn't be messed up
+
+        - mistakes to be fixed
+            - subject line
+            - email body
+            - layout of CV
+                - more information
+            - no required separate file for cover letter
+            - if separate, also write something in email body
+
+        - take latest layout/template from Google
+        - choose professional layout
+
+        - http://www.resume.com
+        - http://novoresume.com
+        - canva
+        - http://www.etsy.com
+        - http://www.xtensio.com
+
+        - CV = senior
+          Resume = student & intermediate
+        
+
+
+
+
+    - Outro
+        - Bonus 1: Build a great CV
+          Bonus 2: Prepare yourself for an Interview
+          Bonus 3: Understand Common SEO Issues
+          Bonus 4: Next Steps
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Task 1: Search keywordfor your niche
+Task 2: Filter keyword according to intent (1:42)
+Task 3: Submit case studies (3:46)
+Task 4: Use Google Analytics setup for your site (6:05:20)
+Task 5: Use all SEO Audit Tools and be familiar (6:50)
+Task 6: LinkedIn endorsement (10:14) building relation / LinkedIn bio
+Task 7: Claim your  Social Media in your site (10:33)
+
+Task 1: Deesign 404 page for your website (2:06:50)
+Final task: (11:46:35)
+    Case Study and Get Certified
+        1. What is SEO? Why SEO is important for businesses?
+        2. What is Search Intent? Why it is important in Keyword Research?
+        3. What are the major elements of On-Page SEO?
+        4. How do Internal Links help in Ranking?
+        5. Do we really need schema to rank a page?
+        6. What is the main purpose of Off-Page SEO?
+        7. How you'll perform local SEO for a Hair Salon? Mention all the Steps.
+        8. List 10 items you can possibly find during the Technical SEO Audit.
+        9. Why do we need GSC and GA as SEO Professionals?
+        10. What are the characteristics of an SEO Optimized Article?
+        11. What is CRO? Mention 5 elements that help you increase the conversion rate of a page.
+    Do case study in docs
+
+    Message Orka Socials to get your SEO Training Certificate
+        https://www.facebook.com/orkasocials
+    Leave a review of my SEO Training
+        https://g.page/r/CQYg9v9fil2qEBM/review
+    Join Advanced SEO Training Group for more videos
+        https://www.facebook.com/groups/seomasteryseries
+
+
+    

@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { FaBriefcase, FaChartBar, FaCode, FaEnvelope, FaGraduationCap, FaProjectDiagram, FaSignOutAlt, FaTools, FaUserCog, FaUsers, FaUserTie } from 'react-icons/fa';
 import { TbCategory2 } from "react-icons/tb";
 import { TiSocialAtCircular } from "react-icons/ti";
@@ -48,7 +48,6 @@ const SidebarLink = ({ icon, text, active, href }: SidebarLinkProps) => {
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const [activeContent, setActiveContent] = useState<ContentType>(ContentType.Dashboard);
   const pathname = usePathname();
-  const router = useRouter();
   const { logout } = useAuth(); // use the same logout function
 
   // Update activeContent based on pathname

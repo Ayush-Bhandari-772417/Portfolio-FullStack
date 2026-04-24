@@ -34,9 +34,9 @@ export default function CreationCard({ creation, index }: CreationCardProps) {
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
-        {creation.featured_image_url ? (
+        {creation.featured_image ? (
           <Image
-            src={creation.featured_image_url}
+            src={creation.featured_image}
             alt={creation.featured_image_alt || creation.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"

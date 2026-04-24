@@ -1,13 +1,14 @@
 // frontend2\src\components\portfolioSections\FeaturedProjectsSection.tsx
 import { AllSettings } from '@/types';
 import { getProjects, getDisplayLimit } from '@/lib/data';
-import ProjectCard from '@/components/ProjectCard';
+import ProjectCard from '@/components/cards/ProjectCard';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export default async function FeaturedProjectsSection({ settings }: { settings: AllSettings }) {
   const limit = getDisplayLimit(settings, 'home', 'projects', 3);
-  const projects = await getProjects({ featured: true, limit });
+  const project = await getProjects({ featured: true });
+  const projects = project.slice(0, limit);
 
   if (projects.length === 0) return null;
 

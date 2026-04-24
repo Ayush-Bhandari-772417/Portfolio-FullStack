@@ -1,4 +1,4 @@
-// frontend2\src\components\GoogleAnalytics.tsx
+// frontend2\src\components\analytics\trackers\GoogleAnalytics.tsx
 'use client'
 
 import { usePathname, useSearchParams } from 'next/navigation'

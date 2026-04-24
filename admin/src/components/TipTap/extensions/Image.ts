@@ -21,12 +21,12 @@ export const Image = Node.create({
     ];
   },
 
-  renderHTML({ HTMLAttributes }) {
-    const { width, ...rest } = HTMLAttributes;
-
+renderHTML({ HTMLAttributes }) {
+    const { width, src, origin, ...rest } = HTMLAttributes;
+    const fullSrc = origin === "uploaded" && src ? `${process.env.NEXT_PUBLIC_MEDIA_URL || 'https://whhdkzesrfkmtrsmfcut.supabase.co/storage/v1/object/public/media/'}${src}` : src;
     return [
       "img",
-      mergeAttributes(rest, {
+      mergeAttributes({ src: fullSrc, ...rest }, {
         style: `width:${width}%; height:auto; display:block; margin:auto;`,
       }),
     ];

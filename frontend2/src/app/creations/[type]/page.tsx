@@ -1,7 +1,7 @@
 // frontend2\src\app\creations\[type]\page.tsx
 import { Metadata } from 'next';
-import { getCreations, getBootstrap, getSEORobots } from '@/lib/data';
-import CreationCard from '@/components/CreationCard';
+import { getCreations, getBootstrap, getDisplayLimit } from '@/lib/data';
+import CreationCard from '@/components/cards/CreationCard';
 import PageHeader from '@/components/PageHeader';
 import { BookOpen, Sparkles, FileText, Newspaper } from 'lucide-react';
 import { normalizeSettingsFromBootstrap } from '@/lib/normalizeSettings';
@@ -11,7 +11,8 @@ import { websiteJsonLd } from '@/lib/seo/website';
 import { breadcrumbsJsonLd } from '@/lib/seo/breadcrumbs';
 import { speakableJsonLd } from '@/lib/seo/speakable';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 const validTypes = ['blog', 'poem', 'story', 'article'] as const;
 type CreationType = typeof validTypes[number];
@@ -22,9 +23,6 @@ const typeConfig = {
   story: { label: 'Stories', icon: BookOpen, color: 'from-orange-500 to-red-500' },
   article: { label: 'Articles', icon: FileText, color: 'from-green-500 to-emerald-500' },
 };
-
-export const revalidate = 3600;
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ 
   params 
@@ -47,7 +45,7 @@ export async function generateMetadata({
     page: "creation-detail-page",
     title: `${config.label} - Creations`,
     description: `Explore my ${config.label.toLowerCase()} - creative writings and insights.`,
-    path: `${baseUrl}/creations/${type}`,
+    path: `/creations/${type}`,
     image: ogImage,
     keywords: [`${config.label.toLowerCase()}, creative writing, ${type}`],
   });
@@ -74,8 +72,12 @@ export default async function CreationTypePage({
   const typedType = type as CreationType;
   const config = typeConfig[typedType];
   const Icon = config.icon;
+  const bootstrap = await getBootstrap();
+  const settings = normalizeSettingsFromBootstrap(bootstrap);
 
-  const creations = await getCreations({ type: typedType });
+  const creationsLimit = getDisplayLimit(settings, 'creations_type', 'creations', 20);
+  const creation = await getCreations({ type: typedType });
+  const creations = creation.slice(0, creationsLimit);
 
   return (
     <>
@@ -119,61 +121,3 @@ export default async function CreationTypePage({
     </>
   );
 }
-
-// export async function generateMetadata({ 
-//   params 
-// }: { 
-//   params: Promise<{ type: string }> 
-// }): Promise<Metadata> {
-//   const { type } = await params;
-  
-//   if (!validTypes.includes(type as CreationType)) {
-//     return { title: 'Not Found' };
-//   }
-  
-//   const bootstrap = await getBootstrap();
-//   const settings = normalizeSettingsFromBootstrap(bootstrap);
-//   const config = typeConfig[type as CreationType];
-  
-//   const pageTitle = `${config.label} - Creations`;
-//   const pageDescription = `Explore my ${config.label.toLowerCase()} - creative writings and insights.`;
-//   const ogImage = settings.settings[`${type}_og_image`] || '/logo.png';
-//   const robots = getSEORobots(settings, `creations_${type}`);
-
-//   return {
-//     title: pageTitle,
-//     description: pageDescription,
-//     keywords: `${config.label.toLowerCase()}, creative writing, ${type}`,
-//     alternates: { 
-//       canonical: `${baseUrl}/creations/${type}` 
-//     },
-//     openGraph: {
-//       type: 'website',
-//       url: `${baseUrl}/creations/${type}`,
-//       title: pageTitle,
-//       description: pageDescription,
-//       images: [{ url: ogImage, width: 1200, height: 630, alt: config.label }],
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title: pageTitle,
-//       description: pageDescription,
-//       images: [ogImage],
-//     },
-//     robots,
-//   };
-// }
-
-
-      {/* <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'CollectionPage',
-            name: config.label,
-            description: `Collection of ${config.label.toLowerCase()}`,
-            url: `${baseUrl}/creations/${type}`,
-          }),
-        }}
-      /> */}

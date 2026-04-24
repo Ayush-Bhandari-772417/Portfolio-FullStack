@@ -1,24 +1,58 @@
-// // frontend2\src\components\portfolioSections\ServicesSection.tsx (Server Component)
-// import { AllSettings } from '@/types';
-// import { getServices, getDisplayLimit } from '@/lib/data';
-// import ServicesClient from '@/components/ServicesClient';
+// frontend2\src\components\portfolioSections\ServicesSection.tsx (Client Component)
+'use client';
 
-// export default async function ServicesSection({ settings }: { settings: AllSettings }) {
-//   try {
-//     const services = await getServices();
-//     const limit = getDisplayLimit(settings, 'home', 'services', 6);
+import DynamicIcon from '@/utils/getIconComponent';
+import { Service } from '@/types';
 
-//     if (!services || services.length === 0) {
-//       console.log('No services found');
-//       return null;
-//     }
+interface ServicesClientProps {
+  services: Service[];
+}
 
-//     console.log('Rendering services:', services.length);
+export default function ServicesSection({ services }: ServicesClientProps) {
+  return (
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Services</span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            What I can help you with
+          </p>
+        </div>
 
-//     return <ServicesClient services={services.slice(0, limit)} />;
-//   } catch (error) {
-//     console.error('Error rendering services:', error);
-//     return null;
-//   }
-// }
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-blue-200"
+              style={{ 
+                animation: 'fadeInUp 0.6s ease-out forwards',
+                animationDelay: `${index * 100}ms`,
+                opacity: 0
+              }}
+            >
+              {/* Icon */}
+              <div className="mb-6 text-6xl group-hover:scale-110 transition-transform">
+                <DynamicIcon name={service.icon} />
+              </div>
 
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-slate-600 leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Decorative element */}
+              <div className="mt-6 w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-full transition-all duration-300"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

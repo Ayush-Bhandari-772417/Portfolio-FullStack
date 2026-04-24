@@ -1,4 +1,4 @@
-// frontend2\src\components\EngagementTime.tsx
+// frontend2\src\components\analytics\trackers\EngagementTime.tsx
 'use client'
 
 import { useEffect, useRef } from 'react'

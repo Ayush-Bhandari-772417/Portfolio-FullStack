@@ -24,9 +24,9 @@ export default function ProjectCard({ project, index, featured }: ProjectCardPro
     >
       {/* Image */}
       <Link href={`/projects/${project.slug}`} className="block relative h-56 overflow-hidden">
-        {project.featured_image_url ? (
+        {project.featured_image ? (
           <Image
-            src={project.featured_image_url}
+            src={project.featured_image}
             alt={project.featured_image_alt || project.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"

@@ -15,18 +15,13 @@ import TableRow from '@tiptap/extension-table-row';
 import TableHeader from '@tiptap/extension-table-header';
 // Custom extensions
 import Toolbar from './Toolbar';
-import { Reference } from './extensions/Reference';
-import { Caption, Figure, LabeledTable, Equation } from './extensions';
-import { AutoNumbering, autoNumberingPluginKey } from './extensions/AutoNumbering';
-import { CaptionPlaceholderExtension } from './extensions/CaptionPlaceholderExtension';
-import { CustomTableCell } from './extensions/CustomTableCell';
+import { AutoNumbering, autoNumberingPluginKey, Caption, CaptionPlaceholderExtension, CustomTableCell, Equation, Figure, Image, LabeledTable, Reference } from './extensions';
 import { uploadEditorImage } from './utils/editorImageUpload';
-import { handleImagePaste } from './utils/handleImagePaste';
-import { Image } from './extensions/Image';
 
 export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
   const [refMenuOpen, setRefMenuOpen] = React.useState(false);
   const isInitialized = useRef(false);
+  const SUPABASE_BASE = '';
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -66,17 +61,35 @@ export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
     editorProps: {
       attributes: { class: 'min-h-[150px] border rounded-md bg-slate-50 py-2 px-3 prose max-w-none', },
       handlePaste(view, event) {
-        return handleImagePaste(view, event as ClipboardEvent);
+        const items = Array.from(event.clipboardData?.items || []);
+          const imageItem = items.find(i => i.type.startsWith('image/'));
+          if (!imageItem) return false;
+          event.preventDefault();
+          const file = imageItem.getAsFile();
+          if (!file) return false;
+
+          uploadEditorImage(file).then(relativePath => {
+            const fullSrc = SUPABASE_BASE + relativePath;
+            const node = view.state.schema.nodes.figure.create({}, [
+              view.state.schema.nodes.image.create({ src: fullSrc, origin: 'uploaded' }),
+              view.state.schema.nodes.caption.create()
+            ]);
+            view.dispatch(view.state.tr.replaceSelectionWith(node));
+          });
+          return true;
       },
       handleDrop(view, event) {
         const files = Array.from(event.dataTransfer?.files || []);
         const image = files.find(file => file.type.startsWith('image/'));
         if (!image) return false;
         event.preventDefault();
-        
+
         uploadEditorImage(image).then(relativePath => {
-          const absoluteUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${relativePath}`;
-          const node = view.state.schema.nodes.image.create({ src: absoluteUrl });
+          const fullSrc = SUPABASE_BASE + relativePath;
+          const node = view.state.schema.nodes.figure.create({}, [
+            view.state.schema.nodes.image.create({ src: fullSrc, origin: 'uploaded' }),
+            view.state.schema.nodes.caption.create()
+          ]);
           view.dispatch(view.state.tr.replaceSelectionWith(node));
         });
         return true;
@@ -106,9 +119,7 @@ export default function ArticleEditor({ valueJSON, valueHTML, onChange }: any) {
     if (!valueJSON) return;
 
     const json = structuredClone(valueJSON);
-    
-    const SUPABASE_BASE = process.env.NEXT_PUBLIC_SUPABASE_URL + "/storage/v1/object/public/media/";
-    
+
     function rebuild(node: any) {
       if (!node) return;
       if (node.type === "image" && node.attrs?.origin === "uploaded") {

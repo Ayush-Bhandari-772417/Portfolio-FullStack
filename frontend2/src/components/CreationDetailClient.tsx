@@ -4,6 +4,7 @@ import { Creation, AllSettings } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Book, ArrowLeft, Clock, MapPin, ExternalLink } from 'lucide-react';
+import CreationRecommendationCard from './cards/CreationRecommendationCard';
 import { formatDate } from '@/lib/data';
 import { useCallback, useState } from 'react';
 import ContentProcessor from '@/components/ContentProcessor';
@@ -156,10 +157,10 @@ export default function CreationDetailClient({
 
           {/* Center: Content */}
           <main className="lg:col-span-6">
-            {creation.featured_image_url && (
+            {creation?.featured_image && (
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl mb-8 group">
                 <Image
-                  src={creation.featured_image_url}
+                  src={creation.featured_image}
                   alt={creation.featured_image_alt || creation.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -183,7 +184,7 @@ export default function CreationDetailClient({
           
           {/* Right: Related Creations */}
           <aside className="lg:col-span-3">
-            {displayedRelated.length > 0 && (
+{displayedRelated.length > 0 && (
               <div className="lg:sticky lg:top-24 bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
                 <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                   <Book className="w-5 h-5 text-purple-600" />
@@ -191,39 +192,7 @@ export default function CreationDetailClient({
                 </h3>
                 <div className="space-y-3">
                   {displayedRelated.map((related) => (
-                    <Link
-                      key={related.id}
-                      href={`/creations/${related.type}/${related.slug}`}
-                      className="block group"
-                    >
-                      <div className="p-3 rounded-lg hover:bg-slate-50 transition-all border border-transparent hover:border-blue-200 hover:shadow-md">
-                        <div className="flex gap-3">
-                          {related.featured_image_url && (
-                            <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
-                              <Image
-                                src={related.featured_image_url}
-                                alt={related.title}
-                                fill
-                                className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                unoptimized
-                              />
-                            </div>
-                          )}
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 text-sm mb-1">
-                              {related.title}
-                            </h4>
-                            <p className="text-xs text-slate-500 flex items-center gap-1">
-                              <Calendar className="w-3 h-3" />
-                              {formatDate(related.published_date || related.written_date)}
-                            </p>
-                            <span className={`inline-block mt-2 px-2 py-0.5 rounded-full text-xs font-medium bg-gradient-to-r ${typeColors[related.type]} text-white`}>
-                              {related.type}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
+                    <CreationRecommendationCard key={related.id} creation={related} />
                   ))}
                 </div>
                 <Link 

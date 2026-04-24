@@ -1,5 +1,5 @@
 // frontend2\src\components\portfolioSections\ExperienceSection.tsx
-import ExperienceCard from '@/components/ExperienceCard';
+import ExperienceCard from '@/components/cards/ExperienceCard';
 import { Experience } from '@/types';
 
 interface ExperiencesClientProps {

@@ -54,13 +54,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     router.push("/admin/");
   };
 
-  // // 🔹 Logout (backend clears cookies)
-  // const logout = async () => {
-  //   await api.post("/auth/logout/");
-  //   setUser(null);
-  //   router.replace("/");
-  // };
-// 🔹 Logout (backend clears cookies)
+  // 🔹 Logout (backend clears cookies)
   const logout = async () => {
     try {
       // Call backend to clear httpOnly cookies

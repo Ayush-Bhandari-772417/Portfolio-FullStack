@@ -6,12 +6,9 @@ import Footer from "@/components/commonSections/Footer";
 import Script from "next/script";
 import { Metadata } from 'next';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
-import ScrollDepth from '@/components/ScrollDepth';
-import EngagementTime from '@/components/EngagementTime';
-import RecaptchaScript from '@/components/RecaptchaScript';
-import { getBootstrap } from '@/lib/data';
+import { getBootstrap, getDisplayLimit } from '@/lib/data';
 import { normalizeSettingsFromBootstrap } from '@/lib/normalizeSettings';
+import { AnalyticsProvider } from '@/components/analytics';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
@@ -51,12 +48,17 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const bootstrap = await getBootstrap();
   const settings = normalizeSettingsFromBootstrap(bootstrap);
+  const { social_media, } = bootstrap;
 
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gscid = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content={gscid} />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
         {/* Load KaTeX CSS asynchronously to prevent blocking render */}
         <Script id="katex-css-loader" strategy="lazyOnload">
           {`
@@ -96,20 +98,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             />
           </>
         )}
-        
-        {/* Global Scripts */}
-        <RecaptchaScript />
-        
-        {/* Client-side analytics components (only when GA is configured) */}
+
         <Suspense fallback={null}>
-        {gaId && <GoogleAnalytics />}
-        {gaId && <ScrollDepth />}
-        {gaId && <EngagementTime />}
+          <AnalyticsProvider />
         </Suspense>
+
         <ReactQueryProvider>
           <Navbar settings={settings} />
           <main className="min-h-screen flex flex-col" role="main">{children}</main>
-          <Footer settings={settings} />
+          <Footer social_media={social_media.slice(0, getDisplayLimit(settings, 'home', 'social_media', 6))} settings={settings} />
         </ReactQueryProvider>
       </body>
       {/* Load reCAPTCHA with optimized strategy */}

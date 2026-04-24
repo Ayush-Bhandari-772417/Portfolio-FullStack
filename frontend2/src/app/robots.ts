@@ -59,12 +59,31 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
 
+  // Dynamic rules from settings.seo
+  const disallowRules: string[] = [];
+  Object.entries(settings.seo).forEach(([page, seo]) => {
+    if (!seo.is_public || !seo.index) {
+      const pathMap = {
+        'home': '/',
+        'projects': '/projects',
+        'project_detail': '/projects/',
+        'creations': '/creations',
+        'creations_category': '/creations/categories/',
+        'creations_type': '/creations/',
+        'creation_detail': '/creations/',
+      };
+      const path = pathMap[page as keyof typeof pathMap];
+      if (path) disallowRules.push(path);
+    }
+  });
+
   return {
-    rules: Object.entries(settings.seo).map(([page, rule]) => ({
+    rules: {
       userAgent: "*",
-      allow: rule.index ? "/" : "",
-      disallow: rule.index ? "" : "/",
-    })),
+      allow: "/",
+      disallow: disallowRules.length > 0 ? disallowRules : ["/admin/"],
+    },
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: new URL(baseUrl).host,
   };
 }

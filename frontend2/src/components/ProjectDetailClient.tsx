@@ -5,7 +5,7 @@ import { Project, AllSettings, ProjectGalleryImage } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Github, ExternalLink, Tag, Users, ArrowLeft, Sparkles, Layers, Clock, CheckCircle, PauseCircle } from 'lucide-react';
-import TechBadge from './TechBadge';
+import ProjectRecommendationCard from './cards/ProjectRecommendationCard';
 import { useState, useEffect } from 'react';
 
 interface ProjectDetailClientProps {
@@ -15,7 +15,6 @@ interface ProjectDetailClientProps {
 }
 
 export default function ProjectDetailClient({ project, settings, relatedProjects }: ProjectDetailClientProps) {
-  const [activeSection, setActiveSection] = useState('overview');
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -161,11 +160,11 @@ export default function ProjectDetailClient({ project, settings, relatedProjects
             {/* Main Content - 8 columns */}
             <div className="lg:col-span-8 space-y-6 sm:space-y-8">
               {/* Featured Image with Overlay */}
-              {project.featured_image_url && (
+              {project.featured_image && (
                 <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
                   <Image
-                    src={project.featured_image_url}
+                    src={project.featured_image}
                     alt={project.featured_image_alt || project.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -181,9 +180,9 @@ export default function ProjectDetailClient({ project, settings, relatedProjects
               )}
 
               {/* Abstract with Icon */}
-              <div className="bg-gradient-to-br from-white to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg border border-blue-100">
+              <div className="bg-linear-to-br from-white to-blue-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg border border-blue-100">
                 <div className="flex items-start gap-3 sm:gap-4 mb-4">
-                  <div className="p-2.5 sm:p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex-shrink-0">
+                  <div className="p-2.5 sm:p-3 bg-linear-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl shrink-0">
                     <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Project Overview</h2>
@@ -304,7 +303,10 @@ export default function ProjectDetailClient({ project, settings, relatedProjects
                   <h3 className="text-lg font-bold text-slate-900 mb-4">Tech Stack</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
-                      <TechBadge key={index} tech={tech} />
+                      // <TechBadge key={index} tech={tech} />
+                      <span className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 rounded-lg text-sm font-medium border border-blue-100">
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -345,7 +347,7 @@ export default function ProjectDetailClient({ project, settings, relatedProjects
               )}
 
               {/* Related Projects - Shows on ALL screen sizes */}
-              {relatedProjects.length > 0 && (
+{relatedProjects.length > 0 && (
                 <div className="bg-gradient-to-br from-white to-purple-50 rounded-2xl p-6 shadow-lg border-2 border-purple-100">
                   <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                     <Layers className="w-5 h-5 text-purple-600" />
@@ -353,43 +355,7 @@ export default function ProjectDetailClient({ project, settings, relatedProjects
                   </h3>
                   <div className="space-y-3">
                     {relatedProjects.map((relatedProject) => (
-                      <Link
-                        key={relatedProject.id}
-                        href={`/projects/${relatedProject.slug}`}
-                        className="block group"
-                      >
-                        <div className="p-4 rounded-xl hover:bg-white transition-all border border-transparent hover:border-purple-200 hover:shadow-md">
-                          <div className="flex gap-3">
-                            {relatedProject.featured_image_url && (
-                              <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-lg overflow-hidden">
-                                <Image
-                                  src={relatedProject.featured_image_url}
-                                  alt={relatedProject.title}
-                                  fill
-                                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                  unoptimized
-                                />
-                              </div>
-                            )}
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-slate-900 group-hover:text-purple-600 transition-colors line-clamp-2 text-sm mb-1">
-                                {relatedProject.title}
-                              </h4>
-                              <p className="text-xs text-slate-500 line-clamp-2 mb-2">
-                                {relatedProject.excerpt}
-                              </p>
-                              <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-semibold ${
-                                relatedProject.status === 'completed' ? 'bg-emerald-100 text-emerald-700' :
-                                relatedProject.status === 'ongoing' ? 'bg-blue-100 text-blue-700' :
-                                relatedProject.status === 'paused' ? 'bg-orange-100 text-orange-700' :
-                                'bg-amber-100 text-amber-700'
-                              }`}>
-                                {statusConfig[relatedProject.status]?.text ?? relatedProject.status}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
+                      <ProjectRecommendationCard key={relatedProject.id} project={relatedProject} />
                     ))}
                   </div>
                   <Link 

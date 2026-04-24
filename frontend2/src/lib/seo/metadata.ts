@@ -38,7 +38,7 @@ export function buildMetadata({
   return {
     title,
     description,
-    keywords: keywords.join(", "),
+    keywords,
     authors: [{ name: author }],
     robots: {
       index: robots?.index ?? true,

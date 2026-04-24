@@ -5,24 +5,9 @@ import { AllSettings, SocialMedia } from '@/types';
 import SubscribeForm from '@/components/SubscribeForm';
 import SocialMediaClient from '@/components/SocialMediaClient';
 
-async function getSocialMedia(): Promise<SocialMedia[]> {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/socialmedias/`, {
-      next: { revalidate: 3600 },
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-    return Array.isArray(data.results) ? data.results : (Array.isArray(data) ? data : []);
-  } catch (error) {
-    console.error('Error fetching social media:', error);
-    return [];
-  }
-}
-
-export default async function Footer({ settings }: { settings: AllSettings }) {
+export default async function Footer({ social_media, settings }: { social_media: SocialMedia[], settings: AllSettings }) {
   const currentYear = new Date().getFullYear();
-  const socialMedias = await getSocialMedia();
-
+  const socialMedias = social_media;
   const footerLinks = [
     {
       title: 'Quick Links',

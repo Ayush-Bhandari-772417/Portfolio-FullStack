@@ -1,21 +1,25 @@
 // frontend2\src\components\portfolioSections\CreationsPreviewSection.tsx
 import { AllSettings } from '@/types';
 import { getCreations, getDisplayLimit } from '@/lib/data';
-import CreationCard from '@/components/CreationCard';
+import CreationCard from '@/components/cards/CreationCard';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Sparkles, FileText, Newspaper } from 'lucide-react';
 
 export default async function CreationsPreviewSection({ settings }: { settings: AllSettings }) {
   const limit = getDisplayLimit(settings, 'home', 'creations', 2);
 
-  const [blogs, poems, stories, articles] = await Promise.all([
-    getCreations({ type: 'blog', limit }),
-    getCreations({ type: 'poem', limit }),
-    getCreations({ type: 'story', limit }),
-    getCreations({ type: 'article', limit }),
+  const [allBlogs, allPoems, allStories, allArticles] = await Promise.all([
+    getCreations({ type: 'blog' }),
+    getCreations({ type: 'poem' }),
+    getCreations({ type: 'story' }),
+    getCreations({ type: 'article' }),
   ]);
+  const blogs = allBlogs.slice(0, limit);
+  const poems = allPoems.slice(0, limit);
+  const stories = allStories.slice(0, limit);
+  const articles = allArticles.slice(0, limit);
 
-  const allCreations = [...blogs, ...poems, ...stories, ...articles];
+  const allCreations = [blogs, poems, stories, articles];
 
   if (allCreations.length === 0) return null;
 

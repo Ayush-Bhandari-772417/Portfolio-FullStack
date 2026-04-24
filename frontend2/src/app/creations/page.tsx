@@ -1,7 +1,7 @@
 // frontend2\src\app\creations\page.tsx
 import { Metadata } from 'next';
 import { getCreations, getBootstrap, getDisplayLimit } from '@/lib/data';
-import CreationCard from '@/components/CreationCard';
+import CreationCard from '@/components/cards/CreationCard';
 import PageHeader from '@/components/PageHeader';
 import Link from 'next/link';
 import { BookOpen, Sparkles, FileText, Newspaper } from 'lucide-react';
@@ -12,15 +12,15 @@ import { websiteJsonLd } from '@/lib/seo/website';
 import { breadcrumbsJsonLd } from '@/lib/seo/breadcrumbs';
 import { speakableJsonLd } from '@/lib/seo/speakable';
 
+export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+
 const creationTypes = [
   { type: 'blog', label: 'Blog Posts', icon: Newspaper, color: 'from-blue-500 to-cyan-500' },
   { type: 'poem', label: 'Poems', icon: Sparkles, color: 'from-purple-500 to-pink-500' },
   { type: 'story', label: 'Stories', icon: BookOpen, color: 'from-orange-500 to-red-500' },
   { type: 'article', label: 'Articles', icon: FileText, color: 'from-green-500 to-emerald-500' },
 ];
-
-export const revalidate = 3600;
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const bootstrap = await getBootstrap();
@@ -44,12 +44,16 @@ export default async function CreationsPage() {
   
   const previewLimit = getDisplayLimit(settings, 'creations_overview', 'items', 4);
 
-  const [blogs, poems, stories, articles] = await Promise.all([
-    getCreations({ type: 'blog', limit: previewLimit }),
-    getCreations({ type: 'poem', limit: previewLimit }),
-    getCreations({ type: 'story', limit: previewLimit }),
-    getCreations({ type: 'article', limit: previewLimit }),
+  const [allBlogs, allPoems, allStories, allArticles] = await Promise.all([
+    getCreations({ type: 'blog' }),
+    getCreations({ type: 'poem' }),
+    getCreations({ type: 'story' }),
+    getCreations({ type: 'article' }),
   ]);
+  const blogs = allBlogs.slice(0, previewLimit);
+  const poems = allPoems.slice(0, previewLimit);
+  const stories = allStories.slice(0, previewLimit);
+  const articles = allArticles.slice(0, previewLimit);
 
   const creationSections = [
     { type: 'blog', label: 'Blog Posts', items: blogs, icon: Newspaper, color: 'from-blue-500 to-cyan-500' },
@@ -137,56 +141,3 @@ export default async function CreationsPage() {
     </>
   );
 }
-
-// export async function generateMetadata(): Promise<Metadata> {
-//   const bootstrap = await getBootstrap();
-//   const settings = normalizeSettingsFromBootstrap(bootstrap);
-  
-//   const pageTitle = settings.settings.creations_page_title || 'Creations';
-//   const pageDescription = settings.settings.creations_page_description || 
-//     'Explore my creative writings including blog posts, poems, stories, and articles.';
-//   const ogImage = settings.settings.creations_og_image || '/logo.png';
-//   const robots = getSEORobots(settings, 'creations');
-
-//   return {
-//     title: pageTitle,
-//     description: pageDescription,
-//     keywords: settings.settings.creations_page_keywords || 'blog, poems, stories, articles, creative writing',
-//     alternates: { 
-//       canonical: `${baseUrl}/creations` 
-//     },
-//     openGraph: {
-//       type: 'website',
-//       url: `${baseUrl}/creations`,
-//       title: settings.settings.creations_og_title || pageTitle,
-//       description: settings.settings.creations_og_description || pageDescription,
-//       images: [{ 
-//         url: ogImage, 
-//         width: 1200, 
-//         height: 630, 
-//         alt: 'Creative Writings' 
-//       }],
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title: settings.settings.creations_twitter_title || pageTitle,
-//       description: settings.settings.creations_twitter_description || pageDescription,
-//       images: [ogImage],
-//     },
-//     robots,
-//   };
-// }
-
-
-      {/* <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'CollectionPage',
-            name: 'Creative Writings',
-            description: 'Collection of blog posts, poems, stories, and articles',
-            url: `${baseUrl}/creations`,
-          }),
-        }}
-      /> */}
